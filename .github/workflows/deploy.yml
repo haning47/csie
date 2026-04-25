@@ -1,0 +1,60 @@
+# 構建 VitePress 站點並將其部署到 GitHub Pages 的範例工作流
+#
+name: Deploy VitePress site to Pages
+
+on:
+  # 在針對 `main` 分支的推送上運行。如果你用的是 master，請將 main 改為 master
+  push:
+    branches: [main]
+
+  # 允許你從 Actions 頁面手動運行此工作流
+  workflow_dispatch:
+
+# 設置 GITHUB_TOKEN 的權限，以允許部署到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 只允許同時進行一次部署，跳過正在運行的隊列之間的運行
+# 但是，不要取消正在進行的運行，因為我們希望允許這些生產部署完成
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # 構建工作
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 如果未啟用 lastUpdated，則不需要
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Build with VitePress
+        run: npm run docs:build # 這裡對應你 package.json 裡的腳本
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+  # 部署工作
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
