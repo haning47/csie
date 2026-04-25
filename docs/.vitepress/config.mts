@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/csie/'
+  base: '/csie/',
   title: "csie",
   description: "computer science",
   themeConfig: {
