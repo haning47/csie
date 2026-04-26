@@ -27,5 +27,5 @@ features:
 ---
 <br>
 <span id="busuanzi_container_site_pv">
-  本站總訪問量 <span id="busuanzi_value_site_pv"></span> 次
+  總瀏覽數 <span id="busuanzi_value_site_pv"></span> 
 </span>
