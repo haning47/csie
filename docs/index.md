@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "csie"
+  name: "資訊科技教學網"
   text: "computer science"
-  tagline: My great project tagline
+  tagline: 包含教材文件 網路資源 資訊競賽
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,11 +15,17 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 教材文件
+    details: 包含上課補充教材，及科技新知
+  - title: 網路資源
+    details: 相關網站資源，引導自主學習
+  - title: 資訊競賽
+    details: 包含相關資訊競賽考題，獲獎表現
 ---
 
+
+---
+<br>
+<span id="busuanzi_container_site_pv">
+  本站總訪問量 <span id="busuanzi_value_site_pv"></span> 次
+</span>

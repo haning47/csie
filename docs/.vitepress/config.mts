@@ -3,8 +3,14 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/csie/',
-  title: "csie",
+  title: "資訊科技教學網",
   description: "computer science",
+  head: [
+	[
+		'script',
+		{ async: '', src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js' }
+	]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
