@@ -16,23 +16,41 @@ export default defineConfig({
     nav: [
       { text: '首頁', link: '/' },
       { text: '教材文件', link: '/markdown-examples' },
-	  { text: '網路資源',  
-		items: [
-		  { text: '程式語言', link: '/programming/index' },
-		  { text: '演算法', link: '/algorithms/index' },
-		  { text: '資料結構', link: '/data-structures/index' }
-		]
-	  }
+	    { text: '網路資源',  
+        items: [
+          { text: '程式語言', link: '/programming/index' },
+          { text: '演算法', link: '/algorithms/index' },
+          { text: '資料結構', link: '/data-structures/index' }
+        ]
+	    },
+      { text: '資訊競賽',  
+        items: [
+          { text: '試題', link: '/programming/index' },
+          { text: '榮譽榜', link: '/algorithms/index' },
+          { text: '升學表現', link: '/data-structures/index' }
+        ]
+	    }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: '教材文件',
+        collapsed: true,
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: '108課網科友課本', link: '/class/book' },
+          { text: '高一C++', link: '/api-examples' },
+          { text: '高二進階程式設計', link: '/api-examples' }
         ]
-      }
+      },
+      {
+        text: '網路資源',
+        collapsed: true,
+        items: [
+          { text: '程式語言', link: '/class/book' },
+          { text: '演算法', link: '/api-examples' },
+          { text: '資料結構', link: '/api-examples' }
+        ]
+      },
     ],
 
     socialLinks: [
