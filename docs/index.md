@@ -21,11 +21,7 @@ features:
     details: 相關網站資源，引導自主學習
   - title: 資訊競賽
     details: 包含相關資訊競賽考題，獲獎表現
+  - title: 技術文件
+    details: 個人技術文件筆記	
 ---
 
-
----
-<br>
-<span id="busuanzi_container_site_pv">
-  總瀏覽數 <span id="busuanzi_value_site_pv"></span> 
-</span>

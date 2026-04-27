@@ -18,14 +18,14 @@ export default defineConfig({
       { text: '教材文件', link: '/markdown-examples' },
 	    { text: '網路資源',  
         items: [
-          { text: '程式語言', link: '/programming/index' },
+          { text: '程式語言', link: '/class/book' },
           { text: '演算法', link: '/algorithms/index' },
           { text: '資料結構', link: '/data-structures/index' }
         ]
 	    },
       { text: '資訊競賽',  
         items: [
-          { text: '試題', link: '/programming/index' },
+          { text: '試題', link: '/class/bookx' },
           { text: '榮譽榜', link: '/algorithms/index' },
           { text: '升學表現', link: '/data-structures/index' }
         ]
@@ -52,6 +52,10 @@ export default defineConfig({
         ]
       },
     ],
+	footer: {
+		message: 'Powered by Vitepress',
+		copyright: 'Copyright © 2026 haning Chen'
+	},	
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }

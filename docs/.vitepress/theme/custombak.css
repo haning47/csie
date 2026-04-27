@@ -1,0 +1,90 @@
+/* 卡片 hover */
+.VPFeature {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--vp-c-brand-1) !important;
+}
+
+/* 讓整個首頁背景一致 */
+.VPHome {
+  background: linear-gradient(180deg, #17380E 0%, #dbffdd 100%);
+}
+
+
+
+/* Hero 區塊本身要透明，才不會蓋掉 */
+.VPHero {
+  background: transparent !important;
+}
+
+/* Features 區塊也透明 */
+.VPFeatures {
+  background: transparent !important;
+}
+
+:root {
+  --vp-home-hero-name-background: none;
+  --vp-home-hero-name-color: #AFE098;
+}
+
+/* text 的顏色（副標題）*/
+.VPHero .text {
+  color: #ffffff;
+}
+
+/* tagline 的顏色（說明文字）*/
+.VPHero .tagline {
+  color: #C0C0C0;
+}
+
+/* nav 連結文字顏色
+.VPNavBarMenuLink {
+  color: #5e5e5e !important;
+} */
+
+/* 右上角 nav 未選中的選項顏色 */
+.VPNavBarMenuLink {
+  color: #ffffff !important;
+}
+
+/* 下拉選單按鈕文字顏色 */
+.VPNavBarMenuGroup button .text {
+  color: #ffffff !important;
+}
+
+/* 下拉選單按鈕文字滑過時 */
+.VPNavBarMenuGroup button:hover .text {
+  color: #3b82f6 !important;
+}
+
+/* 滑過時的顏色 */
+.VPNavBarMenuLink:hover {
+  color: #3b82f6 !important;
+}
+
+/* 目前頁面（active）的顏色 */
+.VPNavBarMenuLink.active {
+  color: #c0c0c0 !important;
+}
+
+/* 左上角 site title 文字顏色 */
+.VPNavBarTitle .title {
+  color: #c0c0c0 !important;
+}
+
+/* 側邊欄未選中的選項顏色 */
+.VPSidebarItem .text {
+  color: #475569 !important;
+}
+
+.VPNavBar:not(.top) {
+  background-color: #11290A !important;
+}
+
+/* 頁尾 footer 背景色 */
+.VPFooter {
+  background-color: #11290A !important;
+}
