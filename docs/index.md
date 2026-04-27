@@ -29,3 +29,4 @@ features:
 <span id="busuanzi_container_site_pv">
   總瀏覽數 <span id="busuanzi_value_site_pv"></span> 
 </span>
+<footer class="VPFooter" data-v-573ac6bc data-v-ec8687dc><div class="container" data-v-ec8687dc><p class="message" data-v-ec8687dc>Released under the MIT License.</p><p class="copyright" data-v-ec8687dc>Copyright © 2019-present Evan You</p></div></footer>
