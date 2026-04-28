@@ -1,6 +1,7 @@
 node_modules
 .temp
 .cache
+.obsidian
 dist
 docs/.vitepress/dist
 docs/.vitepress/cache
