@@ -1,0 +1,332 @@
+
+註：答案僅供參考
+
+教育部全國高級中學八十七學年度
+資訊學科能力競賽決賽　筆試題目
+
+說明：
+    1.答案必須寫在答案卷上。
+    2.作答時間80分鐘。本試題共有50題選擇題。
+    3.若需計算或作圖，請利用本試題的空白處或反面。
+    4.每題請選一最適當答案，答對得2分，答錯倒扣0.5分，不答不倒扣。
+    5.試題不必交回。僅繳交答案卷即可。
+
+
+選擇(4選1)每題2分，共50題。
+
+(B)1.若電腦用二進位表示整數，以下何者錯誤？
+     (A)如果用 2 補數(2's complement)表示負數，則所有位元(bit)為 1 表示 -1
+     (B)如果用 2 補數表示負數，則除最右位元(bit)為 0 外全為1表示 -1
+     (C)如果用 1 補數表示負數，則除最右位元(bit)為 0 外全為1表元 -1
+     (D)如果用 2 補數表示負數，則 0 有 +0 和 -0
+     
+      (D)顯然也是錯的    
+
+(B)2.若電腦用二進位表示整數，且用2補數表負數，以下何者錯誤？
+     (A)一正數加一負數不可能溢位 (overflow)
+     (B)兩數相加，有進位到 sign bit，但沒從 sign bit 進位出去，這表示沒溢位
+     (C)一負數減去一負數不可能溢位
+     (D)一正數減去一正數不可能溢位
+
+(B)3.有部電腦12位元表示實數：
+     如下圖，左邊 sign bit，接著為 5 bits 的指數，以 excess 16 base 2 的方式存
+     放，再下去為 Fractional Mantissa( 6 bit，無 hidden bit )
+
+       １ １００１１ １１１１００    (沒有 hidden bit)
+       ┬ ──┬── ============
+      Sign  　EXP     Fractional
+                       mantissa
+
+     則以上二進位表示十進位值
+     (A)-3.75  (B)-7.5  (C)-15.0  (D)-30.0
+
+(B)4.如果某陣列 x[3][2] 在記憶體中位址恰等於交大在台復校的公元年數，且 x[2][3]
+     在記憶體中位址恰等於今年的公元年數，則該機器上資料在記憶體中的安排採用：
+     (A)以列為主(row major)  (B)以行為主(column magor)
+     (C)無法判別  (D)都有可能
+
+(B)5.函數 P 中，X 是以址呼叫(called by reference)而 Y 是以值呼叫
+     (called by value)。另外，K、L、M 和 Z 都是整數變數(global variables)。
+         long P(int& X,int y)
+         {
+             K = K + 1 ;
+             L = 3 ;
+             M = 5 ;
+             return X + Y + M ;
+         }
+     如果我們在主程式中這樣叫用 P：
+         K = 1 ;
+         L = 1 ;
+         M = 1 ;
+         Z = P(K,L);
+     則變數 Z 會得到：
+     (A)7  (B)8  (C)9  (D)10
+
+(B)6.假設 P1、P2、P3 都是子程式，且 B 是布林變數(Boolean variable)，以下這段
+         P1;
+         repeat
+             P2
+         until(B);
+         P3;
+     若用 while loop 改寫，有時會錯寫成：
+         (i)    P1;
+         (ii)   while(not B)do
+         (iii)    P2;
+         (iv)   P3;
+     其實正確寫法應是：
+     (A)把 (ii) 中的 "not B" 換成 "B"
+     (B)在 lines (i) 和 (ii) 間加一個 P2；
+     (C)把 line (i) 移到 lines (ii) 和 (iii) 間
+     (D)把 "P1" 換成 "If(B) then P1"
+
+(B)7.陣列(array)可用來表示單鍊串列(singly linked list)，例如用陣列 VALUE 和 陣
+     列 LINK，LINK[I] 指向 VALUE[I] 的後者。若 VALUE[N] 為新加入的元素，則程式
+     句：
+         LINK[N] := LINK[I];
+         LINK[I] := N;
+     將會：
+     (A)把 VALUE[N] 插入到串列中 VALUE[I] 之前
+     (B)把 VALUE[N] 插入到串列中 VALUE[I] 之後
+     (C)把串列中 VALUE[N] 換成 VALUE[I]
+     (D)把串列中 VALUE[I] 換成 VALUE[N]
+
+(B)8.考慮以下二元樹和以下 C-like 程式，Root 指向 A:
+                                         A
+                                       /   \
+                                      B     C
+                                     / \   / \
+                                    D   E F   G
+         #define not !
+         init(Q);/* 空的 Queue */
+         enqueue(Q,Root);
+         while(not empty(Q))
+         {
+             a = dequeue(Q);
+             if(a <> 0)
+             {
+                 print(a);
+                 enqueue(Q,a->left);
+                 enqueue(Q,a->right);
+             }
+
+     enqueue(q,y) 是把 y 加入佇列(queue)q 中，dequeue(Q) 則是由佇列 Q 中拿出排
+     在最前面的元素，則以上程式會輸出：
+     (A)ABCDEFG  (B)ABDECFG  (C)DBEAFCG  (D)GFEDCBA
+
+(B)9.指出下列不屬於作業系統(Operation system)之任務：
+     (A)提供應用程式之輸出入作業。
+     (B)檢測應用程式之邏輯錯誤。
+     (C)分配應用程式所需之主記憶體。
+     (D)收集應用式之系統資源使用記錄。
+
+(B)10.以下程式可把陣列 List 排好(sort)，其做資料相比之次數和N的關係為：
+        (A)O(N)  (B)O(N*N)  (C)O(2*(N-1))
+        (D)O(N*(log2 N)) (註：log2表以2為底的對數)
+           for Pass : = 1 to N-1 do
+             begin
+               for Item : = 1 to N-Pass do
+                 begin
+                   if(List[Item]<List[Item+1])then
+                     begin
+                       Temp : = List[Item]
+                       List[Item] : = List[Item+1]
+                       List[Item+1] : = Temp
+                     end;(*if*)
+                 end;
+             end;(*for Pass*)
+
+(B)11.下列何者為中置式(infix expresion)A-(B+C)*(D/E)的後置式
+      (postfix expressions)？
+     (A)A-BC+DE/*
+     (B)ABC+DE/*-
+     (C)ABC+*DE/-
+     (D)ABC+D/*E-
+
+(C)12.在QBAISC下，執行下列程式之結果為：
+     (A)135  (B)246  (C)356  (D)357
+         100 GOTO 500
+         110 K=K+1
+         120 K=K+1
+         130 K=K+1
+         140 PRINT I;
+         150 RETURN
+         500 K=0
+         510 GOSUB 110
+         520 GOSUB 120
+         530 GOSUB 130
+         540 PRINT
+         600 END
+
+(B)13.以下那一種程式之錯誤可以靠編譯器(compiler)偵測出？
+     (A)語意錯誤  (B)語法錯誤  (C)邏輯錯誤  (D)執行錯誤
+
+(A)14.即時語音資料傳輸可容許部分資料錯誤或遺失，因此在網際網路上傳輸即時語音資
+      料以那一種通訊協定較適合？
+     (A)UDP  (B)TCP  (C)FTP  (D)SMTP
+
+(D)15.針對 Y2K 問題，以下哪一項敘述錯誤或最不適當？
+     (A)銀行電腦系統將嚴重遭遇此問題
+     (B)在公元2000年之前不會發生
+     (C)主要發生在軟體程式執行時
+     (D)增加記憶體可解決部分問題
+
+(B)16.在以電腦程式解決老鼠走迷宮問題中，使用那一種資料結構來儲存未走過之分叉路
+      資訊最為合適？
+     (A)Queue  (B)Stack  (C)Heap  (D)Tree
+
+(C)17.在二補數(2's complement)表示方式中，8位元之數11001101，其值為何？
+     (A)-77  (B)-50  (C)-51  (D)-52
+
+(B)18.在一補數(1's complement)表示方式中，8位允之數11001101，其值為何？
+     (A)-77  (B)-50  (C)-51  (D)-52
+
+(B)19.當實數絕對值太小時，計算機內部無法表示而以零取代，此種狀況稱為
+     (A)overflow  (B)underflow  (C)truncation error  (D)rounding error
+
+(C)20.假設變數 c 之資料型態(data type)為字元(character)，並且已儲存一以 ASCII
+      碼表示之小寫英文字母，今欲將該字母變成大寫，以下運算何者正確？
+     (A)c = c + 26  (B)c = 'A' + c  (C)c = 'T' - 't' + c  (D)c = 'C' + c
+
+(C)21.下列何者不是中央處理器(CPU)中控制單元(control unit)之功能？
+     (A)從記憶體讀取欲執行之指令
+     (B)解釋指令內容並產生適當的執行控制信號
+     (C)執行程式指令之動作
+     (D)決定下一個應執行指令之位址
+
+(B)22.溜覽網頁時，Java 的 Applet 程式在何處執行？
+     (A)在 server 端  (B)在用戶端  (C)都可能  (D)在網路上
+
+(D)23.下列哪種程式語言最適合用於物件導向程式設計？
+     (A)COBOL  (B)BASIC  (C)C  (D)C++
+
+(D)24.下列關於 Stack 與 Queue 的 access order 何者正確：
+     (A)Stack：先進後出，Queue：先進後出  (B)Stack：後進先出，Queue：先進後出
+     (C)Stack：先進後出，Queue：後進先出  (D)Stack：後進先出，Queue：先進先出
+
+(C)25.針對一連串數值做 sorting，假設其中包含了相同的數，如果 sorting 之後的結
+      果中這些相同的數值之間的相關位置沒有改變的話，我們稱其為
+      stable sorting algorithm。
+      請問下列有哪些方法是 stable sorting algorithm：
+      1.Insertion sort  2.Heap sort  3.Bubble sort  4.Quick sort  5.Merge sort
+     (A)1、2、4  (B)2、3、5  (C)1、3、5  (D)3、4、5
+
+(C)26.就 C 語言程式而言，如果 a 為 int，則敘述：a = 'y' - 'Y' 為：
+     (A)語法錯誤
+     (B)邏輯錯誤
+     (C)正確可執行之敘述，a 值為 32
+     (D)正確可執行之敘述，a 值為 0
+
+(C)27.指出下列無法提供程式程大於實體主記憶體而仍能正常執行之技術：
+     (A)動態鏈結(Dynamic linking)
+     (B)動態載入(Dynamic loading)
+     (C)多元程式規劃(Multiprogramming)
+     (D)虛擬記憶體(Virtual memory)
+
+(C)28.IBM PC 開機時，第一個被執行的系統程式或檔案為：
+     (A)MSDOS.SYS  (B)IO.SYS  (C)BIOS  (D)AUTOEXEC.BAT
+
+(C)29.一個容量為 2048 bytes 的記憶體需要多少個 128x8 RAM 晶片(chip)來組成？
+     (A)4  (B)8  (C)16  (D)32
+
+(C)30.下列何者非 JAVA 語言之特性？
+     (A)垃圾收集(garbage collection)  (B)平臺獨立(platform independent)
+     (C)多重繼承(multiple inheritance)  (D)封裝(encapsulation)
+
+(C)31.下列何者非衛星遙測影像之應用？
+     (A)環保監測  (B)國士開發  (C)醫療診治  (D)農作物產量預估
+
+(B)32.某棵二元樹(binary tree)的中序追索(inorder traversal)為A、B、C、D、E、F、
+      G、H、I、J、K，且其後序追索(postorder traversal)為B、A、D、E、H、J、I、G
+      、F、C、K，則這棵樹上共有幾個葉子(leaf)？
+     (A)3  (B)4  (C)5  (D)6
+
+(D)33.底下這個 C++ 程式的輸出為何？
+         #include <stdio.h>
+         int f(int &a) {return a++;}
+         int g(int b) {return ++b;}
+         main(){inr n=3; printf("%d",f(n)); printf("%d",g(n)); printf("%d",n);
+         }
+     (A)454  (B)344  (C)345 (D)354
+
+(B)34.某部遠方的電腦中存有 560Mb 的資料，如果用目前市面上 baud rate 為 56K 的
+      數據機(moden)下載這些資料，大約需要多少時間？
+     (A)十多天  (B)一天多  (C)約三小時  (D)約一小時
+
+(B)35.某程式處理 n 筆資料所需的秒數為 T(n)，可以表示如下
+         ┌ T(1) = 1
+         ┤
+         └ T(n) = 2*T(n/2)+n  for n>1
+      試問該程式處理 1024 筆資料需要多久？
+     (A)將近三小時  (B)約三十五小時
+     (C)2^1024 秒(註：2^n 表 2 的 n 次方)  (D)以上皆非
+     
+       這一題應該是 1024×11
+        所以是 (A)                  
+
+(C)36.SRAM 常被用在主記憶(main memory)與磁碟(disk)之間加快存取速度叫平麼
+      memory？
+     (A)hash  (B)mesh  (C)cache  (D)cash
+
+(A)37.遞迴函數(recursive function)的執行過程，與電腦系統中那一種資料結構的關係
+      最密切？
+     (A)stack  (B)queue  (C)hash table  (D)tree
+
+(C)38.下面那些是 WWW 上的導覽系統？
+      1.Microsoft IE  2.BBS  3.Nescape Navigator  4.NEWS  5.Hot Java
+     (A)1、3 only  (B)1、3、4  (C)1、3、5  (D)1、3、4、5
+
+(A)39.AND、OR、NOT 與 XOR 四種邏輯匣(logic gate)當中，何種搭配不足以用來組合成
+      各式各樣的邏輯線路？
+     (A)AND 與 OR  (B)AND 與 NOT  (C)OR 與 NOT   (D)NOT 與 XOR
+
+(A)40.八進位數 44.4 和十六進位數 44.4 之和，若以四進位表示，應該是多少？
+     (A)1220.3  (B)1220.6  (C)123  (D)220.3
+
+(A)41.前置式(prefix expression)為+/+ab*+cdef的數式，如果用中置式
+      (infix expression)表示，最少需要幾括弧？
+     (A)2  (B)3  (C)4  (D)5
+     
+       (a+b)/((c+d)*e)+f
+        所以是 (B)             
+     
+
+(A)42.想在 n 個未排序的數字中，挑出最大的數字，至少需要幾次數字大小的比較？
+     (A)n-1  (B)n/2  (C)log2 n  (D)n(log2 n) (註：log2表以2為底的對數)
+
+(C)43.利用插入排序法(insertion sort)對 n 筆資料排序，在平均情況下(arerage-case
+      )所需的執行時間(time complexity)為何？選最恰當的：
+     (A)O(n)  (B)O(n (log n))  (C)O(n^2)
+     (D)O(n^2 (log n))  (E)O(n^3)(註：2^n 表 2 的 n 次方)
+
+(A)44.如果某棵二元樹(binary tree)T上，每個節點所儲存的資料均不相同，則由 T 的
+      哪兩種 traversal 無法唯一決定 T 的形狀？
+     (A)preorder + postorder  (B)inorder + preorder  (C)inorder + postorder
+     (D)以上組合皆可唯一決定 T 的形狀
+
+(B)45.對於堆疊(stack)我們通常可用 Push、Pop、Top and IsEmpty。假設 Pop 後是指
+      拿掉 Top 元素後留下的Stack，則以下何者是錯的？
+     (A)Pop(Push(Stack,Elem)) = Stack
+     (B)Top(Pop(Push(Push(Stack,Elem1),Elem2))) = Elem2
+     (C)Top(Pop(Push(Push(Stack,Elem1),Elem2))) = Elem1
+     (D)Top(Push(Stack,Elem))= Elem
+
+(C)46.在BASIC語言中，"A" + "B" 之結果為：
+     (A)語法錯誤  (B)邏輯錯誤  (C)"AB"  (D)十六進數 83
+
+(D)47.在 C 語言中，'A' + 'B' 之結果為(假設電腦用ASCII code)：
+     (A)語法錯誤  (B)邏輯錯誤  (C)"AB"  (D)十六進數 83
+
+(B)48.以下為一個 C function
+         int F(int n){
+           int m=0;
+           if(n == 0)return m;
+           m++;return F(n-1)+m;
+         }
+      試問 F(5) 為多少？
+     (A)1  (B)5  (C)20  (D)21
+
+(?)49.此題送分
+
+(B)50.假設一個解碼器(decoder)有 M 個輸入端和 N 個輸出端，則 M 與 N 的關係為何
+      ？
+     (A)M > N  (B)M < N  (C)M = N  (D)不一定

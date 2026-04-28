@@ -13,6 +13,9 @@ export default defineConfig({
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    search: {
+      provider: 'local'
+    },
     nav: [
       { text: '首頁', link: '/' },
       { text: '教材文件',  
@@ -31,7 +34,7 @@ export default defineConfig({
 	    },
       { text: '資訊競賽',  
         items: [
-          { text: '試題', link: '/class/bookx' },
+          { text: '試題', link: '/Exam/ExamTest.md' },
           { text: '榮譽榜', link: '/algorithms/index' },
           { text: '升學表現', link: '/data-structures/index' }
         ]
@@ -53,6 +56,15 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '程式語言', link: '/class/book' },
+          { text: '演算法', link: '/api-examples' },
+          { text: '資料結構', link: '/api-examples' }
+        ]
+      },
+            {
+        text: '資訊競賽',
+        collapsed: true,
+        items: [
+          { text: '試題', link: '/Exam/ExamTest.md' },
           { text: '演算法', link: '/api-examples' },
           { text: '資料結構', link: '/api-examples' }
         ]
