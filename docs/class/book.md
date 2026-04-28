@@ -1,39 +1,13 @@
-# **<center>108課綱資訊科技課本電子檔</center>**  
+﻿# **<center>108課綱資訊科技課本電子檔</center>**  
+<div style="display: flex; justify-content: center;">
 
-| -[全華科友 -停課不停學](https://www.chwa.com.tw/NewCIV/CHWA108/2021Area/senior_h.html) |
-| :---------------------------------------------------------------------------- |
-|[資訊科技(課本)](https://drive.google.com/drive/folders/1elcRlxOOtZClB8x-ikAsu999laz-k4vJ)|
+|  課本電子書   | 下載 |
+|:---|---|
+|全華科友 -停課不停學 |[下載](https://www.chwa.com.tw/NewCIV/CHWA108/2021Area/senior_h.html)|
+|資訊科技(課本)|[下載](https://drive.google.com/drive/folders/1elcRlxOOtZClB8x-ikAsu999laz-k4vJ)|
+|資訊科技(習作簿)|[下載](https://drive.google.com/drive/folders/12K_5XyjmoezmB5mb7XebDNkta_UuvzU-)|
+|學習影片(各科)|[影片](https://www.youtube.com/channel/UCeZ9NwgnA7n2FKZEw7_1V5Q/playlists?view=50&sort=dd&shelf_id=8)|
 
-| 學號  | 姓名  |  備註 |
-| :-- | :-: | --: |
-| 001 | 小松  | 左對齊 |
-| 002 | 學生甲 |  置中 |
-| 003 | 老師  | 右對齊 |
-|     |     |     |
-
+</div>
 
 
-| 課本電子書 | 下載  |
-| ----- | --- |
-|       |     |
-|
-<table style="width: 100%; border: 0;">
-  <tr>
-    <td><iframe src="https://haning47.github.io/AR/fires/" width="100%" height="300"></iframe></td>
-    <td><iframe src="https://haning47.github.io/AR/cup/" width="100%" height="300"></iframe></td>
-  </tr>
-</table>
-<iframe 
-  src="https://haning47.github.io/AR/fires/" 
-  width="100%" 
-  height="300" 
-  frameborder="0" 
-  allowfullscreen>
-</iframe>|
-<iframe 
-  src="https://haning47.github.io/AR/cup/" 
-  width="100%" 
-  height="300" 
-  frameborder="0" 
-  allowfullscreen>
-</iframe>|

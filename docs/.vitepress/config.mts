@@ -15,7 +15,13 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首頁', link: '/' },
-      { text: '教材文件', link: '/markdown-examples' },
+      { text: '教材文件',  
+        items: [
+          { text: '108課綱科友課本', link: '/class/book' },
+          { text: '演算法', link: '/algorithms/index' },
+          { text: '資料結構', link: '/markdown-examples' }
+        ]
+      },
 	    { text: '網路資源',  
         items: [
           { text: '程式語言', link: '/class/book' },

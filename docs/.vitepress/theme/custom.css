@@ -1,6 +1,9 @@
 /* 卡片 hover */
 .VPFeature {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 12px !important;  
 }
 .VPFeature:hover {
   transform: translateY(-4px);
