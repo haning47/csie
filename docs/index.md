@@ -7,7 +7,7 @@ hero:
   text: "computer science"
   tagline: 包含教材文件 網路資源 資訊競賽
   image: 
-    src: /sakura.png # 放到docs/public/ 
+    src: /csie/sakura.png # 放到docs/public/ 
     alt: 資訊科技  
   actions:
     - theme: brand
