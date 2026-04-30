@@ -23,11 +23,11 @@
 | **94** | 北市高級中學 94 年度資訊學科能力競試 [筆試](tp94/bcc.doc) [答案](tp94/bccAns.doc) [上機](tp94/Program.doc)<br>北市高中電腦軟體設計競賽 [試題(全)](soft94/94all.pdf) |
 | **93** | 全國高中資訊學科能力競賽 [筆試](tw93/93select.pdf) [答案](tw93/93select_answers.pdf) [上機](tw93/93problem-f.pdf)<br>北市高級中學 93 年度資訊學科能力競試 [筆試](tp93/bcc.pdf) [參考答案](tp93/bccAns.doc) [上機](tp93/Program.pdf)<br>北市高中電腦軟體設計競賽 [筆試](soft93/93Initial_Problem.pdf) [答案](soft93/93Initial_Solution.pdf) [高中組](soft93/93Final_Senior.pdf) [開放組](soft93/93Final_Open.pdf) |
 | **92** | 全國高中資訊學科能力競賽 [筆試](tw92/bcc.pdf) [答案](tw92/bccAns.pdf) [上機](tw92/Program.pdf)<br>北市高級中學 92 年度資訊學科能力競試 [上機](tp92/tpe92program.doc)<br>北市高中電腦軟體設計競賽 [筆試](soft92/92bcc.doc) [高中組](soft92/92high.doc) [開放組](soft92/92open.doc) |
-| **91** | 全國高中資訊學科能力競賽 [筆試](tw91/bcc.doc) [答案](tw91/bccAns.htm) [上機](tw91/Program.doc)<br>北市高級中學 91 年度資訊學科能力競試 [上機](tp91/tpe91program.pdf)<br>北市高中電腦軟體設計競賽 [筆試](soft91/91bcc.doc) [高中組](soft91/91high.doc) [開放組](soft91/91open.doc) |
-| **90** | 全國高中資訊學科能力競賽 [筆試](tw90/bcc.pdf) [答案](tw90/bccAns.pdf) [上機](tw90/Program.pdf)<br>北市高級中學 90 年度資訊學科能力競試 [筆試](90infocon.TXT) [上機](tp90/tpe90program.pdf)<br>北市高中電腦軟體設計競賽 [筆試](soft90/90bcc.doc) [高中組](soft90/90high.doc) |
-| **89** | 全國高中資訊學科能力競賽 [筆試](tw89/bcc.doc) [答案](tw89/bccAns.doc) [上機](tw89/Program.doc)<br>北市高級中學 89 年度資訊學科能力競試 [筆試](89infocon.htm) [上機](89infoconprogram.htm) |
-| **88** | 全國高中資訊學科能力競賽 [筆試](tw88/bcc.pdf) [答案](tw88/bccAns.pdf) [上機](tw88/Program.pdf)<br>北市高級中學 88 年度資訊學科能力競試 [上機](88infocon.htm)<br>北市 88 學年度高中高職組 [首頁設計競賽](88seniorhighschoolconhomepage.htm) [網路程式設計競賽](88seniorhighschoolcon.htm) |
-| **87** | 北市高級中學 87 年度資訊學科能力競試 [筆試](87infocon.htm)<br>全國高級中學 87 學年度資訊學科能力競賽決賽 [筆試](87infoall.txt) |
-| **86** | 台北市高級中學 86 年度資訊學科能力競試 [筆試](86infocon.htm) |
-| **85** | 台北市高級中學 85 年度資訊學科能力競試 [筆試](85infocon.htm) |
+| **91** | 全國高中資訊學科能力競賽 [筆試](tw91/bcc.doc) [答案](tw91/bccAns.pdf) [上機](tw91/Program.doc)<br>北市高級中學 91 年度資訊學科能力競試 [上機](tp91/tpe91program.pdf)<br>北市高中電腦軟體設計競賽 [筆試](soft91/91bcc.doc) [高中組](soft91/91high.doc) [開放組](soft91/91open.doc) |
+| **90** | 全國高中資訊學科能力競賽 [筆試](tw90/bcc.pdf) [答案](tw90/bccAns.pdf) [上機](tw90/Program.pdf)<br>北市高級中學 90 年度資訊學科能力競試 [筆試](tp90/90infocon.TXT) [上機](tp90/tpe90program.pdf)<br>北市高中電腦軟體設計競賽 [筆試](soft90/90bcc.doc) [高中組](soft90/90high.doc) |
+| **89** | 全國高中資訊學科能力競賽 [筆試](tw89/bcc.doc) [答案](tw89/bccAns.doc) [上機](tw89/Program.doc)<br>北市高級中學 89 年度資訊學科能力競試 [筆試](tp89/89infocon.pdf)[上機](tp89/89infoconprogram.pdf) |
+| **88** | 全國高中資訊學科能力競賽 [筆試](tw88/bcc.pdf) [答案](tw88/bccAns.pdf) [上機](tw88/Program.pdf)<br>北市高級中學 88 年度資訊學科能力競試 [上機](tp88/88infocon.pdf)<br>北市 88 學年度高中高職組 [首頁設計競賽](tp88/88seniorhighschoolconhomepage.pdf) [網路程式設計競賽](tp88/88seniorhighschoolcon.pdf) |
+| **87** | 北市高級中學 87 年度資訊學科能力競試 [筆試](tp87/87infocon.pdf)<br>全國高級中學 87 學年度資訊學科能力競賽決賽 [筆試](87infoall.txt) |
+| **86** | 台北市高級中學 86 年度資訊學科能力競試 [筆試](tp86/86infocon.pdf) |
+| **85** | 台北市高級中學 85 年度資訊學科能力競試 [筆試](tp85/85infocon.pdf) |
 
