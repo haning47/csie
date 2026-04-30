@@ -64,7 +64,7 @@ export default defineConfig({
         text: '資訊競賽',
         collapsed: true,
         items: [
-          { text: '試題', link: '/Exam/ExamTest.md' },
+          //{ text: '試題', link: '/Exam/ExamTest.md' },
           { text: '演算法', link: '/api-examples' },
           { text: '資料結構', link: '/api-examples' }
         ]
