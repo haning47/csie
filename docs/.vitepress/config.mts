@@ -34,7 +34,7 @@ export default defineConfig({
 	    },
       { text: '資訊競賽',  
         items: [
-          //{ text: '試題', link: '/Exam/ExamTest.md' },
+          { text: '試題', link: '/Exam/ExamTest.md' },
           { text: '榮譽榜', link: '/algorithms/index' },
           { text: '升學表現', link: '/data-structures/index' }
         ]
@@ -60,15 +60,15 @@ export default defineConfig({
           { text: '資料結構', link: '/api-examples' }
         ]
       },
-            {
+      {
         text: '資訊競賽',
         collapsed: true,
         items: [
-          //{ text: '試題', link: '/Exam/ExamTest.md' },
+          { text: '試題', link: '/Exam/ExamTest.md' },
           { text: '演算法', link: '/api-examples' },
           { text: '資料結構', link: '/api-examples' }
         ]
-      },
+      }
     ],
 	footer: {
 		message: 'Powered by Vitepress',
