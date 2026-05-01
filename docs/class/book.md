@@ -1,5 +1,5 @@
-﻿# **<center>108課綱資訊科技課本電子檔</center>**  
-<div style="display: flex; justify-content: center;">
+﻿# **<left>108課綱資訊科技課本電子檔</left>**  
+<div style="display: flex; justify-content: left;">
 
 |  課本電子書   | 下載 |
 |:---|---|
