@@ -47,7 +47,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '108課網科友課本', link: '/class/book' },
-          { text: '高一C++', link: '/api-examples' },
+          { text: '免費字型', link: '/class/fonts' },
           { text: '高二進階程式設計', link: '/api-examples' }
         ]
       },
