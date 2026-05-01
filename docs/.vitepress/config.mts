@@ -27,6 +27,7 @@ export default defineConfig({
       },
 	    { text: '網路資源',  
         items: [
+          { text: '免費字型', link: '/class/fonts' },
           { text: '程式語言', link: '/class/book' },
           { text: '演算法', link: '/algorithms/index' },
           { text: '資料結構', link: '/data-structures/index' }
@@ -47,7 +48,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '108課網科友課本', link: '/class/book' },
-          { text: '免費字型', link: '/class/fonts' },
+          { text: '高一C++', link: '/class/fonts' },
           { text: '高二進階程式設計', link: '/api-examples' }
         ]
       },
@@ -55,6 +56,7 @@ export default defineConfig({
         text: '網路資源',
         collapsed: true,
         items: [
+          { text: '免費字型', link: '/class/fonts' },
           { text: '程式語言', link: '/class/book' },
           { text: '演算法', link: '/api-examples' },
           { text: '資料結構', link: '/api-examples' }
