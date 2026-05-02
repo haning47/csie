@@ -21,16 +21,13 @@ export default defineConfig({
       { text: '教材文件',  
         items: [
           { text: '108課綱科友課本', link: '/class/book' },
-          { text: '演算法', link: '/algorithms/index' },
-          { text: '資料結構', link: '/markdown-examples' }
+          { text: '高一講義', link: '/class/grade10' }
         ]
       },
 	    { text: '網路資源',  
         items: [
-          { text: '免費字型', link: '/class/fonts' },
-          { text: '程式語言', link: '/class/book' },
-          { text: '演算法', link: '/algorithms/index' },
-          { text: '資料結構', link: '/data-structures/index' }
+          { text: '免費字型', link: '/resource/fonts' },
+          { text: '程式設計', link: '/resource/coding' }
         ]
 	    },
       { text: '資訊競賽',  
@@ -38,6 +35,21 @@ export default defineConfig({
           { text: '試題', link: '/Exam/ExamTest' },
           { text: '榮譽榜', link: '/Exam/ExamPrize' },
           { text: '升學表現', link: '/Exam/ExamUni' }
+        ]
+	    },
+      { text: '技術文件',  
+        items: [
+          { text: 'Markdown Extension Examples', link: '/markdown-examples' },
+          { text: 'Runtime API Examples', link: '/api-examples.md' },
+          { text: 'VitePress Quick start', link: 'https://vitepress.dev/guide/getting-started' }         
+        ]
+	    },
+      { text: '友情連結',  
+        items: [
+          { text: '松高數位學習課程平台', link: 'http://course.sssh.tp.edu.tw:8080/moodle/' },
+          { text: '元宇宙沈浸式體驗', link: 'https://haning6.wixsite.com/meta' },
+          { text: '教學部落格-資訊學科能力訓練', link: 'https://haning47.vercel.app/'},
+          { text: '電腦教學網', link: 'https://haning47.github.io/homepage/News/News.html'}      
         ]
 	    }
     ],
@@ -48,18 +60,15 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '108課網科友課本', link: '/class/book' },
-          { text: '高一C++', link: '/class/fonts' },
-          { text: '高二進階程式設計', link: '/api-examples' }
+          { text: '高一講義', link: '/class/grade10' }
         ]
       },
       {
         text: '網路資源',
         collapsed: true,
         items: [
-          { text: '免費字型', link: '/class/fonts' },
-          { text: '程式語言', link: '/class/book' },
-          { text: '演算法', link: '/api-examples' },
-          { text: '資料結構', link: '/api-examples' }
+          { text: '免費字型', link: '/resource/fonts' },
+          { text: '程式設計', link: '/resource/coding' }
         ]
       },
       {
