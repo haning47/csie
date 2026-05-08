@@ -83,6 +83,7 @@ export default defineConfig({
         ]
       }
     ],
+  
 	footer: {
 		message: 'Powered by Vitepress',
 		copyright: 'Copyright © 2026 haning Chen'
