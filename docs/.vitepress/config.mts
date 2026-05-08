@@ -21,7 +21,8 @@ export default defineConfig({
       { text: '教材文件',  
         items: [
           { text: '108課綱科友課本', link: '/class/book' },
-          { text: '高一講義', link: '/class/grade10' }
+          { text: '高一講義', link: '/class/grade10' },
+          { text: '早期教材', link: '/class/past' }
         ]
       },
 	    { text: '網路資源',  
@@ -60,7 +61,8 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '108課網科友課本', link: '/class/book' },
-          { text: '高一講義', link: '/class/grade10' }
+          { text: '高一講義', link: '/class/grade10' },
+          { text: '早期教材', link: '/class/past' }
         ]
       },
       {
