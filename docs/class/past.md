@@ -8,6 +8,6 @@
 |AR|[HP Reveal](/class/擴增實境軟體應用.pdf)|
 |影像|[PhotoImpact8](/class/PhotoImpact8影像處理.pdf)|
 |多媒體|[Audacity+FF](/class/影音處理.pdf)|
-|多媒體|[MovieMaker](/class/MovieMaker.pdf)|[松高生活點滴](/class/9702.wmv)|
+|多媒體|[MovieMaker](/class/MovieMaker.pdf)|
 |大數據|[PowerBI+Google表單+AI2](/class/BI_Google_AI2.pdf)|
 |程式|[VB2019](/class/VB2019講義.pdf)|
