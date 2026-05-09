@@ -21,14 +21,15 @@ export default defineConfig({
       { text: '教材文件',  
         items: [
           { text: '108課綱科友課本', link: '/class/book' },
-          { text: '高一講義', link: '/class/grade10' },
+          { text: 'C++程式設計', link: '/class/cpp'},       
           { text: '早期教材', link: '/class/past' }
         ]
       },
 	    { text: '網路資源',  
         items: [
           { text: '免費字型', link: '/resource/fonts' },
-          { text: '程式設計', link: '/resource/coding' }
+          { text: '程式設計', link: '/resource/coding' },
+          { text: '人工智慧', link: '/resource/AI' }
         ]
 	    },
       { text: '資訊競賽',  
@@ -61,7 +62,12 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '108課網科友課本', link: '/class/book' },
-          { text: '高一講義', link: '/class/grade10' },
+                  { text: 'C++程式設計', link:'/class/cpp',
+                    collapsed: true,
+            items:[
+              {text: 'STL介紹',link: '/class/STL' }
+            ]
+          },
           { text: '早期教材', link: '/class/past' }
         ]
       },
@@ -70,7 +76,8 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '免費字型', link: '/resource/fonts' },
-          { text: '程式設計', link: '/resource/coding' }
+          { text: '程式設計', link: '/resource/coding' },
+          { text: '人工智慧', link: '/resource/AI' }
         ]
       },
       {

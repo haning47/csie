@@ -1,0 +1,197 @@
+<template>
+  <div class="cpp-runner">
+    <!-- 程式碼區塊由 slot 顯示，保留 VitePress 語法高亮 -->
+    <div ref="codeWrapper">
+      <slot />
+    </div>
+    <!-- 工具列 -->
+    <div class="runner-toolbar">
+      <button @click="run" :disabled="loading" class="run-btn">
+        <span v-if="loading">⏳ 編譯中...</span>
+        <span v-else>▶執行 </span>
+      </button>
+      <label v-if="hasStdin" class="stdin-label">
+        <input type="checkbox" v-model="showStdin" />
+        <span>自訂輸入 (stdin)</span>
+      </label>
+      <span v-if="output !== null && !loading" class="clear-btn" @click="output = null">✕ 清除</span>
+    </div>
+    <!-- stdin 輸入區 -->
+    <div v-if="showStdin" class="stdin-area">
+      <textarea
+        v-model="stdinText"
+        placeholder="在此輸入程式所需的資料（每行一組）..."
+        rows="3"
+      />
+    </div>
+    <!-- 輸出區 -->
+    <div v-if="output !== null" class="output-area">
+      <div class="output-label">{{ isError ? '⚠ 編譯 / 執行錯誤' : '輸出結果' }}</div>
+      <pre :class="['output-content', { 'is-error': isError }]">{{ output }}</pre>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const props = defineProps({
+  // 程式需要 cin 輸入時設為 true，會顯示 stdin 輸入框
+  hasStdin: { type: Boolean, default: false },
+  // 程式片段（無 main），設為 true 會自動包 main + bits/stdc++.h
+  wrap: { type: Boolean, default: false },
+})
+
+const codeWrapper = ref(null)
+const loading    = ref(false)
+const output     = ref(null)
+const isError    = ref(false)
+const stdinText  = ref('')
+const showStdin  = ref(false)
+
+/** 從已渲染的 slot 中取出程式碼文字 */
+const getCode = () => {
+  const codeEl = codeWrapper.value?.querySelector('code')
+  return codeEl?.textContent ?? ''
+}
+
+const run = async () => {
+  const raw = getCode()
+  if (!raw.trim()) return
+
+  const codeToRun = props.wrap
+    ? `#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n${raw}\n    return 0;\n}`
+    : raw
+
+  loading.value = true
+  output.value  = null
+  isError.value = false
+
+  try {
+    const res = await fetch('https://wandbox.org/api/compile.json', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        compiler: 'gcc-head',
+        code: codeToRun,
+        options: 'c++17',
+        stdin: stdinText.value,
+      }),
+    })
+    const data = await res.json()
+
+    if (data.compiler_error) {
+      output.value = data.compiler_error
+      isError.value = true
+    } else {
+      output.value = (data.program_output ?? '') + (data.program_error ?? '')
+      if (!output.value.trim()) output.value = '（程式執行完畢，無輸出）'
+    }
+  } catch {
+    output.value = '⚠ 連線失敗，請確認網路後再試'
+    isError.value = true
+  }
+
+  loading.value = false
+}
+</script>
+
+<style scoped>
+.cpp-runner {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+/* 讓內部程式碼區塊邊距對齊 */
+.cpp-runner :deep(div[class*='language-']) {
+  margin: 0;
+  border-radius: 0;
+}
+
+.runner-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.run-btn {
+  padding: 4px 16px;
+  background: #3a7d44;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.run-btn:hover:not(:disabled) { background: #2d6233; }
+.run-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.stdin-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.clear-btn {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  cursor: pointer;
+}
+.clear-btn:hover { color: var(--vp-c-text-1); }
+
+.stdin-area {
+  padding: 8px 14px;
+  background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--vp-c-divider);
+}
+.stdin-area textarea {
+  width: 100%;
+  padding: 6px 10px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 13px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.output-area {
+  border-top: 1px solid var(--vp-c-divider);
+}
+.output-label {
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.output-content {
+  margin: 0;
+  padding: 12px 16px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+}
+.output-content.is-error {
+  color: var(--vp-c-danger-1, #e53e3e);
+}
+</style>
