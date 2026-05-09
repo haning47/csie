@@ -65,9 +65,10 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '108課網科友課本', link: '/class/book' },
-                  { text: 'C++程式設計', link:'/class/cpp',
+          { text: 'C++程式設計', link:'/class/cpp',
                     collapsed: true,
             items:[
+              {text: '二、搜尋',link: '/class/search' },
               {text: 'STL介紹',link: '/class/STL' }
             ]
           },

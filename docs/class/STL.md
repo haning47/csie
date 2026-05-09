@@ -16,7 +16,7 @@ outline: deep
 | `auto& i` | ❌ 不拷貝 | ✅ 可以 | ✅ 快 | 要修改元素 |
 | `const auto& i` | ❌ 不拷貝 | ❌ 不行 | ⭐ 最佳 | 只讀（最常用）|
 
->[!Tip]
+>[!Tip] 說明
 >`for (auto i : v)`    // i 是「複製品」<br>
 >`for (auto& i : v)`   // i 是「原本元素本人」<br>
 >`const` 變數不可被修改

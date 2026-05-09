@@ -1,30 +1,34 @@
 <template>
   <div class="cpp-runner">
-    <!-- 程式碼區塊 + 執行按鈕疊在右上角 -->
+    <!-- 程式碼區塊（純顯示，不覆蓋按鈕） -->
     <div ref="codeWrapper" class="code-wrapper">
       <slot />
+    </div>
+
+    <!-- 底部工具列：stdin checkbox 靠左，執行按鈕靠右 -->
+    <div class="run-toolbar">
+      <label v-if="hasStdin" class="stdin-label">
+        <input type="checkbox" v-model="showStdin" />
+        <span>自訂輸入 (stdin)</span>
+      </label>
+      <span v-else />
       <button
         @click="run"
         :disabled="loading"
         class="run-btn"
         :title="loading ? '編譯中...' : '執行程式'"
       >
-        <svg v-if="!loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+        <svg v-if="!loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
           <path d="M8 5v14l11-7z"/>
         </svg>
-        <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="spin">
+        <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" class="spin">
           <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
         </svg>
+        <span>{{ loading ? '編譯中...' : '執行' }}</span>
       </button>
     </div>
 
-    <!-- stdin 輸入（有 has-stdin 時才顯示 checkbox） -->
-    <div v-if="hasStdin" class="stdin-bar">
-      <label class="stdin-label">
-        <input type="checkbox" v-model="showStdin" />
-        <span>自訂輸入 (stdin)</span>
-      </label>
-    </div>
+    <!-- stdin 輸入區 -->
     <div v-if="showStdin" class="stdin-area">
       <textarea
         v-model="stdinText"
@@ -36,7 +40,7 @@
     <!-- 輸出結果 -->
     <div v-if="output !== null" class="output-area">
       <div class="output-header">
-        <span>{{ isError ? '⚠ 編譯 / 執行錯誤' : '▶ 輸出結果' }}</span>
+        <span>{{ isError ? '⚠ 編譯 / 執行錯誤' : '輸出結果' }}</span>
         <span class="clear-btn" @click="output = null">✕</span>
       </div>
       <pre :class="['output-content', { 'is-error': isError }]">{{ output }}</pre>
@@ -107,51 +111,47 @@ const run = async () => {
   margin: 16px 0;
 }
 
-/* ── 程式碼包覆層：讓按鈕可以 absolute 定位 ── */
-.code-wrapper {
-  position: relative;
-}
-
-/* 讓 slot 內的 VitePress 程式碼區塊邊距歸零 */
+/* ── 程式碼包覆層 ── */
 .code-wrapper :deep(div[class*='language-']) {
   margin: 0;
 }
 
-/* ── 執行按鈕：仿照 VitePress 複製按鈕風格 ── */
-.run-btn {
-  position: absolute;
-  top: 12px;
-  /* 複製按鈕在 right:12px 寬約 40px，我們放在它左邊 */
-  right: 56px;
-  z-index: 4;
+/* ── 底部工具列 ── */
+.run-toolbar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  border: 1px solid var(--vp-code-copy-code-border-color, transparent);
-  background: var(--vp-code-copy-code-bg, transparent);
-  color: var(--vp-c-text-2);
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.25s, color 0.2s, background 0.2s;
+  justify-content: space-between;
+  padding: 6px 10px 6px 14px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-top: none;
 }
 
-/* hover 整個 code-wrapper 才顯示（跟複製按鈕同行為） */
-.code-wrapper:hover .run-btn,
-.run-btn:focus {
-  opacity: 1;
+/* ── 執行按鈕：文字 + 圖示，靠右顯示 ── */
+.run-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .run-btn:hover:not(:disabled) {
   color: var(--vp-c-brand-1);
-  background: var(--vp-code-copy-code-hover-bg, rgba(128,128,128,.1));
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
 }
 
 .run-btn:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 /* 轉圈動畫 */
@@ -163,12 +163,6 @@ const run = async () => {
 }
 
 /* ── stdin 列 ── */
-.stdin-bar {
-  padding: 6px 14px;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-top: none;
-}
 .stdin-label {
   display: inline-flex;
   align-items: center;
