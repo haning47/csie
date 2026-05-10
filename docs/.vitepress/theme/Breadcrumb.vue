@@ -12,22 +12,29 @@
 import { computed } from 'vue'
 import { useData, useRoute, withBase } from 'vitepress'
 
-const { theme } = useData()
-const route    = useRoute()
+const { theme, page } = useData()
+const route = useRoute()
 
-/** 遞迴搜尋 sidebar，回傳從根到目前頁面的麵包屑陣列 */
+/** 標準化路徑：去掉 .html、base prefix、末尾斜線 */
+function normPath(p) {
+  if (!p) return ''
+  return p
+    .replace(/\.html$/, '')   // 去掉 .html
+    .replace(/\/$/, '')        // 去掉末尾斜線
+    .toLowerCase()
+}
+
+/** 遞迴搜尋，回傳麵包屑陣列或 null */
 function findCrumbs(items, target, ancestors = []) {
   for (const item of items) {
-    const current = [...ancestors, { text: item.text, link: item.link }]
+    const crumb = { text: item.text, link: item.link }
+    const path  = [...ancestors, crumb]
 
-    // 完全相符的連結
-    if (item.link && (target === item.link || target === item.link + '.html')) {
-      return current
+    if (item.link && normPath(item.link) === target) {
+      return path
     }
-
-    // 遞迴搜尋子項目
     if (item.items?.length) {
-      const found = findCrumbs(item.items, target, current)
+      const found = findCrumbs(item.items, target, path)
       if (found) return found
     }
   }
@@ -35,19 +42,22 @@ function findCrumbs(items, target, ancestors = []) {
 }
 
 const crumbs = computed(() => {
-  
   const sidebar = theme.value.sidebar
   if (!sidebar) return []
 
-  const target = route.path
+  // 嘗試多種路徑格式
+  const candidates = [
+    normPath(route.path),
+    normPath('/' + page.value.relativePath.replace(/\.md$/, '')),
+  ]
 
-  // sidebar 可能是 object（依路徑分組）或 array
-  const groups = Array.isArray(sidebar)
-    ? [sidebar]
-    : Object.values(sidebar)
+  // sidebar 可能是 array 或 object（依路徑分組）
+  const allItems = Array.isArray(sidebar)
+    ? sidebar
+    : Object.values(sidebar).flat()
 
-  for (const group of groups) {
-    const result = findCrumbs(group, target)
+  for (const target of candidates) {
+    const result = findCrumbs(allItems, target)
     if (result) return result
   }
   return []
@@ -74,11 +84,6 @@ const crumbs = computed(() => {
   text-decoration: none;
   transition: color 0.2s;
 }
-.vp-breadcrumb a:hover {
-  color: var(--vp-c-brand-1);
-}
-.current {
-  color: var(--vp-c-text-1);
-  font-weight: 500;
-}
+.vp-breadcrumb a:hover { color: var(--vp-c-brand-1); }
+.current { color: var(--vp-c-text-1); font-weight: 500; }
 </style>
