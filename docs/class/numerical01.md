@@ -44,29 +44,19 @@ p(x) = ((⋯((a₀x + a₁)x + a₂)x + ⋯)x + aₙ₋₁)x + aₙ
 ```cpp:line-numbers
 #include <iostream>
 using namespace std;
-
 int main() {
     int n;
     double a[11], x, p;
-
-    cout << "DEG OF POLYNOMIAL? ";
-    cin >> n;
-
+    cin >> n;    //輸入最高次方
     for (int i = 0; i <= n; i++) {
-        cout << "COEFFICIENT? ";
-        cin >> a[i];
+         cin >> a[i];    //輸入係數 a[0]是最高次方的係數
     }
-
-    cout << "VALUE OF X=? ";
-    cin >> x;
-
+    cin >> x;   //輸入x值
     p = a[0];
     for (int i = 1; i <= n; i++) {
         p = p * x + a[i];
     }
-
-    cout << "VALUE OF POLYN AT X = " << x << " IS " << p << endl;
-
+    cout << "p(" << x << ")=" << p ;
     return 0;
 }
 ```
@@ -76,11 +66,7 @@ int main() {
 如果多項式為 P(x) = x³ + 3x² + 3x + 1，要求 P(1.5) 的值。則程式的執行情形如下：
 
 ```
-DEG OF POLYNOMIAL? 3
-COEFFICIENT? 1.0
-COEFFICIENT? 3.0
-COEFFICIENT? 3.0
-COEFFICIENT? 1.0
-VALUE OF X=? 1.5
-VALUE OF POLYN AT X = 1.5 IS 15.625
+3
+1 3 3 1 1.5
+p(1.5)=15.625
 ```
