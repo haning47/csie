@@ -2,135 +2,179 @@
 outline: deep
 ---
 
-# 2. 求方程式的根
+# 2. 漸進式 - 排列組合
 
-## 2-1 求根的數值問題
+### **${}_nC_r$ 求解**：求由 $n$ 個之中選出 $r$ 個數字排列組合的數值 $— {}_nC_r$
 
-一個變數的方程式可以寫成 $f(x)=0$，其中 $f$ 是特定的數學函數，求方程式的根，就是計算出使得 $f(x)$ 等於 $0$ 的所有 $x$ 的值。如果 $f$ 是簡單的函數，可能有公式可以求根，例如 $f$ 為二次多項式 $ax^2+bx+c$，則求方程式 $f(x)=0$ 根的公式為
+設有 $a, b, c$ 三個數字，我們從中取 2 個數字組成 $ab$、$ac$ 與 $bc$ 三個數字組。通常我們將這種由 $n$ 個數字選出 $r$ 個數字組的數寫成 ${}_nC_r$，並定義成下列的式子。而此處的 $n!$ 為 $n \cdot (n-1) \cdot (n-2) \cdots 2 \cdot 1$ 的值。$C$ 則為 Combination 的首個字母。
 
-$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+$$_nC_r = \frac{n!}{r!\,(n-r)!}$$
 
-式中除了做加減乘除等運算外，還須要求平方根。當然在 BASIC 裏有內建函數 SQR 可用，但那也是別人事先設計好的程式，求平方根 $\sqrt{d}$ 相當於解方程式 $x^2-d=0$。
+如直接這樣計算下去，對於大的 $n$ 值而言，$n!$ 會有發生溢位的危險。如下列例子：
 
-如果 f 為三次或四次多項式，求 f(x)=0 的根雖然仍有公式，但相當複雜，如果照著去設計程式，所得的答案可能誤差很大而不適用。再看 f 為更高次多項式的情形，這時連一般的公式都沒有了，由此可見實際計算方程式的根不能太依賴數學公式，而必須把它看成數值問題，以計算機數值計算的方法求數值解。
+$$_{10}C_5 = \frac{10!}{5!\cdot 5!} = \frac{3628800}{120 \cdot 120} = 252$$
 
-求根的問題可分成兩個部分，首先在定義域裏選定一個區間，保證在那個區間裏有根存在，然後在該區間把根的位置找出來，由於是數值計算，我們不能夠得到根的確切位置，而只能求到一個近似位置，即根的近似值。
+結果計算出來的值即使沒有溢位，但如為 int 型態時，則在 $10!$ 時會發生溢位。
 
-要選定適當的區間，則必須對函數本身有相當的了解才行。可以在一個足夠大的區間裏求一些函數值，若發現有 $x_1, x_2$，其函數值 $f(x_1), f(x_2)$ 不同號時（一正一負），我們便知道在 $(x_1, x_2)$ 這個區間裏至少有一個根。這個概念以函數圖來看更清楚，圖 2-1(a) 表示區間裏有一個根，圖 2-1(b) 表示區間裏有一個以上的根。如果區間裏有一個以上的根，就必須再加以分段，使得每一個小區段裏只有一個根。分段的方法是求出區間中函數圖的峰點和谷點，（可以用函數圖加以簡單估計），如圖 2-1(b) 中的 $x_3, x_4, x_5, x_6$ 等點，以它們來畫分出 $(x_3, x_4)$，$(x_4, x_5)$，$(x_5, x_6)$ 等三個區間，然後分別找三個根的近似位置。底下介紹兩種在適當區間裏求根的方法。
+${}_nC_r$ 也可寫成：
 
-<!--![圖 2-1](/img/fig2-1.png){width=90%}-->
-<img src="/img/fig2-1.png" style="width:90%; display:block; margin:0 auto">
+$$\left\{\begin{array}{ll}
+{}_nC_r = \dfrac{n-r+1}{r} \cdot {}_nC_{r-1} & \text{（漸進式）} \\[10pt]
+{}_nC_0 = 1 & \text{（0次的值）}
+\end{array}\right.$$
+
+**公式說明**  
+
+$$C_{r-1}^n = \frac{n!}{(r-1)!(n-r+1)!} $$
+$$C_r^n = \frac{n!}{r!(n-r)!} = \frac{n-r+1}{r} \cdot C_{r-1}^n$$
 
 
-<p style="text-align:center">圖 2-1</p>
+漸進式是指定義本身（${}_nC_r$）時，以低於本身 1 次的（${}_nC_{r-1}$）來標示，而 0 次（${}_nC_0$）則定義成特定的值。
 
-## 2-2 等分法
+這種漸進式製作成程式時，可使用反覆方式或遞迴呼叫（第 4 章 4-1）等兩種方式。這裏使用反覆方式來製作程式。以反覆方式來製作程式時，須將 0 次的值設定成初始值，再將係數（$(n-r+1)/r$）的 $r$ 值由 1 開始反覆 +1，然後依序計算。
 
-等分法就是把區間二等分，決定那一半含有根後，將該半再二等分，如此繼續下去，直到區間的長度相當小為止，因為區間越小就表示越接近根的真正位置。決定往那邊細分則是靠函數值的正負關係，假設 $x_3$ 為 $(x_1, x_2)$ 的中間點，若 $f(x_1)$ 和 $f(x_3)$ 異號就取區間 $(x_1, x_3)$；若 $f(x_2)$ 和 $f(x_3)$ 異號就取區間 $(x_3, x_2)$。圖 2-2 顯示等分法進行的情形：由於 $f(x_2)$ 與 $f(x_3)$ 異號，我們取 $(x_3, x_2)$，$(x_3, x_2)$ 的中間點為 $x_4$，因 $f(x_3)$ 與 $f(x_4)$ 異號，所以取 $(x_3, x_4)$，依同樣原則再取 $(x_3, x_5)$，如此繼續下去，漸漸靠近根的確切位置。
 
-演算法則列在下面，其中 F 表示函數 $f$，寫程式時可自定，P1, P2 表示區間左右兩個端點，P3 表示區間的中點，函數值是否同號以其乘積的正負來決定。注意：演算法則中的 P1 永遠小於 P2。
+<img src="/img/fig5-1.png" style="width:60%; display:block; margin:0 auto">
 
-<img src="/img/fig2-2.png" style="width:60%; display:block; margin:0 auto">
-<p style="text-align:center">圖 2-2</p>
+使用這個方法以後，$n$ 即使再大也不會溢位了。
 
-```
-定義函數 F
-輸入 P1, P2
-若 F(P1)*F(P2) ≤ 0 則做
-  當 P2-P1 不夠小時重覆底下步驟：
-    P3 = (P1+P2) / 2
-    若 F(P1)*F(P3) < 0 則做
-      P2 = P3
-    否則做
-      P1 = P3
-  輸出 (P1+P2) / 2
-否則輸出 "此區間無根"
-```
+**程式**
 
-若將 $f(x)=x^2-2$ 代入上面的演算法則，則得到一求 $\sqrt{2}$ 近似值的程式。為了避免重覆計算函數值，可以用 V1, V2, V3 分別存 F(P1), F(P2), F(P3) 的值。$\sqrt{2}$ 顯然介於 1 與 2 之間，P1 和 P2 可分別輸入 1 和 2 作為區間端點的初值。
-
-程式如下：
-
-<CppRunner has-stdin>
+<CppRunner>
 
 ```cpp:line-numbers
-#include <iostream>
-#include <iomanip>
+/* 漸進式(nCr排列組合的計算) */
+#include <bits/stdc++.h>
 using namespace std;
-
-double f(double x) {
-    return x * x - 2;
+int combi(int,int);
+int main()
+{
+    for (int n=0;n<=5;n++) {
+        for (int r=0;r<=n;r++)
+            printf("%dC%d=%2d  ",n,r,combi(n,r));
+        printf("\n");
+    }
+}
+int combi(int n,int r)
+{
+    int p=1;
+    for (int i=1;i<=r;i++)
+        p=p*(n-i+1)/i;
+    return p;
 }
 
+```
+
+</CppRunner>
+
+**執行結果**
+
+```
+0C0= 1  
+1C0= 1  1C1= 1  
+2C0= 1  2C1= 2  2C2= 1  
+3C0= 1  3C1= 3  3C2= 3  3C3= 1  
+4C0= 1  4C1= 4  4C2= 6  4C3= 4  4C4= 1  
+5C0= 1  5C1= 5  5C2=10  5C3=10  5C4= 5  5C5= 1  
+```
+
+### 漸進式求巴斯卡三角形。
+${}_nC_r$ 可排成下列圖形，這種圖形稱為 Pascal 三角形。
+
+![巴斯卡三角形](/img/fig2-4.png){width=400}
+**程式** 
+
+<CppRunner>
+
+```cpp:line-numbers
+/*漸進式求 Pascal 三角形*/
+#include<iostream>
+#include<iomanip>
+#define HEIGHT 10  //設定層數 
+using namespace std;
+int combi(int,int);
 int main() {
-    double p1, p2, p3, v1, v2, v3;
-
-    cout << "SELECT TWO PROPER END POINTS: ";
-    cin >> p1 >> p2;
-
-    v1 = f(p1);
-    v2 = f(p2);
-
-    if (v1 * v2 > 0) {
-        cout << "NO ROOT IN INTERVAL." << endl;
-    } else {
-        while (p2 - p1 >= 0.000001) {
-            p3 = (p1 + p2) / 2;
-            v3 = f(p3);
-            if (v1 * v3 > 0) {
-                p1 = p3;
-                v1 = f(p1);
-            } else {
-                p2 = p3;
-                v2 = f(p2);
-            }
-        }
-        cout << fixed << setprecision(6);
-        cout << "ROOT IS APPROXIMATELY " << (p1 + p2) / 2 << endl;
+    for(int n=0;n<=HEIGHT;n++) {
+        cout<<setw((HEIGHT-n)*3)<<""; //每列前面的空白
+        for(int r=0;r<=n;r++)
+        	cout<<setw(6)<<combi(n,r); //數字寬度為空白乘數的2倍
+        cout<<"\n";
     }
-
     return 0;
+}
+int combi(int n,int r){
+    int p=1;
+    for(int i=1;i<=r;i++)
+        p=p*(n-i+1)/ i;
+    return p;
 }
 ```
 
 </CppRunner>
 
-執行結果：
 
 ```
-SELECT TWO PROPER END POINTS: 1 2
-ROOT IS APPROXIMATELY 1.414214
+                                      1    
+                                   1      1    
+                                1      2      1    
+                             1      3      3      1    
+                          1      4      6      4      1    
+                       1      5     10     10      5      1    
+                    1      6     15     20     15      6      1    
+                 1      7     21     35     35     21      7      1    
+              1      8     28     56     70     56     28      8      1    
+           1      9     36     84    126    126     84     36      9      1    
+        1     10     45    120    210    252    210    120     45     10      1    
 ```
 
-## 2-3 內插法
+###  以遞迴計算 $_nC_r$ 求巴斯卡三角形。
 
-內插法不以定義域 X 軸上的 $x_1, x_2$ 為出發點，而是考慮函數圖上的兩個點 $(x_1, f(x_1))$ 和 $(x_2, f(x_2))$，若把兩點連成一直線，該直線一定和 X 軸相交於 $x_1, x_2$ 間的一點 $x_3$，然後可重新選定區間 $(x_1, x_3)$ 或 $(x_3, x_2)$，繼續做同樣的動作，如此以交叉點而不是中間點去逼近根的位置。圖 2-3 表達用內插法求根近似值的過程：由 $(x_1, f(x_1))$ 和 $(x_2, f(x_2))$ 得到交點 $x_3$，由 $(x_1, f(x_1))$ 和 $(x_3, f(x_3))$ 得到交點 $x_4$，以此逼近根的位置。
+由以上圖形推出，$_nC_r$ 可定義成：
 
-<img src="/img/fig2-3.png" style="width:70%; display:block; margin:0 auto">
+$$\left\{\begin{array}{ll}
+{}_nC_r = {}_{n-1}C_{r-1} + {}_{n-1}C_r & (n>r>0) \\[4pt]
+{}_rC_0 = {}_rC_r = 1 & (r=0 \text{ 或 } n=r)
+\end{array}\right.$$
 
-<p style="text-align:center">圖 2-3</p>
+上列式子如以圖形表示，則為，
 
-利用 $(P1, F(P1))$，$(P2, F(P2))$，$(P3, F(P3))$ 三點共線的性質，可求出 P3 的值，其公式為：
+<img src="/img/fig8-1.png" style="width:60%; display:block; margin:0 auto">
 
-$$P3 = P1 - \frac{(P2-P1) \times F(P1)}{F(P2)-F(P1)}$$
+<p style="text-align:center">Pascal 三角形</p>
 
-雖然內插法中逼近根的過程和等分法很類似，但 $P2-P1$ 卻不一定會趨近於 $0$，因此不能以 $P2-P1$ 的大小，而是以 $P3$ 變動的大小來控制迴路的繼續執行與否，整個演算法則描述如下：
+$_rC_0=1$ 為 ${}_{n-1}C_{r-1}$ 的呼叫出口，$_rC_r=1$ 為 ${}_{n-1}C_r$ 的呼叫出口。
+
+**程式** 
+
+<CppRunner has-stdin>
+
+```cpp:line-numbers
+/* nCr 的計算（遞迴版）    */
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int Pascal(int,int);
+int main(){
+	int m,n,r;
+	cin >> m;   //輸入層數
+	for (n=0;n<=m;n++) {
+		cout << setw(3*(m-n))<<"";
+		for (r=0;r<=n;r++)
+			cout << setw(6)<< Pascal(n,r);
+		cout <<endl;
+	}
+}
+int Pascal(int n,int r){
+	if (r==0 || r==n)
+		return 1;
+	else
+	 	return Pascal(n-1,r-1)+Pascal(n-1,r);
+}
+
 
 ```
-輸入 P1, P2
-若 F(P1)*F(P2) ≤ 0 則做
-  P3 = P1 - (P2-P1) * F(P1) / (F(P2)-F(P1))
-  若 F(P1)*F(P3) < 0 則做
-    P2 = P3
-  否則做
-    P1 = P3
-  重覆底下步驟直到 |P4-P3| 相當小：
-    P4 = P3
-    P3 = P1 - (P2-P1) * F(P1) / (F(P2)-F(P1))
-    若 F(P1)*F(P3) < 0 則做
-      P2 = P3
-    否則做
-      P1 = P3
-  輸出 P3
-否則輸出 "此區間無根"
-```
+
+</CppRunner>
+
+
+

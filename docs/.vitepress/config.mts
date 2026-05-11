@@ -72,13 +72,10 @@ export default defineConfig({
                     collapsed: true,
                items:[
                 {text: '1. 求多項式函數值',link: '/class/numerical01'},
-                {text: '2. 求方程式的根',link: '/class/numerical02'},
-                {text: '3. 解聯立方程式',link: '/class/numerical03'},
-                {text: '4. 漸進式-求次方',link: '/class/numerical04'},
-                {text: '5. 漸近式-排列組合',link: '/class/numerical05'},
-                {text: '6. 以Horner求多項式的值',link: '/class/numerical06'},
-                {text: '7. 漸近式-求巴斯卡三角形',link: '/class/numerical07'},
-                {text: '8. 遞迴求巴斯卡三角形',link: '/class/numerical08'}
+                {text: '2. 漸近式-排列組合',link: '/class/numerical02'},
+                {text: '3. 漸進式-求次方',link: '/class/numerical03'},
+                {text: '4. 求方程式的根',link: '/class/numerical04'},                
+                {text: '5. 解聯立方程式',link: '/class/numerical05'}
                ]
               },
               {text: '資料結構及演算法篇',link: '/class/algorighm', 

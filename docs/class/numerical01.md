@@ -1,7 +1,7 @@
 ---
 outline: deep
 ---
-# 1. 求多項式的函數值
+# 1. 漸進式 - 求多項式的函數值
 
 多項式是最基本的函數，n 次多項式可以寫成：
 
@@ -46,16 +46,14 @@ p(x) = ((⋯((a₀x + a₁)x + a₂)x + ⋯)x + aₙ₋₁)x + aₙ
 using namespace std;
 int main() {
     int n;
-    double a[11], x, p;
     cin >> n;    //輸入最高次方
-    for (int i = 0; i <= n; i++) {
-         cin >> a[i];    //輸入係數 a[0]是最高次方的係數
-    }
+    double a[n+1], x, p;   
+    for (int i = 0; i <= n; i++) 
+        cin >> a[i];    //輸入係數 a[0]是最高次方的係數 
     cin >> x;   //輸入x值
     p = a[0];
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) 
         p = p * x + a[i];
-    }
     cout << "p(" << x << ")=" << p ;
     return 0;
 }
@@ -67,6 +65,27 @@ int main() {
 
 ```
 3
-1 3 3 1 1.5
+1 3 3 1 
+1.5
 p(1.5)=15.625
 ```
+這種方式稱為 Horner 法 , 為漸進式解題方法的範例 
+<img src="/img/fig6-1.png" style="width:60%; display:block; margin:0 auto">
+這個計算式的具體範例為 $a_0=1, a_1=2, a_2=3, a_3=4, a_4=5$ 的多項式 $f(x)=5x^4+4x^3+3x^2+2x+1$。
+
+結果為：
+
+$$\begin{aligned}
+f_4 &= f_3 \cdot x + a_0 \\
+f_3 &= f_2 \cdot x + a_1 \\
+f_2 &= f_1 \cdot x + a_2 \\
+f_1 &= f_0 \cdot x + a_3 \\
+f_0 &= a_4
+\end{aligned}$$
+
+將其轉成一般式，即為下列的組合：
+
+$$\left\{\begin{array}{l}
+f_i = f_{i-1} \cdot x + a_{n-i} \\[4pt]
+f_0 = a_n
+\end{array}\right.$$

@@ -2,82 +2,117 @@
 outline: deep
 ---
 
-# 5. 漸近式－排列組合
+# 4. 解聯立方程式
 
-**${}_nC_r$ 求解**：求由 $n$ 個之中選出 $r$ 個數字排列組合的數值 $— {}_nC_r$
+現在來考慮如何解下面的聯立方程式：
 
-設有 $a, b, c$ 三個數字，我們從中取 2 個數字組成 $ab$、$ac$ 與 $bc$ 三個數字組。通常我們將這種由 $n$ 個數字選出 $r$ 個數字組的數寫成 ${}_nC_r$，並定義成下列的式子。而此處的 $n!$ 為 $n \cdot (n-1) \cdot (n-2) \cdots 2 \cdot 1$ 的值。$C$ 則為 Combination 的首個字母。
+$$\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n &= a_{1,\,n+1} \\
+a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \cdots + a_{2n}x_n &= a_{2,\,n+1} \\
+a_{31}x_1 + a_{32}x_2 + a_{33}x_3 + \cdots + a_{3n}x_n &= a_{3,\,n+1} \\
+\vdots \qquad\qquad\qquad \vdots \qquad\qquad\qquad \vdots &\quad \vdots \\
+a_{n1}x_1 + a_{n2}x_2 + a_{n3}x_3 + \cdots + a_{nn}x_n &= a_{n,\,n+1}
+\end{aligned}$$
 
-$$_nC_r = \frac{n!}{r!\,(n-r)!}$$
+其中 $a_{ij}$，$1 \leq i, j \leq n$，為輸入的係數；$x_i$，$1 \leq i \leq n$，為輸出的解。
 
-如直接這樣計算下去，對於大的 $n$ 值而言，$n!$ 會有發生溢位的危險。如下列例子：
+如果把任一個方程式換成該方程式減去一個常數乘另一個方程式，並不會改變聯立方程式的解，例如第 $i$ 個方程式可以改成
 
-$$_{10}C_5 = \frac{10!}{5!\cdot 5!} = \frac{3628800}{120 \cdot 120} = 252$$
+$$\begin{array}{rl}
+& a_{i1}x_1 + a_{i2}x_2 + a_{i3}x_3 + \cdots + a_{in}x_n = a_{i,\,n+1} \\
+- & c(a_{j1}x_1 + a_{j2}x_2 + a_{j3}x_3 + \cdots + a_{jn}x_n = a_{j,\,n+1}) \\ \hline
+& (a_{i1}-ca_{j1})x_1 + (a_{i2}-ca_{j2})x_2 + (a_{i3}-ca_{j3})x_3 + \cdots \\
+& \quad (a_{in}-ca_{jn})x_n = a_{i,\,n+1} - ca_{j,\,n+1}
+\end{array}$$
 
-結果計算出來的值即使沒有溢位，但如為 int 型態時，則在 $10!$ 時會發生溢位。
+利用上述的方法，想辦法把原來的聯立方程式改寫成底下的形式（注意方程式左邊的項數越來越少）：
 
-${}_nC_r$ 也可寫成：
+$$\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n &= a_{1,\,n+1} \\
+a_{22}x_2 + a_{23}x_3 + \cdots + a_{2n}x_n &= a_{2,\,n+1} \\
+a_{33}x_3 + \cdots + a_{3n}x_n &= a_{3,\,n+1} \\
+&\vdots \\
+a_{nn}x_n &= a_{n,\,n+1}
+\end{aligned}$$
 
-$$\left\{\begin{array}{ll}
-{}_nC_r = \dfrac{n-r+1}{r} \cdot {}_nC_{r-1} & \text{（漸進式）} \\[10pt]
-{}_nC_0 = 1 & \text{（0次的值）}
-\end{array}\right.$$
+這樣一來，從最後的方程式可先算出 $x_n$ 的值為 $a_{n,n+1}/a_{nn}$。然後由上一個方程式算出 $x_{n-1}$ 的值為 $(a_{n-1,\,n+1} - a_{n-1,\,n}x_n)/a_{n-1,n-1}$，⋯⋯直到由第一個方程式求出 $x_1$ 的值。換言之，若已算出 $x_n, x_{n-1}, \cdots, x_{i+1}$ 的值，由第 $i$ 個方程式可求出 $x_i$ 的值為 $(a_{i,\,n+1} - a_{i,\,i+1}x_{i+1} - \cdots - a_{in}x_n)/a_{ii}$。
 
-漸進式是指定義本身（${}_nC_r$）時，以低於本身 1 次的（${}_nC_{r-1}$）來標示，而 0 次（${}_nC_0$）則定義成特定的值。
+為了方便說明，我們用以下的係數陣列來表示聯立方程式：
 
-這種漸進式製作成程式時，可使用反覆方式或遞迴呼叫（第 4 章 4-1）等兩種方式。這裏使用反覆方式來製作程式。以反覆方式來製作程式時，須將 0 次的值設定成初始值，再將係數（$(n-r+1)/r$）的 $r$ 值由 1 開始反覆 +1，然後依序計算。
+$$\begin{array}{ccccc}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} & a_{1,n+1} \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n} & a_{2,n+1} \\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n} & a_{3,n+1} \\
+\vdots & \vdots & \vdots & & \vdots & \vdots \\
+a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn} & a_{n,n+1}
+\end{array}$$
 
+因為第一行中的 $a_{21}, a_{31}, \cdots, a_{n1}$ 都要變成 $0$，而 $a_{i1}-(a_{i1}/a_{11})a_{11}=0$，如果把第 $i$ 列換成該列減掉 $(a_{i1}/a_{11})$ 乘以第一列，即 $a_{ij}$ 設定為 $a_{ij}-(a_{i1}/a_{11})a_{1j}$，$2 \leq i \leq N$，$2 \leq j \leq N+1$，則陣列就變成下面形式：
 
-<img src="/img/fig5-1.png" style="width:60%; display:block; margin:0 auto">
+<img src="/img/fig3-1.png" style="width:50%; display:block; margin:0 auto">
 
-使用這個方法以後，$n$ 即使再大也不會溢位了。
+接著在框起來的部分又可重覆上述的步驟，第三列以後都減去 $(a_{i2}/a_{22})$ 乘以第二列，即 $a_{ij}$ 設定為 $a_{ij}-(a_{i2}/a_{22})a_{2j}$，$3 \leq i \leq N$，$3 \leq j \leq N+1$，陣列變成：
 
-**程式**
+<img src="/img/fig3-2.png" style="width:50%; display:block; margin:0 auto">
 
-<CppRunner>
+如此，每次處理的陣列範圍都縮小一點，重覆 $n-1$ 次後，整個陣列就變成所要的形式：
 
-```cpp:line-numbers
-/*
- * --------------------------------
- * 漸進式(nCr排列組合的計算)       *
- * --------------------------------
- */
+$$\begin{array}{cccccc}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} & a_{1,n+1} \\
+0 & a_{22} & a_{23} & \cdots & a_{2n} & a_{2,n+1} \\
+0 & 0 & a_{33} & \cdots & a_{3n} & a_{3,n+1} \\
+\vdots & \vdots & \vdots & & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & a_{nn} & a_{n,n+1}
+\end{array}$$
 
-#include <stdio.h>
-
-long combi(int,int);
-
-int main()
-{
-    int n,r;
-
-    for (n=0;n<=5;n++) {
-        for (r=0;r<=n;r++)
-            printf("%d C %d=%ld  ",n,r,combi(n,r));
-        printf("\n");
-    }
-}
-
-long combi(int n,int r)
-{
-    int i;
-    long p=1;
-
-    for (i=1;i<=r;i++)
-        p=p*(n-i+1)/i;
-    return p;
-}
-```
-
-</CppRunner>
-
-**執行結果**
+若以二維陣列 $A(N, N+1)$ 代表係數，而以一維陣列 $X(N)$ 代表聯立方程式的解，演算法則初步構想如下：
 
 ```
-0 C 0=1
-1 C 0=1   1 C 1=1
-2 C 0=1   2 C 1=2   2 C 2=1
-3 C 0=1   3 C 1=3   3 C 2=3   3 C 3=1
-4 C 0=1   4 C 1=4   4 C 2=6   4 C 3=4   4 C 4=1
-5 C 0=1   5 C 1=5   5 C 2=10  5 C 3=10  5 C 4=5   5 C 5=1
+輸入係數到陣列 A
+用 FOR 迴路（K 由 1 遞增到 N-1）重覆底下步驟：
+  更改第 K+1 列到第 N 列
+X(N) = A(N, N+1) / A(N, N)
+用 FOR 迴路（I 由 N-1 遞減到 1）重覆底下步驟：
+  計算 X(I)
+輸出陣列 X
+```
+
+「更改第 K+1 列到第 N 列」可寫成
+
+```
+用 FOR 迴路（I 由 K+1 遞增到 N）重覆底下步驟：
+  更改第 I 列
+```
+
+「更改第 I 列」部分又可進一步改寫成
+
+```
+用 FOR 迴路（J 由 K+1 遞增到 N+1）重覆底下步驟：
+  A(I,J) = A(I,J) - (A(I,K) / A(K,K)) * A(K,J)
+```
+
+而「計算 X(I)」則可改寫成
+
+```
+SUM = 0
+用 FOR 迴路（J 由 I+1 遞增到 N）重覆底下步驟：
+  SUM = SUM + A(I, J) * X(J)
+X(I) = (A(I, N+1) - SUM) / A(I, I)
+```
+
+整個演算法則為：
+
+```
+輸入係數到陣列 A
+用 FOR 迴路（K 由 1 遞增到 N-1）重覆底下步驟：
+  用 FOR 迴路（I 由 K+1 遞增到 N）重覆底下步驟：
+    用 FOR 迴路（J 由 K+1 遞增到 N+1）重覆底下步驟：
+      A(I,J) = A(I,J) - (A(I,K) / A(K,K)) * A(K,J)
+X(N) = A(N, N+1) / A(N, N)
+用 FOR 迴路（I 由 N-1 遞減到 1）重覆底下步驟：
+  SUM = 0
+  用 FOR 迴路（J 由 I+1 遞增到 N）重覆底下步驟：
+    SUM = SUM + A(I, J) * X(J)
+  X(I) = (A(I, N+1) - SUM) / A(I, I)
+輸出陣列 X
 ```
