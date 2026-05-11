@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-## 5. 漸近式－排列組合
+# 5. 漸近式－排列組合
 
 **${}_nC_r$ 求解**：求由 $n$ 個之中選出 $r$ 個數字排列組合的數值 $— {}_nC_r$
 
@@ -32,9 +32,11 @@ $$\left\{\begin{array}{ll}
 
 使用這個方法以後，$n$ 即使再大也不會溢位了。
 
-**程式** Rei01.c
+**程式**
 
-```c:line-numbers
+<CppRunner>
+
+```cpp:line-numbers
 /*
  * --------------------------------
  * 漸進式(nCr排列組合的計算)       *
@@ -45,7 +47,7 @@ $$\left\{\begin{array}{ll}
 
 long combi(int,int);
 
-void main(void)
+int main()
 {
     int n,r;
 
@@ -54,7 +56,6 @@ void main(void)
             printf("%d C %d=%ld  ",n,r,combi(n,r));
         printf("\n");
     }
-    system("PAUSE");
 }
 
 long combi(int n,int r)
@@ -67,6 +68,8 @@ long combi(int n,int r)
     return p;
 }
 ```
+
+</CppRunner>
 
 **執行結果**
 

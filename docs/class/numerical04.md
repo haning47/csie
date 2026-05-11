@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-## 4. 漸進式 - 第3題求指數
+# 4. 漸進式 - 求次方
 
 [0101漸近式求指數.cpp](https://www.onlinegdb.com/TEkt2472T)
 
@@ -48,3 +48,32 @@ $$\begin{aligned}
 $$x^{ab} = (x^a)^b$$
 
 $$x^{a+b} = x^a \cdot x^b$$
+<CppRunner has-stdin>
+
+```cpp:line-numbers
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> b2;
+    int p=1,x,n,a,i=0;
+    cin >>x>>n;             //輸入x的n次方
+
+    while(n>>i){            //將整數轉成2進位
+         b2.push((n>>i)&1); //每次右移一位，做&1運算，取出最後那位的2進位數
+         i++;
+    }
+
+    while(!b2.empty()){
+        a=b2.top()? x : 1; //如果2進位值是1就乘以x的1次方(x), 否則乘以x的0次方(1)
+        p*=p*a; // 重覆b2長度次p=p平方*a
+        b2.pop();
+    }
+    cout <<p;
+    return 0;
+}
+```
+
+</CppRunner>
+

@@ -68,8 +68,36 @@ export default defineConfig({
           { text: 'C++程式設計', link:'/class/cpp',
                     collapsed: true,
             items:[
-              {text: '二、搜尋',link: '/class/search' },
-              {text: 'STL介紹',link: '/class/STL' }
+              {text: '數值計算篇',link: '/class/numerical',
+                    collapsed: true,
+               items:[
+                {text: '1. 求多項式函數值',link: '/class/numerical01'},
+                {text: '2. 求方程式的根',link: '/class/numerical02'},
+                {text: '3. 解聯立方程式',link: '/class/numerical03'},
+                {text: '4. 漸進式-求次方',link: '/class/numerical04'},
+                {text: '5. 漸近式-排列組合',link: '/class/numerical05'},
+                {text: '6. 以Horner求多項式的值',link: '/class/numerical06'},
+                {text: '7. 漸近式-求巴斯卡三角形',link: '/class/numerical07'},
+                {text: '8. 遞迴求巴斯卡三角形',link: '/class/numerical08'}
+               ]
+              },
+              {text: '資料結構及演算法篇',link: '/class/algorighm', 
+                      collapsed: true,
+               items:[
+                {text: '一. 排序',link:  '/class/sort'},
+                {text: '二. 搜尋',link: '/class/search'},
+                {text: '三. 遞迴',link: '/class/recursive'},
+                {text: '四. 圖論',link: '/class/graphy'},
+                {text: '五. 動態規劃',link: '/class/DP'}
+               ]
+              },
+              {text: '附錄',link: '/class/appendix' ,
+                       collapsed: true,
+               items:[
+                {text: 'STL介紹',link: '/class/STL'},
+                {text: '參考資料',link: '/class/reference'}
+               ]
+              }
             ]
           },
           { text: '早期教材', link: '/class/past' }
