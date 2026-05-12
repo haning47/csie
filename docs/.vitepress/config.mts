@@ -23,9 +23,9 @@ export default defineConfig({
       { text: '首頁', link: '/' },
       { text: '教材文件',  
         items: [
-          { text: '108課綱科友課本', link: '/class/book' },
-          { text: 'C++程式設計', link: '/class/cpp'},       
-          { text: '早期教材', link: '/class/past' }
+          { text: '108課綱科友課本', link: '/class/k_book' },
+          { text: 'C++程式設計', link: '/class/c0_cpp'},       
+          { text: '早期教材', link: '/class/k_past' }
         ]
       },
 	    { text: '網路資源',  
@@ -64,25 +64,25 @@ export default defineConfig({
         text: '教材文件',
         collapsed: true,
         items: [
-          { text: '108課網科友課本', link: '/class/book' },
-          { text: 'C++程式設計', link:'/class/cpp',
+          { text: '108課網科友課本', link: '/class/k_book' },
+          { text: 'C++程式設計', link:'/class/c0_cpp',
                     collapsed: true,
             items:[
-              {text: '數值計算篇',link: '/class/numerical',
+              {text: '數值計算篇',link: '/class/b0_numerical',
                     collapsed: true,
                items:[
-                {text: '1. 求多項式函數值',link: '/class/numerical01'},
-                {text: '2. 漸近式-排列組合',link: '/class/numerical02'},
-                {text: '3. 漸進式-求次方',link: '/class/numerical03'},
-                {text: '4. 求方程式的根',link: '/class/numerical04'},                
-                {text: '5. 解聯立方程式',link: '/class/numerical05'}
+                {text: '1. 求多項式函數值',link: '/class/b1_numerical01'},
+                {text: '2. 漸近式-排列組合',link: '/class/b2_numerical02'},
+                {text: '3. 漸進式-求次方',link: '/class/b3_numerical03'},
+                {text: '4. 求方程式的根',link: '/class/b4_numerical04'},                
+                {text: '5. 解聯立方程式',link: '/class/b5_numerical05'}
                ]
               },
               {text: '資料結構及演算法篇',link: '/class/algorighm', 
                       collapsed: true,
                items:[
                 {text: '一. 排序',link:  '/class/sort'},
-                {text: '二. 搜尋',link: '/class/search'},
+                {text: '二. 搜尋',link: '/class/a2_search'},
                 {text: '三. 遞迴',link: '/class/recursive'},
                 {text: '四. 圖論',link: '/class/graphy'},
                 {text: '五. 動態規劃',link: '/class/DP'}
@@ -91,13 +91,13 @@ export default defineConfig({
               {text: '附錄',link: '/class/appendix' ,
                        collapsed: true,
                items:[
-                {text: 'STL介紹',link: '/class/STL'},
+                {text: 'STL介紹',link: '/class/c1_STL'},
                 {text: '參考資料',link: '/class/reference'}
                ]
               }
             ]
           },
-          { text: '早期教材', link: '/class/past' }
+          { text: '早期教材', link: '/class/k_past' }
         ]
       },
       {

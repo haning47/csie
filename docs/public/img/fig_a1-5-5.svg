@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="530">
+<text x="390" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b" font-family="Arial">快速排序法 — 分層分割過程</text>
+<text x="10" y="54" font-size="14" fill="#475569" font-family="Arial">第1步：選基準元素 d，從兩端掃描並交換，找到分割點</text>
+<text x="138" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[0]</text>
+<text x="210" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[1]</text>
+<text x="282" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[2]</text>
+<text x="354" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[3]</text>
+<text x="426" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[4]</text>
+<text x="498" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[5]</text>
+<text x="570" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[6]</text>
+<text x="642" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[7]</text>
+<rect x="104" y="78" width="68" height="52" fill="#8B5CF6" stroke="#5B21B6" stroke-width="2.5" rx="9"/>
+<text x="138" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">d</text>
+<rect x="176" y="78" width="68" height="52" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/>
+<text x="210" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">e</text>
+<rect x="248" y="78" width="68" height="52" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/>
+<text x="282" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">a</text>
+<rect x="320" y="78" width="68" height="52" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/>
+<text x="354" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">c</text>
+<rect x="392" y="78" width="68" height="52" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/>
+<text x="426" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">f</text>
+<rect x="464" y="78" width="68" height="52" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/>
+<text x="498" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">b</text>
+<rect x="536" y="78" width="68" height="52" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/>
+<text x="570" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">h</text>
+<rect x="608" y="78" width="68" height="52" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/>
+<text x="642" y="113" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">g</text>
+<line x1="390" y1="135" x2="390" y2="155" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="10" y="169" font-size="14" fill="#475569" font-family="Arial">第2步：d 就定位（綠）；對左區[c,b,a]和右區[f,e,h,g]各取基準繼續分割</text>
+<text x="138" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[0]</text>
+<text x="210" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[1]</text>
+<text x="282" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[2]</text>
+<text x="354" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[3]</text>
+<text x="426" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[4]</text>
+<text x="498" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[5]</text>
+<text x="570" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[6]</text>
+<text x="642" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[7]</text>
+<rect x="104" y="193" width="68" height="52" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/>
+<text x="138" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">c</text>
+<rect x="176" y="193" width="68" height="52" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/>
+<text x="210" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">b</text>
+<rect x="248" y="193" width="68" height="52" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/>
+<text x="282" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">a</text>
+<rect x="320" y="193" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="354" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">d</text>
+<rect x="392" y="193" width="68" height="52" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/>
+<text x="426" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#4a2c00" font-family="Arial">f</text>
+<rect x="464" y="193" width="68" height="52" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/>
+<text x="498" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#4a2c00" font-family="Arial">e</text>
+<rect x="536" y="193" width="68" height="52" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/>
+<text x="570" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#4a2c00" font-family="Arial">h</text>
+<rect x="608" y="193" width="68" height="52" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/>
+<text x="642" y="228" text-anchor="middle" font-size="22" font-weight="bold" fill="#4a2c00" font-family="Arial">g</text>
+<line x1="317" y1="189" x2="317" y2="249" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="389" y1="189" x2="389" y2="249" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<text x="354" y="261" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<line x1="390" y1="250" x2="390" y2="270" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="10" y="284" font-size="14" fill="#475569" font-family="Arial">第3步：c, e, f 就定位；左區剩[a,b]，右區剩[h,g]，繼續分割</text>
+<text x="138" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[0]</text>
+<text x="210" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[1]</text>
+<text x="282" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[2]</text>
+<text x="354" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[3]</text>
+<text x="426" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[4]</text>
+<text x="498" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[5]</text>
+<text x="570" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[6]</text>
+<text x="642" y="302" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[7]</text>
+<rect x="104" y="308" width="68" height="52" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/>
+<text x="138" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">a</text>
+<rect x="176" y="308" width="68" height="52" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/>
+<text x="210" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">b</text>
+<rect x="248" y="308" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="282" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">c</text>
+<rect x="320" y="308" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="354" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">d</text>
+<rect x="392" y="308" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="426" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">e</text>
+<rect x="464" y="308" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="498" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">f</text>
+<rect x="536" y="308" width="68" height="52" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/>
+<text x="570" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#4a2c00" font-family="Arial">h</text>
+<rect x="608" y="308" width="68" height="52" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/>
+<text x="642" y="343" text-anchor="middle" font-size="22" font-weight="bold" fill="#4a2c00" font-family="Arial">g</text>
+<line x1="245" y1="304" x2="245" y2="364" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="317" y1="304" x2="317" y2="364" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="389" y1="304" x2="389" y2="364" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="461" y1="304" x2="461" y2="364" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="533" y1="304" x2="533" y2="364" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<text x="282" y="376" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="354" y="376" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="426" y="376" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="498" y="376" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<line x1="390" y1="365" x2="390" y2="385" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="10" y="399" font-size="14" fill="#475569" font-family="Arial">第4步：所有元素就定位 → 排序完成！</text>
+<text x="138" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[0]</text>
+<text x="210" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[1]</text>
+<text x="282" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[2]</text>
+<text x="354" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[3]</text>
+<text x="426" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[4]</text>
+<text x="498" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[5]</text>
+<text x="570" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[6]</text>
+<text x="642" y="417" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" font-family="monospace">[7]</text>
+<rect x="104" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="138" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">a</text>
+<rect x="176" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="210" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">b</text>
+<rect x="248" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="282" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">c</text>
+<rect x="320" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="354" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">d</text>
+<rect x="392" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="426" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">e</text>
+<rect x="464" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="498" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">f</text>
+<rect x="536" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="570" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">g</text>
+<rect x="608" y="423" width="68" height="52" fill="#34D399" stroke="#059669" stroke-width="2.5" rx="9"/>
+<text x="642" y="458" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">h</text>
+<line x1="173" y1="419" x2="173" y2="479" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="245" y1="419" x2="245" y2="479" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="317" y1="419" x2="317" y2="479" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="389" y1="419" x2="389" y2="479" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="461" y1="419" x2="461" y2="479" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="533" y1="419" x2="533" y2="479" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<line x1="605" y1="419" x2="605" y2="479" stroke="#334155" stroke-width="2.5" stroke-dasharray="4,2"/>
+<text x="138" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="210" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="282" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="354" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="426" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="498" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="570" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+<text x="642" y="491" text-anchor="middle" font-size="12" fill="#047857" font-weight="bold" font-family="Arial">✓</text>
+</svg>

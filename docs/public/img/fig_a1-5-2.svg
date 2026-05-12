@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="225">
+<defs>
+  <marker id="arr" markerWidth="12" markerHeight="9"
+          refX="11" refY="4.5" orient="auto">
+    <polygon points="0,0 0,9 11,4.5" fill="#64748B"/>
+  </marker>
+  <marker id="arr_up" markerWidth="12" markerHeight="9"
+          refX="6" refY="9" orient="auto">
+    <polygon points="0,9 12,9 6,0" fill="#555"/>
+  </marker>
+</defs>
+<text x="370" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b" font-family="Arial">左指標由左向右找 &gt; d 的元素；右指標由右向左找 &lt; d 的元素</text>
+<text x="111" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[0]</text>
+<text x="185" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[1]</text>
+<text x="259" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[2]</text>
+<text x="333" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[3]</text>
+<text x="407" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[4]</text>
+<text x="481" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[5]</text>
+<text x="555" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[6]</text>
+<text x="629" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[7]</text>
+<rect x="76" y="68" width="70" height="54" fill="#8B5CF6" stroke="#5B21B6" stroke-width="2.5" rx="9"/><text x="111" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">d</text>
+<rect x="150" y="68" width="70" height="54" fill="#F97316" stroke="#B45309" stroke-width="2.5" rx="9"/><text x="185" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">e</text>
+<rect x="224" y="68" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="259" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">a</text>
+<rect x="298" y="68" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="333" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">c</text>
+<rect x="372" y="68" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="407" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">f</text>
+<rect x="446" y="68" width="70" height="54" fill="#22C55E" stroke="#15803D" stroke-width="2.5" rx="9"/><text x="481" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">b</text>
+<rect x="520" y="68" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="555" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">h</text>
+<rect x="594" y="68" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="629" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">g</text>
+<line x1="185" y1="160" x2="185" y2="132" stroke="#F97316" stroke-width="3" marker-end="url(#arr_up)"/><text x="185" y="174" text-anchor="middle" font-size="15" font-weight="bold" fill="#F97316" font-family="Arial">左指標</text><text x="185" y="192" text-anchor="middle" font-size="14" fill="#F97316" font-family="Arial">e &gt; d</text>
+<line x1="481" y1="160" x2="481" y2="132" stroke="#22C55E" stroke-width="3" marker-end="url(#arr_up)"/><text x="481" y="174" text-anchor="middle" font-size="15" font-weight="bold" fill="#22C55E" font-family="Arial">右指標</text><text x="481" y="192" text-anchor="middle" font-size="14" fill="#22C55E" font-family="Arial">b &lt; d</text>
+</svg>

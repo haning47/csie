@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="225">
+<defs>
+  <marker id="arr" markerWidth="12" markerHeight="9"
+          refX="11" refY="4.5" orient="auto">
+    <polygon points="0,0 0,9 11,4.5" fill="#64748B"/>
+  </marker>
+  <marker id="arr_up" markerWidth="12" markerHeight="9"
+          refX="6" refY="9" orient="auto">
+    <polygon points="0,9 12,9 6,0" fill="#555"/>
+  </marker>
+</defs>
+<text x="370" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b" font-family="Arial">基準元素 d 與右指標元素 c 交換 → d 就定位，完成第一次分割</text>
+<text x="111" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[0]</text>
+<text x="185" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[1]</text>
+<text x="259" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[2]</text>
+<text x="333" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[3]</text>
+<text x="407" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[4]</text>
+<text x="481" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[5]</text>
+<text x="555" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[6]</text>
+<text x="629" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[7]</text>
+<rect x="76" y="68" width="70" height="54" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/><text x="111" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#1e3a8a" font-family="Arial">c</text>
+<rect x="150" y="68" width="70" height="54" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/><text x="185" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#1e3a8a" font-family="Arial">b</text>
+<rect x="224" y="68" width="70" height="54" fill="#93C5FD" stroke="#1D4ED8" stroke-width="2.5" rx="9"/><text x="259" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#1e3a8a" font-family="Arial">a</text>
+<rect x="298" y="68" width="70" height="54" fill="#6EE7B7" stroke="#047857" stroke-width="2.5" rx="9"/><text x="333" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#064e3b" font-family="Arial">d</text>
+<rect x="372" y="68" width="70" height="54" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/><text x="407" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#4a2c00" font-family="Arial">f</text>
+<rect x="446" y="68" width="70" height="54" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/><text x="481" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#4a2c00" font-family="Arial">e</text>
+<rect x="520" y="68" width="70" height="54" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/><text x="555" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#4a2c00" font-family="Arial">h</text>
+<rect x="594" y="68" width="70" height="54" fill="#FCD34D" stroke="#D97706" stroke-width="2.5" rx="9"/><text x="629" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#4a2c00" font-family="Arial">g</text>
+<text x="333" y="148" text-anchor="middle" font-size="15" fill="#047857" font-weight="bold" font-family="Arial">▲ d 就定位</text>
+<path d="M78,178 L78,192 L292,192 L292,178" fill="none" stroke="#1D4ED8" stroke-width="2.5"/><text x="185" y="212" text-anchor="middle" font-size="15" fill="#1D4ED8" font-weight="bold" font-family="Arial">左分割區（均 &lt; d）</text>
+<path d="M374,178 L374,192 L662,192 L662,178" fill="none" stroke="#B45309" stroke-width="2.5"/><text x="518" y="212" text-anchor="middle" font-size="15" fill="#B45309" font-weight="bold" font-family="Arial">右分割區（均 &gt; d）</text>
+</svg>

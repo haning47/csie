@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="155">
+<defs>
+  <marker id="arr" markerWidth="12" markerHeight="9"
+          refX="11" refY="4.5" orient="auto">
+    <polygon points="0,0 0,9 11,4.5" fill="#64748B"/>
+  </marker>
+  <marker id="arr_up" markerWidth="12" markerHeight="9"
+          refX="6" refY="9" orient="auto">
+    <polygon points="0,9 12,9 6,0" fill="#555"/>
+  </marker>
+</defs>
+<text x="370" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b" font-family="Arial">初始字元陣列，以第一個元素 d 作為基準元素（Pivot）</text>
+<text x="111" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[0]</text>
+<text x="185" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[1]</text>
+<text x="259" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[2]</text>
+<text x="333" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[3]</text>
+<text x="407" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[4]</text>
+<text x="481" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[5]</text>
+<text x="555" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[6]</text>
+<text x="629" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#475569" font-family="monospace">[7]</text>
+<rect x="76" y="62" width="70" height="54" fill="#8B5CF6" stroke="#5B21B6" stroke-width="2.5" rx="9"/><text x="111" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">d</text>
+<rect x="150" y="62" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="185" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">e</text>
+<rect x="224" y="62" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="259" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">a</text>
+<rect x="298" y="62" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="333" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">c</text>
+<rect x="372" y="62" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="407" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">f</text>
+<rect x="446" y="62" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="481" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">b</text>
+<rect x="520" y="62" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="555" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">h</text>
+<rect x="594" y="62" width="70" height="54" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2.5" rx="9"/><text x="629" y="98" text-anchor="middle" font-size="26" font-weight="bold" fill="white" font-family="Arial">g</text>
+<text x="111" y="142" text-anchor="middle" font-size="15" fill="#7C3AED" font-weight="bold" font-family="Arial">▲ 基準元素 Pivot</text>
+</svg>
