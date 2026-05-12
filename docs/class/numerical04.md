@@ -57,20 +57,15 @@ $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 #include <iostream>
 #include <iomanip>
 using namespace std;
-
 double f(double x) {
     return x * x - 2;
 }
-
 int main() {
     double p1, p2, p3, v1, v2, v3;
-
     cout << "SELECT TWO PROPER END POINTS: ";
     cin >> p1 >> p2;
-
     v1 = f(p1);
     v2 = f(p2);
-
     if (v1 * v2 > 0) {
         cout << "NO ROOT IN INTERVAL." << endl;
     } else {
@@ -88,7 +83,6 @@ int main() {
         cout << fixed << setprecision(6);
         cout << "ROOT IS APPROXIMATELY " << (p1 + p2) / 2 << endl;
     }
-
     return 0;
 }
 ```

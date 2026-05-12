@@ -70,22 +70,23 @@ int main() {
 p(1.5)=15.625
 ```
 這種方式稱為 Horner 法 , 為漸進式解題方法的範例 
-<img src="/img/fig6-1.png" style="width:60%; display:block; margin:0 auto">
-這個計算式的具體範例為 $a_0=1, a_1=2, a_2=3, a_3=4, a_4=5$ 的多項式 $f(x)=5x^4+4x^3+3x^2+2x+1$。
+<img src="/img/fig2-5.png" style="width:60%; display:block; margin:0 auto">
+假設係數為 $a_0=5, a_1=4, a_2=3, a_3=2, a_4=1$ 的多項式 $f(x)=5x^4+4x^3+3x^2+2x+1$。
 
-結果為：
+拆解為：  
 
 $$\begin{aligned}
-f_4 &= f_3 \cdot x + a_0 \\
-f_3 &= f_2 \cdot x + a_1 \\
+f(x) &=(((5x+4)x+3)x+2)x+1 \\
+f_0 &= a_0 \\
+f_1 &= f_0 \cdot x + a_1 \\
 f_2 &= f_1 \cdot x + a_2 \\
-f_1 &= f_0 \cdot x + a_3 \\
-f_0 &= a_4
+f_3 &= f_2 \cdot x + a_3 \\
+f_4 &= f_3 \cdot x + a_4 
 \end{aligned}$$
 
-將其轉成一般式，即為下列的組合：
+通用關係式為：
 
 $$\left\{\begin{array}{l}
-f_i = f_{i-1} \cdot x + a_{n-i} \\[4pt]
-f_0 = a_n
+f_i = f_{i-1} \cdot x + a_{i} \\[4pt]
+f_0 = a_0
 \end{array}\right.$$
