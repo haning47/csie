@@ -81,7 +81,18 @@ export default defineConfig({
               {text: '資料結構及演算法篇',link: '/class/algorighm', 
                       collapsed: true,
                items:[
-                {text: '一. 排序',link:  '/class/sort'},
+                {text: '一. 排序',link: '/class/a1-0_sort',
+                     collapsed: true,
+                 items:[
+                  {text: 'a1-1. ShellSort',link: '/class/a1-1_shellsort'},
+                  {text: 'a1-2. SelectSort',link: '/class/a1-2_selectsort'},
+                  {text: 'a1-3. MergeSort',link: '/class/a1-3_mergesort'},
+                  {text: 'a1-4. HeapSort',link: '/class/a1-4_heapsort'},                
+                  {text: 'a1-5. QuickSort',link: '/class/a1-5_quicksort'},
+                  {text: 'a1-6. STL_sort',link: '/class/a1-6_STLsort'}               
+                ]    
+
+                },
                 {text: '二. 搜尋',link: '/class/a2_search'},
                 {text: '三. 遞迴',link: '/class/recursive'},
                 {text: '四. 圖論',link: '/class/graphy'},

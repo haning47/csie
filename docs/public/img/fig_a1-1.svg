@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="295" font-family="serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8 2,4" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- GAP=2 label -->
+  <text x="165" y="48" font-size="14" text-anchor="middle" font-weight="bold">GAP=2</text>
+
+  <!-- GAP=2 box -->
+  <rect x="110" y="60" width="110" height="190" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="110" y1="98"  x2="220" y2="98"  stroke="black" stroke-width="1"/>
+  <line x1="110" y1="136" x2="220" y2="136" stroke="black" stroke-width="1"/>
+  <line x1="110" y1="174" x2="220" y2="174" stroke="black" stroke-width="1"/>
+  <line x1="110" y1="212" x2="220" y2="212" stroke="black" stroke-width="1"/>
+
+  <!-- Row numbers 1-5 (right of GAP=2 box) -->
+  <text x="230" y="84"  font-size="13">1</text>
+  <text x="230" y="122" font-size="13">2</text>
+  <text x="230" y="160" font-size="13">3</text>
+  <text x="230" y="198" font-size="13">4</text>
+  <text x="230" y="236" font-size="13">5</text>
+
+  <!-- GAP=2 curved arrows (connecting rows 2 apart, on left side) -->
+  <path d="M110,79  Q62,117 110,155" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M110,117 Q62,155 110,193" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M110,155 Q62,193 110,231" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- GAP=1 label -->
+  <text x="345" y="48" font-size="14" text-anchor="middle" font-weight="bold">GAP=1</text>
+
+  <!-- GAP=1 box -->
+  <rect x="290" y="60" width="110" height="190" fill="none" stroke="black" stroke-width="1.5"/>
+  <line x1="290" y1="98"  x2="400" y2="98"  stroke="black" stroke-width="1"/>
+  <line x1="290" y1="136" x2="400" y2="136" stroke="black" stroke-width="1"/>
+  <line x1="290" y1="174" x2="400" y2="174" stroke="black" stroke-width="1"/>
+  <line x1="290" y1="212" x2="400" y2="212" stroke="black" stroke-width="1"/>
+
+  <!-- Row numbers 1-5 (right of GAP=1 box) -->
+  <text x="410" y="84"  font-size="13">1</text>
+  <text x="410" y="122" font-size="13">2</text>
+  <text x="410" y="160" font-size="13">3</text>
+  <text x="410" y="198" font-size="13">4</text>
+  <text x="410" y="236" font-size="13">5</text>
+
+  <!-- GAP=1 curved arrows (adjacent rows, on left side) -->
+  <path d="M290,79  Q268,98  290,117" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M290,117 Q268,136 290,155" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M290,155 Q268,174 290,193" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M290,193 Q268,212 290,231" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+
+</svg>
