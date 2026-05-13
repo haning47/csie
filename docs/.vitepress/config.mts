@@ -78,7 +78,7 @@ export default defineConfig({
                 {text: '5. 解聯立方程式',link: '/class/b5_numerical05'}
                ]
               },
-              {text: '資料結構及演算法篇',link: '/class/algorighm', 
+              {text: '資料結構及演算法篇',link: '/class/a0_algorithm', 
                       collapsed: true,
                items:[
                 {text: '一. 排序',link: '/class/a1-0_sort',
@@ -89,7 +89,8 @@ export default defineConfig({
                   {text: 'a1-3. MergeSort',link: '/class/a1-3_mergesort'},
                   {text: 'a1-4. HeapSort',link: '/class/a1-4_heapsort'},                
                   {text: 'a1-5. QuickSort',link: '/class/a1-5_quicksort'},
-                  {text: 'a1-6. STL_sort',link: '/class/a1-6_STLsort'}               
+                  {text: 'a1-6. RadixSort',link: '/class/a1-6_radixSort'}, 
+                  {text: 'a1-7. STL_sort',link: '/class/a1-7_STLsort'}              
                 ]    
 
                 },
