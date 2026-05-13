@@ -89,7 +89,7 @@ export default defineConfig({
                   {text: 'a1-3. MergeSort',link: '/class/a1-3_mergesort'},
                   {text: 'a1-4. HeapSort',link: '/class/a1-4_heapsort'},                
                   {text: 'a1-5. QuickSort',link: '/class/a1-5_quicksort'},
-                  {text: 'a1-6. RadixSort',link: '/class/a1-6_radixSort'}, 
+                  {text: 'a1-6. RadixSort',link: '/class/a1-6_radixsort'}, 
                   {text: 'a1-7. STL_sort',link: '/class/a1-7_STLsort'}              
                 ]    
 
