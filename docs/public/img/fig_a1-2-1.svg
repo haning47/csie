@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="708" height="728" viewBox="0 0 708 728">
+<text x="354" y="30" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e293b" font-family="Arial">選擇排序法逐回合示意（由小到大）</text>
+<rect x="0" y="42" width="708" height="65" fill="#FFFBEB"/>
+<text x="130" y="83" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">排序前</text>
+<rect x="139" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="166" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">70</text>
+<rect x="195" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="222" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="251" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="278" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">31</text>
+<rect x="307" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="334" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">37</text>
+<rect x="363" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="390" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">10</text>
+<rect x="419" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="446" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">1</text>
+<rect x="475" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="502" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">48</text>
+<rect x="531" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="558" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="587" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="614" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">33</text>
+<rect x="643" y="49" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="82" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="110" width="708" height="65" fill="#F0FDF4"/>
+<text x="130" y="151" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合1：1↔70</text>
+<rect x="139" y="117" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="166" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">1</text>
+<rect x="195" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="222" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="251" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="278" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">31</text>
+<rect x="307" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="334" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">37</text>
+<rect x="363" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="390" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">10</text>
+<rect x="419" y="117" width="54" height="50" fill="#93C5FD" stroke="#3B82F6" stroke-width="2" rx="8"/>
+<text x="446" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">70</text>
+<rect x="475" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="502" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">48</text>
+<rect x="531" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="558" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="587" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="614" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">33</text>
+<rect x="643" y="117" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="178" width="708" height="65" fill="#FFFBEB"/>
+<text x="130" y="219" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合2：10↔80</text>
+<rect x="139" y="185" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="185" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="222" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">10</text>
+<rect x="251" y="185" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="278" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">31</text>
+<rect x="307" y="185" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="334" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">37</text>
+<rect x="363" y="185" width="54" height="50" fill="#93C5FD" stroke="#3B82F6" stroke-width="2" rx="8"/>
+<text x="390" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">80</text>
+<rect x="419" y="185" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="446" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">70</text>
+<rect x="475" y="185" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="502" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">48</text>
+<rect x="531" y="185" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="558" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="587" y="185" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="614" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">33</text>
+<rect x="643" y="185" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="218" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="246" width="708" height="65" fill="#F0FDF4"/>
+<text x="130" y="287" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合3：31 不動</text>
+<rect x="139" y="253" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="253" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="222" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">10</text>
+<rect x="251" y="253" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="278" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">31</text>
+<rect x="307" y="253" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="334" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">37</text>
+<rect x="363" y="253" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="390" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="419" y="253" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="446" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">70</text>
+<rect x="475" y="253" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="502" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">48</text>
+<rect x="531" y="253" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="558" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="587" y="253" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="614" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">33</text>
+<rect x="643" y="253" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="286" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="314" width="708" height="65" fill="#FFFBEB"/>
+<text x="130" y="355" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合4：33↔37</text>
+<rect x="139" y="321" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="321" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="222" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">10</text>
+<rect x="251" y="321" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="278" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">31</text>
+<rect x="307" y="321" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="334" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">33</text>
+<rect x="363" y="321" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="390" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="419" y="321" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="446" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">70</text>
+<rect x="475" y="321" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="502" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">48</text>
+<rect x="531" y="321" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="558" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="587" y="321" width="54" height="50" fill="#93C5FD" stroke="#3B82F6" stroke-width="2" rx="8"/>
+<text x="614" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">37</text>
+<rect x="643" y="321" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="354" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="382" width="708" height="65" fill="#F0FDF4"/>
+<text x="130" y="423" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合5：37↔80</text>
+<rect x="139" y="389" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="389" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="222" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">10</text>
+<rect x="251" y="389" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="278" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">31</text>
+<rect x="307" y="389" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="334" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">33</text>
+<rect x="363" y="389" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="390" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">37</text>
+<rect x="419" y="389" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="446" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">70</text>
+<rect x="475" y="389" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="502" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">48</text>
+<rect x="531" y="389" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="558" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="587" y="389" width="54" height="50" fill="#93C5FD" stroke="#3B82F6" stroke-width="2" rx="8"/>
+<text x="614" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">80</text>
+<rect x="643" y="389" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="422" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="450" width="708" height="65" fill="#FFFBEB"/>
+<text x="130" y="491" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合6：48↔70</text>
+<rect x="139" y="457" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="457" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="222" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">10</text>
+<rect x="251" y="457" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="278" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">31</text>
+<rect x="307" y="457" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="334" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">33</text>
+<rect x="363" y="457" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="390" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">37</text>
+<rect x="419" y="457" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="446" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">48</text>
+<rect x="475" y="457" width="54" height="50" fill="#93C5FD" stroke="#3B82F6" stroke-width="2" rx="8"/>
+<text x="502" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">70</text>
+<rect x="531" y="457" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="558" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="587" y="457" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="614" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="643" y="457" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="490" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="518" width="708" height="65" fill="#F0FDF4"/>
+<text x="130" y="559" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合7：60↔70</text>
+<rect x="139" y="525" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="525" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="222" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">10</text>
+<rect x="251" y="525" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="278" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">31</text>
+<rect x="307" y="525" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="334" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">33</text>
+<rect x="363" y="525" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="390" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">37</text>
+<rect x="419" y="525" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="446" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">48</text>
+<rect x="475" y="525" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="502" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">60</text>
+<rect x="531" y="525" width="54" height="50" fill="#93C5FD" stroke="#3B82F6" stroke-width="2" rx="8"/>
+<text x="558" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e3a8a" font-family="Arial">70</text>
+<rect x="587" y="525" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="614" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="643" y="525" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="558" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="586" width="708" height="65" fill="#FFFBEB"/>
+<text x="130" y="627" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合8：70 不動</text>
+<rect x="139" y="593" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="593" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="222" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">10</text>
+<rect x="251" y="593" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="278" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">31</text>
+<rect x="307" y="593" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="334" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">33</text>
+<rect x="363" y="593" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="390" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">37</text>
+<rect x="419" y="593" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="446" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">48</text>
+<rect x="475" y="593" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="502" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">60</text>
+<rect x="531" y="593" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="558" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">70</text>
+<rect x="587" y="593" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="614" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="643" y="593" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="626" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="0" y="654" width="708" height="65" fill="#F0FDF4"/>
+<text x="130" y="695" text-anchor="end" font-size="17" font-weight="bold" fill="#334155" font-family="Arial">回合9：80 不動</text>
+<rect x="139" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="166" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">1</text>
+<rect x="195" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="222" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">10</text>
+<rect x="251" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="278" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">31</text>
+<rect x="307" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="334" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">33</text>
+<rect x="363" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="390" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">37</text>
+<rect x="419" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="446" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">48</text>
+<rect x="475" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="502" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">60</text>
+<rect x="531" y="661" width="54" height="50" fill="#34D399" stroke="#059669" stroke-width="2" rx="8"/>
+<text x="558" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="#064e3b" font-family="Arial">70</text>
+<rect x="587" y="661" width="54" height="50" fill="#F97316" stroke="#B45309" stroke-width="2" rx="8"/>
+<text x="614" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+<rect x="643" y="661" width="54" height="50" fill="#5B9BD5" stroke="#2E6DA4" stroke-width="2" rx="8"/>
+<text x="670" y="694" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="Arial">80</text>
+</svg>
