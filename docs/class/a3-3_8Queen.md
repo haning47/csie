@@ -184,6 +184,7 @@ int main(){
     <td></td><td></td><td></td><td></td><td></td><td>7</td><td></td><td></td>  
   </tr>
   <tr>
-    <td></td><td></td><td>8</td><td></td><td></td><td></td><td></td><td></td>  
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>  
   </tr>
 </table>
+類似題：走迷宮問題

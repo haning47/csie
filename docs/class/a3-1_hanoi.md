@@ -122,7 +122,7 @@ int main(){
 
 ## 四、TOI 競賽題目
 
-類似題：走迷宮問題
+
 
 - 202203-A3 河內塔　[題目](https://tpmso.org/toi/wp-content/uploads/question/202203/Hanoi.pdf)　[投影片](https://tpmso.org/toi/wp-content/uploads/question/202203/Hanoi.odp)
 - 201912-A1 倉庫整理　[題目](https://tpmso.org/toi/wp-content/uploads/question/201912/A1-Warehouse.pdf)　[投影片](https://tpmso.org/toi/wp-content/uploads/question/201912/A1-Warehouse.pptx)

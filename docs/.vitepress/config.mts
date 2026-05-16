@@ -97,7 +97,8 @@ export default defineConfig({
                      items:[
                       {text: 'a3-1. 河內塔',link: '/class/a3-1_hanoi'},
                       {text: 'a3-2. 空間切割',link: '/class/a3-2_space'},
-                      {text: 'a3-3. 八個皇后',link: '/class/a3-3_8Queen'}                                
+                      {text: 'a3-3. 八個皇后',link: '/class/a3-3_8Queen'},
+                      {text: 'a3-4. 分治法',link: '/class/a3-4_D&C'}                                 
                     ]         
                 },
                 {text: '四. 圖論',link: '/class/graphy'},
