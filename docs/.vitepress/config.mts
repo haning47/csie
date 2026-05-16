@@ -96,7 +96,8 @@ export default defineConfig({
                 {text: '三. 遞迴',collapsed: true,
                      items:[
                       {text: 'a3-1. 河內塔',link: '/class/a3-1_hanoi'},
-                      {text: 'a1-2. 空間切割',link: '/class/a3-2_space'}                                
+                      {text: 'a1-2. 空間切割',link: '/class/a3-2_space'},
+                      {text: 'a1-2. 八個皇后',link: '/class/a3-3_8Queen'}                                
                     ]         
                 },
                 {text: '四. 圖論',link: '/class/graphy'},
