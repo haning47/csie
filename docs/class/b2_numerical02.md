@@ -129,7 +129,7 @@ int combi(int n,int r){
 
 $$\left\{\begin{array}{ll}
 {}_nC_r = {}_{n-1}C_{r-1} + {}_{n-1}C_r & (n>r>0) \\[4pt]
-{}_rC_0 = {}_rC_r = 1 & (r=0 \text{ 或 } n=r)
+{}1 & (r=0 \text{ 或 } r=n)
 \end{array}\right.$$
 
 上列式子如以圖形表示，則為，
@@ -138,7 +138,7 @@ $$\left\{\begin{array}{ll}
 
 <p style="text-align:center">Pascal 三角形</p>
 
-$_rC_0=1$ 為 ${}_{n-1}C_{r-1}$ 的終止條件，$_rC_r=1$ 為 ${}_{n-1}C_r$ 的終止條件。
+$_{n-r}C_0=1$ 為 ${}_{n-1}C_{r-1}$ 的終止條件，$_rC_r=1$ 為 ${}_{n-1}C_r$ 的終止條件。
 
 **程式** 
 

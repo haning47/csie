@@ -12,7 +12,7 @@ outline: deep
 
 以 `[6, 5, 7, 1, 4, 2, 3]` 為例，整個過程可拆成三個階段：
 
-<img src="/img/fig_a1-3-1.svg" alt="合併排序法分治示意圖" width="90%">
+<img src="/img/fig_a1-3-1.png" alt="合併排序法分治示意圖" width="70%">
 
 | 階段 | 說明 |
 |:---:|:---|
@@ -28,9 +28,9 @@ outline: deep
 
 合併的核心操作是將兩個**已排序**的陣列合併成一個更大的排序陣列。方法是同時從兩陣列的最前面開始，每次選出較小的元素放入結果陣列。
 
-以陣列 A = `[10, 15, 45, 60]`、B = `[8, 25]` 為例：
+以陣列 A = `[1, 3, 6, 7]`、B = `[2, 4, 5]` 為例：
 
-<img src="/img/fig_a1-3-2.svg" alt="兩陣列合併過程" width="90%">
+<img src="/img/fig_a1-3-2.png" alt="兩陣列合併過程" width="90%">
 
 演算法如下：
 
@@ -169,8 +169,11 @@ void merge2(int arr[], int L, int mid, int R){
 void merge_sort(int arr[], int l, int r){
     if(l < r){
         int m = (l + r) / 2;
+        //printf("left l=%d r(m)=%d\n",l,m);
         merge_sort(arr, l, m);
+        //printf("right l(m+1)=%d r=%d\n",m+1,r);
         merge_sort(arr, m+1, r);
+        //printf("merge2 l=%d m=%d r=%d\n",l,m,r);
         merge2(arr, l, m, r);
     }
 }
@@ -178,17 +181,19 @@ void merge_sort(int arr[], int l, int r){
 
 </CppRunner>
 
-**測試輸入：**
+**輸入：**
 ```
 7
-6 5 7 1 4 2 3
+6 3 7 1 4 2 5
 ```
-**預期輸出（每次合併後顯示）：**
+**輸出（每次合併後顯示）：**
 ```
-5 6 5 6 7 1 4 2 3
-1 7 5 6 1 7 2 4 2 3
-...
-1 2 3 4 5 6 7
+3 6 7 1 4 2 5 
+3 6 1 7 4 2 5 
+1 3 6 7 4 2 5 
+1 3 6 7 2 4 5 
+1 3 6 7 2 4 5 
+1 2 3 4 5 6 7 
 ```
 
 ---

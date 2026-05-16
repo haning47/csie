@@ -22,7 +22,7 @@ outline: deep
 
 ---
 
-## 用 Hash Table 來解一題簡單的演算法題目
+## 4. 用 Hash Table 來解一題簡單的演算法題目
 
 我們先看個題目 - [Two Sum](https://leetcode.com/problems/two-sum/)，假設我們有一個 array，裡面儲存了一些數字，假設我有一個想要找到的數字 target，請找出 array 中兩個數字的 index，這兩個數字的和必須跟 target 一樣。
 >[!IMPORTANT] 說明
@@ -31,7 +31,7 @@ outline: deep
 
 最直觀的作法是用兩層 for 迴圈，跑過所有可能的組合就可以了，但如果我們被要求只能用 O(n) 複雜度的演算法解出這題要怎麼辦呢。
 
-### 0208two sum_brute.cpp（暴力法）
+### (1) 暴力法 0208two sum_brute.cpp
 
 <CppRunner has-stdin>
 
@@ -55,7 +55,7 @@ int main(){
 
 </CppRunner>
 
-### 0208two sum_hash.cpp（雜湊）
+### (2) 雜湊 0208two sum_hash.cpp
 
 [unorder_map](https://www.geeksforgeeks.org/cpp/map-vs-unordered_map-c/)
 
@@ -86,7 +86,7 @@ int main(){
 
 LeetCode [https://leetcode.com/problemset/](https://leetcode.com/problemset/)
 
-LeetCode 程式寫法 [1103leetcode_twosum_map_3ms.cpp](https://www.onlinegdb.com/x_c_Qb_iI)
+### (3) LeetCode 程式寫法 [1103leetcode_twosum_map_3ms.cpp](https://www.onlinegdb.com/x_c_Qb_iI)
 
 <CppRunner has-stdin>
 
@@ -131,7 +131,18 @@ int main(){
 
 ---
 
-### 前綴和
+**輸入**
+```  
+4  
+2 7 10 14  
+17
+```
+**輸出**
+```
+1 2
+```
+
+## 5. 前綴和
 
 O(1) 的解法：`presum[i] = presum[i-1] + nums[i]`
 
