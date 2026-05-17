@@ -101,7 +101,7 @@ export default defineConfig({
                       {text: 'a3-4. 分治法',link: '/class/a3-4_D&C'}                                 
                     ]         
                 },
-                {text: '四. 圖論',link: '/class/graphy'},
+                {text: '四. 圖論',link: '/class/a4-0_graph'},
                 {text: '五. 動態規劃',link: '/class/DP'}
                ]
               },
