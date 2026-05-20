@@ -94,14 +94,22 @@ export default defineConfig({
                 },
                 {text: '二. 搜尋',link: '/class/a2_search'},
                 {text: '三. 遞迴',collapsed: true,
-                     items:[
+                    items:[
                       {text: 'a3-1. 河內塔',link: '/class/a3-1_hanoi'},
                       {text: 'a3-2. 空間切割',link: '/class/a3-2_space'},
                       {text: 'a3-3. 八個皇后',link: '/class/a3-3_8Queen'},
                       {text: 'a3-4. 分治法',link: '/class/a3-4_D&C'}                                 
                     ]         
                 },
-                {text: '四. 圖論',link: '/class/a4-0_graph'},
+                {text: '四. 圖論',link: '/class/a4-0_graph',collapsed: true,
+                    items:[
+                      {text: 'a4-1. LinkList',link: '/class/a4-1_linklist'},
+                      {text: 'a4-2. AdjacencyList',link: '/class/a4-2_AdjacencyList'},
+                      {text: 'a4-3. DFS',link: '/class/a4-3_DFS'},
+                      {text: 'a4-4. BFS',link: '/class/a4-4_BFS'}, 
+                      {text: 'a4-5. 二元樹的走訪',link: '/class/a4-5_binarytree'}
+                    ]                  
+                },
                 {text: '五. 動態規劃',link: '/class/DP'}
                ]
               },

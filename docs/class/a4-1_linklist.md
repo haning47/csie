@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# 1. LinkList 建立鏈結串列
+# a4-1　LinkList 建立鏈結串列
 
 **例如建立 v[]={1,2,3}**
 

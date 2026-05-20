@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# A3-3　N 個皇后問題（N-Queen Problem）
+# a3-3　N 個皇后問題（N-Queen Problem）
 
 能否在一個 N×N 的西洋棋盤上放置 N 個皇后，使每一個皇后都不會攻擊到其他皇后？（同一列、同一行、同一斜線都算攻擊）
 
@@ -187,4 +187,3 @@ int main(){
     <td></td><td></td><td>8</td><td></td><td></td><td></td><td></td><td></td>  
   </tr>
 </table>
-類似題：走迷宮問題
