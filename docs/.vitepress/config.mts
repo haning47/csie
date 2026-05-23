@@ -107,7 +107,8 @@ export default defineConfig({
                       {text: 'a4-2. AdjacencyList',link: '/class/a4-2_AdjacencyList'},
                       {text: 'a4-3. DFS',link: '/class/a4-3_DFS'},
                       {text: 'a4-4. BFS',link: '/class/a4-4_BFS'}, 
-                      {text: 'a4-5. 二元樹的走訪',link: '/class/a4-5_binarytree'}
+                      {text: 'a4-5. 二元樹的走訪',link: '/class/a4-5_binarytree'},
+                      {text: 'a4-6. 經典問題',link: '/class/a4-6_classic'}
                     ]                  
                 },
                 {text: '五. 動態規劃',link: '/class/DP'}
@@ -116,7 +117,8 @@ export default defineConfig({
               {text: '附錄',link: '/class/appendix' ,
                        collapsed: true,
                items:[
-                {text: 'STL介紹',link: '/class/c1_STL'},
+                {text: '變數與迴圈',link: '/class/c1_variable'},
+                {text: 'STL介紹',link: '/class/c2_STL'},
                 {text: '參考資料',link: '/class/reference'}
                ]
               }

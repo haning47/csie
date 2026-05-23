@@ -2,27 +2,27 @@
 outline: deep
 ---
 
-# 3. 圖形走訪
+# a4-3.　深度優先搜尋 (Depth-First-Search)
 
-## ➢ 深度優先搜尋（DFS Depth-First-Search）
 
-![DFS 圖形範例](/img/fig_a4-3-1.png){width=80%}
+
+![DFS 圖形範例](/img/fig_a4-3-1.png){width=50%}
 
 走訪順序：1→2→4→8→5→6→3→7
 
-演算法：（堆疊）
-a. 設定頂點 v 已走訪過
+演算法：（堆疊）  
+a. 設定頂點 v 已走訪過  
 b. 如 v 存在一個鄰接頂點 w 未走訪過，則遞迴呼叫函數 dfs(w)
 
-![堆疊走訪過程示意](/img/fig_a4-3-2.png){width=80%}
+![堆疊走訪過程示意](/img/fig_a4-3-2.png){width=40%}
 
 ---
 
 ### – DFS 鄰接陣列_陣列遞迴
 
-[0401DFS_Matrix_Recursive.cpp](https://onlinegdb.com/)
+![DFS 鄰接陣列範例圖](/img/fig_a4-3-3.png){width=25%} 
 
-![DFS 鄰接陣列範例圖](/img/fig_a4-3-3.png){width=60%}
+[0401DFS_Matrix_Recursive.cpp](https://onlinegdb.com/GcI6oK1R_)
 
 <CppRunner has-stdin>
 
@@ -41,7 +41,7 @@ int a[N+1][N+1]={{0,0,0,0,0,0,0,0,0},           // 鄰接矩陣
                  {0,0,0,0,0,1,0,1,1},
                  {0,0,0,1,0,0,1,0,1},
                  {0,0,0,0,0,0,1,1,0}};
-bool v[N+1]={};                                  // visited旗標
+bool v[N+1]={};                                  // visited 歸 0
 void dfs(int);
 int main(){
     int i,n;
@@ -66,14 +66,11 @@ void dfs(int i){
 ```
 1>2   2>3   3>5   5>4   5>6   6>7   7>8
 ```
-
-[老鼠走迷宮](https://onlinegdb.com/) [一個路徑](https://onlinegdb.com/) [所有路徑](https://onlinegdb.com/)
-
 ---
 
 ### – DFS 鄰接陣列_STL
 
-[0402DFS_Matrix_STL_Satck.cpp](https://onlinegdb.com/)
+[0402DFS_Matrix_STL_Satck.cpp](https://onlinegdb.com/nJEws9qGp1)
 
 <CppRunner has-stdin>
 
@@ -93,17 +90,17 @@ int a[N+1][N+1]={{0,0,0,0,0,0,0,0,0},
                  {0,0,0,0,0,1,0,1,1},
                  {0,0,0,1,0,0,1,0,1},
                  {0,0,0,0,0,0,1,1,0}};
-bool v[N+1]={};                                  // 查訪旗標 0
+bool v[N+1]={};                                  // 查訪旗標歸 0
 int main(){
     int i,j;
     bool visit;
-    cin>>i;                                      //設定起始節點
+    cin>>i;                                      // i 設定起始節點
     stack<int> s;
     s.push(i);v[i]=1;
     while (!s.empty()){                          //一直做到 stack空為止
         i=s.top();                               //把top設為起點
         visit=false;
-        for (j=1;j<=N;j++){                      //找此點尚未走訪過的鄰小連接點壓進stack
+        for (j=1;j<=N;j++){               //找此點尚未走訪過的鄰小連接點壓進stack
             if (a[i][j]==1 && v[j]==0){          //壓入stack
                 s.push(j);                       //印出已造訪過的點
                 cout << i << ">" << j << "   ";
@@ -112,7 +109,7 @@ int main(){
                 break;                           //找到就離開迴圈
             }
         }
-        if (visit==false) s.pop();               //都沒有尚未走訪過的連接點，則pop掉
+        if (visit==false) s.pop();        //都沒有尚未走訪過的連接點，則pop掉
     }
 }
 ```
@@ -123,64 +120,71 @@ int main(){
 ```
 1>2   2>3   3>5   5>4   5>6   6>7   7>8
 ```
+類似題：
+[老鼠走迷宮](https://openhome.cc/zh-tw/algorithm/basics/maze/) [一個路徑](https://www.onlinegdb.com/-JE8jli61) [所有路徑](https://www.onlinegdb.com/NTeRLt9jw)
 
 ---
 
 ### – DFS 鄰接串列_Vector
 
-[0403DFS_List_vector.cpp](https://onlinegdb.com/)　　8 個節點，7 條邊，無向圖
+[0403DFS_List_vector.cpp](https://www.onlinegdb.com/B4jcQjh2B)　　8 個節點，7 條邊，無向圖
 
-![DFS 鄰接串列 Vector 圖形](/img/fig_a4-3-5.png){width=60%}
-
-![鄰接串列結構與走訪結果](/img/fig_a4-3-4.png){width=80%}
+![鄰接串列結構與走訪結果](/img/fig_a4-3-4.png){width=1000%}
 
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
+/*測資 8個點7條邊 無向圖列出List， 及從1開始的DFS */
+/* 8 7 0 1 0 2 0 3 7 0 1 5 1 4 3 6 1           */
 #include<iostream>
 #include<vector>
 #include<algorithm>
 using namespace std;
-
-int n,m,i,j,s,e,start;
-vector<int> a[100];
-
-void DFS(int s, int *it, bool *v);
+vector <int> a[100];                        //設定節點數
+void DFS(int,int*,bool*);
 
 int main(){
-    cin >> n >> m;
-    int it[n]={};
+	int n,m,i,j,s,e,start;
+	cin >> n >> m;                          //輸入有n個點 m條邊
+	int it[n]={};                           //it:走訪指標  v:走訪過
     bool v[n]={};
-    for(i=0;i<n;i++) a[i].push_back(i);          //初始化Adjacency Lists
-    for(i=0;i<m;i++){
-        cin >> s >> e;
-        a[s].push_back(e);                        //建立鄰接串列 Adjacency Lists
-        a[e].push_back(s);
-    }
-    for (i=0;i<n;i++){
-        sort(a[i].begin()+1,a[i].end());          //排序每列的資料
-    }
-    for (i=0;i<n;i++){
-        for (j=0;j<(int)a[i].size();j++){
-            cout << a[i][j] << " ";               //印出Adjacency Lists的資料
-        }
-        cout<<"\n";
-    }
-    cin >> start;                                 //輸入起點
-    DFS(start,it,v);
+	for (i=0;i<n;i++) a[i].push_back(i);    //初始化鄰接串列
+	for (i=0;i<m;i++){
+		cin >> s >> e;
+		a[s].push_back(e);                  //建立鄰接串列 Adjacency Lists
+		a[e].push_back(s);
+	}
+
+	for (i=0;i<n;i++){
+		sort(a[i].begin()+1,a[i].end());    //排序裡面的資料
+	}
+
+	for (i=0;i<n;i++){
+		for (j=0;j<a[i].size();j++)
+			cout<< a[i][j] << " ";          //印出Adjacency Lists的資料
+			cout<<"\n";
+	}
+	cin >> start;                           //輸入從哪一點開始走訪
+	DFS(start,it,v);
 }
-void DFS(int s, int *it, bool *v){
-    int t;
-    v[s]=1;                                       //設為已走訪
-    cout << s <<" ";
-    for(i=it[s];i<(int)a[s].size();i++){          //走訪每一個與s連接的Adjacency Lists
-        t=a[s][i];
-        if(v[t]==false){                          //沒有走訪過
-            it[s]=i;
-            DFS(t,it,v);
-        }
+
+void DFS(int s,int *it,bool *v){
+	int t;
+    cout << s << " ";
+    v[s]=1;                                 //進入點設為走訪過
+    it[s]++;                                //指標+1 判斷下一個點
+    while (it[s]<a[s].size()){              // 判斷沒有超過該點連接數
+        t=it[s];                            // t 下一個連接點的位置
+        if (v[a[s][t]]!=1)                  // 如果下一個連接點沒有走訪過
+            DFS(a[s][t],it,v);              // dfs走訪下一點
+        it[s]++;                            // 走訪指標+1 不走訪 繼續判斷下一點
     }
 }
+
+
+
+
+
 ```
 
 </CppRunner>
@@ -189,67 +193,71 @@ void DFS(int s, int *it, bool *v){
 
 ### – DFS 鄰接串列_Point
 
-[0404DFS_List_Ptr.cpp](https://onlinegdb.com/)
+[0404DFS_List_Ptr.cpp](https://onlinegdb.com/upo30EtYI)
 
-![DFS 鄰接串列 Point 有向圖](/img/fig_a4-3-6.png){width=60%}
+![DFS 鄰接串列 Point 有向圖](/img/fig_a4-3-5.png){width=40%}
 
 8 個節點，7 條邊，有向圖
-
-執行結果（沒有將 List 中由小到大串接，走訪順序僅為其中一條）
 
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
-//Adjacency list 有向圖
+//Adjacency List 有向圖
 #include<iostream>
-#include<stdlib.h>
 using namespace std;
-struct node{                                      //Linklist結構 node
-    int value;
-    node *next;
-}*mp[100],*now[100],*in;                         //設定3個node結構變數
+struct node{					//LinkList結構 node
+	int value;
+	node *next;
+}*mp[100],*now[100],*in;        //設定3個node結構變數
+void DFS(int,int[]);
 
-void DFS(int s, bool v[]);
 int main(){
-    int i,start;
-    int s,e,n,m;
-    cin >>n>>m;
-    for(i=0;i<n;i++){
-        mp[i]=new node;
-        mp[i]->value=i;
-        mp[i]->next=NULL;
-        now[i]=mp[i];
+	int i,start;
+	int n,m,s,e;
+	cin >>n>>m;                 //n個節點 m條邊
+	int v[n]={0};
+	for(i=0;i<n;i++){
+       mp[i]=new node;          //mp:設定Graph節點值 now:每個節點目前連結的node
+       mp[i]->value=i;
+       mp[i]->next=NULL;
+       now[i]=mp[i];
     }
-    for (i=0;i<m;i++){
-        cin>>s>>e;                               //每條邊的起點node s 終點node e
-        in=new node;                             //輸入一個新的節點 in
-        in->value=e;                             //設定 in 的值
-        in->next=NULL;                           //新節點指向下一個節點為 NULL（大寫）
-        now[s]->next=in;                         //把now的下一個節點指向in
-        now[s]=in;                               //now移到in
-    }
-    for(i=0;i<n;i++){
-        while(mp[i] != NULL){                    //輸出LinkList中所有值
-            cout << mp[i]->value << " ";
-            mp[i]=mp[i]->next;
+	for (i=0;i<m;i++){
+        cin>>s>>e;             //每條邊的起點node s 終點node e
+        in=new node;           //輸入一個新的節點 in
+    	in->value=e;           //設定 in 的值
+		in->next=NULL;         //新節點指向下一個節點為 NULL (大寫)
+		now[s]->next=in;       //把now的下一個節點指向in
+        now[s]=in;             //now移到in
+/* 加此段可建立無向圖*/
+/*
+        in=new node;           //輸入一個新的節點 in
+    	in->value=s;           //設定 in 的值
+		in->next=NULL;         //新節點指向下一個節點為 NULL (大寫)
+		now[e]->next=in;       //把now的下一個節點指向in
+        now[e]=in;             //now移到in
+*/
+	}
+	for(i=0;i<n;i++){
+         now[i]=mp[i];
+         while (now[i] != NULL){       //印出LinkList中所有值
+            cout << now[i]->value << " ";
+            now[i]=now[i]->next;
         }
-        cout<<"\n";
-    }
-    cin>>start;
-    bool v[n]={};
-    DFS(start,v);
+        cout <<"\n";
+	}
+	cin>>start;
+	DFS(start,v);
 }
-void DFS(int s, bool v[]){
-    node *t;
-    v[s]=true;
-    cout << s << " ";
-    t=mp[s]->next;
-    while(t != NULL){
-        if(v[t->value]==false){
-            DFS(t->value,v);
-        }
-        t=t->next;
-    }
+void DFS(int s,int v[]){
+        cout <<s<< " ";
+        v[s]=1;                         //進入點設為走訪過
+        mp[s]=mp[s]->next;              // 走訪指標+1
+     	while (mp[s]!=NULL){            // 判斷沒有超過該點連接數
+			if (v[mp[s]->value]!=1)     // 如果下一個連接點沒有走訪過
+				  DFS(mp[s]->value,v);  // 遞迴dfs
+			mp[s]=mp[s]->next;          // 走訪指標+1 不走訪 繼續判斷下一點
+		}
 }
 ```
 
@@ -257,13 +265,32 @@ void DFS(int s, bool v[]){
 
 ---
 
+輸入：
+``` 
+8 7 
+0 1 0 2 0 3 7 0 1 5 1 4 3 6 
+1
+```
+
+執行結果（沒有將 List 中由小到大串接，走訪順序僅為其中一條）
+```
+1 5 4
+```
+
 ## 練習題
 
 無向圖
 
-![練習題無向圖](/img/fig_a4-3-7.png){width=60%}
+![練習題無向圖](/img/fig_a4-3-6.png){width=50%}
 
-執行結果：
+**輸入：8個節點 10條邊 節點4為起點**
+
+```
+8 10
+0 1 0 2 1 3 1 4 2 6 2 5 7 4 7 3 7 6 7 5 
+4
+```
+**執行結果：**
 ```
 0 1 2
 1 0 3 4

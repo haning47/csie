@@ -1,105 +1,13 @@
 ---
 outline: deep
 ---
-
 # STL 介紹
 
-## 一、變數、範圍型迴圈
-
-### 1. for(auto &i:s)、const
-
-🔥 **auto / auto& / const auto& 速查表**
-
-| 寫法 | 是否拷貝 | 能否修改原資料 | 效率 | 什麼時候用 |
-|---|---|---|---|---|
-| `auto i` | ✅ 會拷貝 | ❌ 不行 | ❌ 較慢 | 型別很小、只是臨時用 |
-| `auto& i` | ❌ 不拷貝 | ✅ 可以 | ✅ 快 | 要修改元素 |
-| `const auto& i` | ❌ 不拷貝 | ❌ 不行 | ⭐ 最佳 | 只讀（最常用）|
-
->[!Tip] 說明
->`for (auto i : v)`    // i 是「複製品」<br>
->`for (auto& i : v)`   // i 是「原本元素本人」<br>
->`const` 變數不可被修改
-
-[1007for\_auto.cpp](https://onlinegdb.com/)
-
-<CppRunner>
-
-```cpp:line-numbers
-#include<iostream>
-using namespace std;
-int main(){
-    string s="hello";
-    for( auto i:s){     //s沒改
-        i=toupper(i);
-        cout <<i;
-    }
-    cout <<"\n"<<s<<"\n";
-    for(auto& i:s){     //s也改了
-        i=toupper(i);
-        cout <<i;
-    }
-    cout <<"\n"<<s;
-}
-```
-
-</CppRunner>
-
-
-**輸出：**
-
-```
-HELLO
-hello
-HELLO
-HELLO
-```
-
-### 2. static、const
-
-[1007static.cpp](https://onlinegdb.com/)
-
-<CppRunner>
-
-```cpp:line-numbers
-#include<iostream>
-using namespace std;
-void boo(const int);
-int main(){
-    int n=5;
-    boo(n);
-}
-//static每次呼叫保留上一次的值
-void boo(const int n){
-    static int num=0;
-    if(num==n) return;
-    cout<<"num="<<num++<<"\n";
-    boo(n);
-}
-```
-
-</CppRunner>
-
-
-**輸出：**
-
-```
-num=0
-num=1
-num=2
-num=3
-num=4
-```
-
-要重覆呼叫函數來計數，但每次呼叫要累加不能歸零，即使用 `static` 靜態變數
-
----
-
-## 二、[STL 的定義](https://www.geeksforgeeks.org/cpp/the-c-standard-template-library-stl/)
+## [STL 的定義](https://www.geeksforgeeks.org/cpp/the-c-standard-template-library-stl/)
 
 STL 原文為 Standard Template Library，是 C++ 標準程式庫的一部分，其中包含 3 個常用元件，分別為演算法（algorithms）、容器（containers）、疊代器（iterators）。
 
-### [STL Container](https://jasonblog.github.io/note/c++/stl_rong_qi_4e0029_-_ji_ben_jie_shao.html) 整理
+## 一、[STL Container](https://jasonblog.github.io/note/c++/stl_rong_qi_4e0029_-_ji_ben_jie_shao.html) 整理
 
 #### 序列式容器 (Sequence Containers)
 
@@ -576,7 +484,7 @@ pig找不到
 
 ---
 
-## 三、[STL Algorithm](https://www.geeksforgeeks.org/cpp/c-magicians-stl-algorithms/) | [ref.](https://en.cppreference.com/w/cpp/algorithm.html)
+## 二、[STL Algorithm](https://www.geeksforgeeks.org/cpp/c-magicians-stl-algorithms/) | [ref.](https://en.cppreference.com/w/cpp/algorithm.html)
 
 ### 1. [swap](https://www.geeksforgeeks.org/cpp/swap-in-cpp/)(a, b) 交換2數
 
@@ -714,7 +622,7 @@ for(int i=0;i<k-a;i++) cout<<a[i]<<" ";
 
 ---
 
-## 四、[STL Numeric](https://www.geeksforgeeks.org/cpp/numeric-library-c-stl/) | [ref.](https://en.cppreference.com/w/cpp/numeric.html)
+## 三、[STL Numeric](https://www.geeksforgeeks.org/cpp/numeric-library-c-stl/) | [ref.](https://en.cppreference.com/w/cpp/numeric.html)
 
 ### 1. [accumulate](https://www.geeksforgeeks.org/cpp/accumulate-and-partial_sum-in-c-stl-numeric-header/)(first, last, init_value) 給定初始值，陣列全部相加
 
