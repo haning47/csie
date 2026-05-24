@@ -512,6 +512,7 @@ cout<<it-a;   //2
 ```cpp:line-numbers
 int a[]={3,5,7,2,4,35,21,0,8,9};
 sort(a,a+10);
+for (auto &i :a ) cout << i <<" ";
 ```
 
 </CppRunner>
@@ -524,6 +525,7 @@ vector 型
 ```cpp:line-numbers
 vector<int> a={1,7,6,4,5,3,7,8,9,0};
 sort(a.begin(),a.end());
+for (auto &i :a ) cout << i <<" ";
 ```
 
 </CppRunner>

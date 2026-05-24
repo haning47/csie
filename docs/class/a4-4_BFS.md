@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# a4-4.　BFS 廣度優先搜尋 (Breadth-first search)
+# a4-4　BFS 廣度優先搜尋 (Breadth-first search)
 
 ![BFS 示意圖](/img/fig_a4-3-1.png){width=50%}
 

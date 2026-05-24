@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# a4-3.　深度優先搜尋 (Depth-First-Search)
+# a4-3　深度優先搜尋 (Depth-First-Search)
 
 
 

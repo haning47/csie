@@ -111,14 +111,23 @@ export default defineConfig({
                       {text: 'a4-6. 經典問題',link: '/class/a4-6_classic'}
                     ]                  
                 },
-                {text: '五. 動態規劃',link: '/class/DP'}
+                {text: '五. 動態規劃',link: '/class/a5-0_DP',collapsed: true,
+                    items:[
+                      {text: 'a5-1. 郵票問題',link: '/class/a5-1_stamp'},
+                      {text: 'a5-2. 鋪磁磚問題',link: '/class/a5-2_tiles'},
+                      {text: 'a5-3. 0/1 背包',link: '/class/a5-3_knapsack'},
+                      {text: 'a5-4. 最長共同字串',link: '/class/a5-4_LCS'}, 
+                      {text: 'a5-5. 最小成本擴張樹',link: '/class/a5-5_MST'},
+                      {text: 'a5-6. 最短路徑',link: '/class/a5-6_shortest'}
+                    ]                 
+                 }
                ]
               },
-              {text: '附錄',link: '/class/appendix' ,
-                       collapsed: true,
+              {text: '附錄', collapsed: true,
                items:[
                 {text: '變數與迴圈',link: '/class/c1_variable'},
                 {text: 'STL介紹',link: '/class/c2_STL'},
+                {text: '讀檔',link: '/class/c3_readfile'},
                 {text: '參考資料',link: '/class/reference'}
                ]
               }
