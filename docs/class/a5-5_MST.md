@@ -4,6 +4,7 @@ outline: deep
 
 # a5-5　最小成本生成樹 MST（Minimum Spanning Tree）
 <PasswordGate password="sssh">
+
 ## ➢ Prim 演算法
 
 1. 開始時設定 $U = \{1\}$
