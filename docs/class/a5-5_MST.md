@@ -44,4 +44,4 @@ outline: deep
 ### Kruskal 過程表
 
 ![Kruskal 演算法執行過程表格](/img/fig_a5-5-kruskal-table.png)
-<PasswordGate >
+</PasswordGate >
