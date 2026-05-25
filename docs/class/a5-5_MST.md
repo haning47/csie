@@ -3,7 +3,7 @@ outline: deep
 ---
 
 # a5-5　最小成本生成樹 MST（Minimum Spanning Tree）
-
+<PasswordGate password="sssh">
 ## ➢ Prim 演算法
 
 1. 開始時設定 $U = \{1\}$
@@ -43,3 +43,4 @@ outline: deep
 ### Kruskal 過程表
 
 ![Kruskal 演算法執行過程表格](/img/fig_a5-5-kruskal-table.png)
+<PasswordGate >
