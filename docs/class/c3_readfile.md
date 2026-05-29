@@ -48,47 +48,43 @@ int main(){
 
 **Windows 執行方式：**
 
-![Windows 命令列執行結果](/img/fig_c3-run-win.png)
+>E:\>prog < CodeIn.txt  
+>12 3 64
 
-**Ubuntu / Linux 執行方式：**
+**Ubuntu / Linux 執行方式：**  
+
+>user@thspc:~$ ./text < in.txt > out.txt
 
 ![Ubuntu 執行方式](/img/fig_c3-run-linux.png)
 
----
 
 ## 2. 程式讀檔
 
-![程式讀檔範例（ifstream / ofstream）](/img/fig_c3-fileio-code.png)
-
-<CppRunner>
+<CppRunner >
 
 ```cpp:line-numbers
+/* 在本機執行 */
 #include <iostream>
 #include<fstream>
 using namespace std;
 int main()
 {
     int n;
-    ifstream ifile("in.txt",ios::in);    //讀入測資檔
+    ifstream ifile("in.txt",ios::in);    //讀入測資檔  in.txt -> [ 5 4 3 2 1 ]
     ofstream ofile("out.txt",ios::out);  //輸出答案檔
-    ios_base::sync_with_stdio(false);    //關閉cin與stdin同步, 加速用
-    cin.tie(NULL);    //取消cin和cout綁定，加速用
-
-    cout<<"Input Number ";cin>>n;
-
-    for(int i=0;i<10;i++)
-        ifile>>n;
-
-    for(int i=0;i<10;i++)
-        ofile<<rand()%100<<" ";
-
+    cout<<"Input Number ";cin>>n; //從鍵盤讀資料給 n
+    cout << n;
+    for(int i=0;i<5;i++){
+        ifile>>n; //從in.txt讀資料給 n
+        cout << n <<" ";
+    }
+    for(int i=0;i<5;i++)
+        ofile<<rand()%100<<" "; //亂數產生5個數 輸出到out.txt
     return 0;
 }
 ```
-
 </CppRunner>
 
----
 
 ## 3. 加速設定
 

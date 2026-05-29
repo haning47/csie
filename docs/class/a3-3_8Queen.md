@@ -8,7 +8,6 @@ outline: deep
 
 參考資料：[回溯法 Backtracking、分支定界法 Branch and Bound](https://medium.com/@ralph-tech/%E6%BC%94%E7%AE%97%E6%B3%95%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9E%E6%BA%AF%E6%B3%95-backtracking-%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95-branch-and-bound-29165391c377)
 
----
 
 ## 一、兩種解法比較
 
@@ -19,24 +18,26 @@ outline: deep
 
 > 暴力法的 for 迴圈對每一行都從 0 跑到 N-1，完全不限制欄位是否重複，所以是 $N^N$。回溯法透過提早剪枝大幅縮小搜尋空間。
 
----
 
 ## 二、4-Queen 回溯法狀態樹
 
-### 暴力法：全部放完才驗證
+- **暴力法：全部放完才驗證** 
+- **回溯法：發現衝突立即剪枝**  
 
-<img src="/img/fig_a3-3-1.svg" alt="暴力法示意" width="90%">
+>簡化狀態，每一欄(Column)只放一個皇后。以 4×4 棋盤為例，紅色節點與前面皇后衝突，立即停止，不再往下搜尋。綠色節點為找到一組解。  
 
-### 回溯法：發現衝突立即剪枝
+**皇后1 在(0,0)**
+<div style="display: flex; gap: 5px;">
+    <img src="/img/fig_a3-3-1.png" alt="暴力法(0,0)" width="65%">
+    <img src="/img/fig_a3-3-2.png" alt="回溯法(0,0)" width="55%">
+</div>
 
-以 4×4 棋盤為例，每個節點代表「將皇后放在第幾列（0–3）」。紅色節點與前面皇后衝突，立即停止，不再往下搜尋；金色⭐為找到的解。
-
-<img src="/img/fig_a3-3-2.svg" alt="4-Queen 回溯法狀態樹" width="90%">
-
-4-Queen 共有 **2 組解**：`[1, 3, 0, 2]` 和 `[2, 0, 3, 1]`（數字代表每一行的皇后放在第幾列，從 0 開始）。
-
----
-
+**皇后1 在(0,1)**
+<div style="display: flex; gap: 5px;">
+    <img src="/img/fig_a3-3-3.png" alt="暴力法(0,1)" width="60%">
+    <img src="/img/fig_a3-3-4.png" alt="回溯法(0,1)" width="55%">
+</div>
+  
 ## 三、程式碼
 
 ### 方法一：暴力法
