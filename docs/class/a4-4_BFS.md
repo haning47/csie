@@ -200,10 +200,10 @@ void BFS(int s,bool *v){
 
 ## – BFS 鄰接串列_結構指標
 
-<u>**[0504BFS_List_Ptr.cpp（有向圖）]**</u>
+**0504BFS_List_Ptr.cpp（有向圖）**
 
 <details>
-<summary>點我打開程式</summary>
+<summary><u><b>BFS範例程式</b></u></summary>
 
 <CppRunner has-stdin>
 

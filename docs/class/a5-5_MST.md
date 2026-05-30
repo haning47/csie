@@ -7,7 +7,6 @@ outline: deep
 
 給定一個**加權無向連通圖** $G = (V, E)$，**最小生成樹（MST）** 是一棵包含所有頂點的樹，且所有邊的權重總和最小。
 
-
 ## 方法一：Prim 演算法
 
 ### 核心概念
@@ -138,7 +137,8 @@ $$\text{總權重} = 1 + 2 + 2 + 3 + 5 = \mathbf{13}$$
 邊集合依權重排序 例如 (3,4)=1 (1,3)=2 及總權重  
 無法連通時，顯示無法建立MST  
 
-::: details Kruskal範例程式
+<details>
+<summary><u><b> Kruskal範例程式</b></u></summary>
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
@@ -214,9 +214,12 @@ int main() {
 }
 ```
 </CppRunner>
-:::
 
-:::details Prim範例程式
+</details>
+
+<details>
+
+<summary><u><b>Prim範例程式</b></u></summary>
 
 <CppRunner has-stdin>
 
@@ -286,7 +289,8 @@ int main() {
 }
 ```
 </CppRunner>
-:::
+
+</details>
 
 **輸入測資**
 ```
