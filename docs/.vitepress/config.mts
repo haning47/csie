@@ -32,7 +32,8 @@ export default defineConfig({
         items: [
           { text: '免費字型', link: '/resource/fonts' },
           { text: '程式設計', link: '/resource/coding' },
-          { text: '人工智慧', link: '/resource/AI' }
+          { text: '人工智慧', link: '/resource/AI' },
+          { text: '著作權合理使用', link: '/resource/Copyright' }
         ]
 	    },
       { text: '資訊競賽',  
@@ -142,7 +143,8 @@ export default defineConfig({
         items: [
           { text: '免費字型', link: '/resource/fonts' },
           { text: '程式設計', link: '/resource/coding' },
-          { text: '人工智慧', link: '/resource/AI' }
+          { text: '人工智慧', link: '/resource/AI' },
+          { text: '著作權合理使用', link: '/resource/Copyright' }
         ]
       },
       {
