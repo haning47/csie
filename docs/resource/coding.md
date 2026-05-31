@@ -15,6 +15,7 @@
 |         |[高中資訊學科中心-進階程式設計](https://ghresource.k12ea.gov.tw/nss/p/InformationTechnologyTPD05)|
 |學習筆記 |[臺大程式解題社](https://guide.ntucpc.org/ImplementationKnowledge/basic_knowledge/)|
 |        |[Yui Huang 演算法學習筆記](https://yuihuang.com/)|
+|        |[演算法海牛](https://www.facebook.com/algo.seacow)|
 |        |[吳邦一教授AP325](https://drive.google.com/drive/folders/10hZCMHH0YgsfguVZCHU7EYiG8qJE5f-m?fbclid=IwAR3k66rlOuLB7a2eUuA7rtDymyQSXA7dbutgeKKMPAnRdWqt9Bk0dDMjlLk)|[台中一中題庫(配合講義)](https://judge.tcirc.tw/problems/?category=3)<br>[錄影課程(py)](https://www.youtube.com/playlist?list=PLpmg1QLbgMuRQXHRkX9iDHyAVIW1D6OJF)|
 |       |[從零開始的演算法競賽入門教學](https://emanlaicepsa.github.io/)|
 |       |[LeetCode刷題學習筆記](https://hackmd.io/@meyr543/Bk2Nd21AY#Leetcode%E5%88%B7%E9%A1%8C%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E2%80%93-Prefix-Sum)|

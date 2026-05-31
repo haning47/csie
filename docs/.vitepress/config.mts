@@ -129,7 +129,7 @@ export default defineConfig({
                 {text: '變數與迴圈',link: '/class/c1_variable'},
                 {text: 'STL介紹',link: '/class/c2_STL'},
                 {text: '讀檔',link: '/class/c3_readfile'},
-                {text: '參考資料',link: '/class/reference'}
+                {text: '參考資料',link: '/class/c4_reference'}
                ]
               }
             ]
