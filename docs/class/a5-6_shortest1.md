@@ -40,72 +40,45 @@ outline: deep
 
 ## 執行步驟
 
-找出 dist(x)最小值，表示要經過這點 w
+### 1. 經過頂點 2（dist 最小值）
 
-### 1. 經過②
-
-<table style="text-align:center; width:100%">
-<thead><tr><th>求小值</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
-<tbody>
-<tr><td>新 dist</td><td>0</td><td>35</td><td>80</td><td>65</td><td>∞</td><td>∞</td></tr>
-<tr><td>dist(x)</td><td>0</td><td>35</td><td>∞</td><td>∞</td><td>∞</td><td>∞</td></tr>
-<tr><td>經過②</td><td></td><td>①→②</td><td>①→②<br>+<br>②→③</td><td>①→②<br>+<br>②→④</td><td>①→②<br>+<br>②→⑤</td><td>①→②<br>+<br>②→⑥</td></tr>
-</tbody>
-</table>
+| 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 35 | 80 | 65 | ∞ | ∞ |
 
 $$\text{dist}[3] = \min(\infty,\ 35+45) = 80$$
 $$\text{dist}[4] = \min(\infty,\ 35+30) = 65$$
 
-### 2. 經過④（因 65 < 80，先選經過 ④）
+### 2. 經過頂點 4（因 65 < 80，先選經過 4）
 
-<table style="text-align:center; width:100%">
-<thead><tr><th>求小值</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
-<tbody>
-<tr><td>新 dist</td><td>0</td><td>35</td><td>80</td><td>65</td><td>110</td><td>195</td></tr>
-<tr><td>dist(x)</td><td>0</td><td>35</td><td>80</td><td>65</td><td>∞</td><td>∞</td></tr>
-<tr><td>經過④</td><td></td><td>①→④<br>+<br>④→②</td><td>①→④<br>+<br>④→③</td><td>①→④</td><td>①→④<br>+<br>④→⑤</td><td>①→④<br>+<br>④→⑥</td></tr>
-</tbody>
-</table>
+| 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 35 | 80 | 65 | 110 | 195 |
 
 $$\text{dist}[5] = \min(\infty,\ 65+45) = 110$$
 $$\text{dist}[6] = \min(\infty,\ 65+130) = 195$$
 
-### 3. 經過③（從還沒選過的點選最小值）
+### 3. 經過頂點 3（從還沒選過的點選最小值）
 
-<table style="text-align:center; width:100%">
-<thead><tr><th>求小值</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
-<tbody>
-<tr><td>新 dist</td><td>0</td><td>35</td><td>80</td><td>65</td><td>105</td><td>195</td></tr>
-<tr><td>dist(x)</td><td>0</td><td>35</td><td>80</td><td>65</td><td>110</td><td>195</td></tr>
-<tr><td>經過③</td><td></td><td>①→③<br>+<br>③→②</td><td>①→③</td><td>①→③<br>+<br>③→④</td><td>①→③<br>+<br>③→⑤<br>=105</td><td>①→③<br>+<br>③→⑥</td></tr>
-</tbody>
-</table>
+| 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 35 | 80 | 65 | 105 | 195 |
 
 $$\text{dist}[5] = \min(110,\ 80+25) = 105$$
 
-### 4. 經過⑤（從還沒選過的點選最小值）
+### 4. 經過頂點 5（從還沒選過的點選最小值）
 
-<table style="text-align:center; width:100%">
-<thead><tr><th>求小值</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
-<tbody>
-<tr><td>新 dist</td><td>0</td><td>35</td><td>80</td><td>65</td><td>105</td><td>195</td></tr>
-<tr><td>dist(x)</td><td>0</td><td>35</td><td>80</td><td>65</td><td>105</td><td>195</td></tr>
-<tr><td>經過⑤</td><td></td><td>①→⑤<br>+<br>⑤→②</td><td>①→⑤<br>+<br>⑤→③</td><td>①→⑤<br>+<br>⑤→④</td><td>①→⑤</td><td>①→⑤<br>+<br>⑤→⑥</td></tr>
-</tbody>
-</table>
+| 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 35 | 80 | 65 | 105 | 195 |
 
 $$\text{dist}[6] = \min(195,\ 105+100) = 195 \quad \text{（不更新）}$$
 
-### 5. 經過⑥（從還沒選過的點選最小值）
+### 5. 經過頂點 6（從還沒選過的點選最小值）
 
-<table style="text-align:center; width:100%">
-<thead><tr><th>求小值</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
-<tbody>
-<tr><td>新 dist</td><td>0</td><td>35</td><td>80</td><td>65</td><td>105</td><td>195</td></tr>
-<tr><td>dist(x)</td><td>0</td><td>35</td><td>80</td><td>65</td><td>105</td><td>195</td></tr>
-<tr><td>經過⑥</td><td></td><td>①→⑥<br>+<br>⑥→②</td><td>①→⑥<br>+<br>⑥→③</td><td>①→⑥<br>+<br>⑥→④</td><td>①→⑥<br>+<br>⑥→⑤</td><td>①→⑥</td></tr>
-</tbody>
-</table>
+| 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 35 | 80 | 65 | 105 | 195 |
 
 ---
 

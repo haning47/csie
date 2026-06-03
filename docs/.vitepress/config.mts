@@ -72,11 +72,11 @@ export default defineConfig({
               {text: '數值計算篇',link: '/class/b0_numerical',
                     collapsed: true,
                items:[
-                {text: '1. 求多項式函數值',link: '/class/b1_numerical01'},
-                {text: '2. 漸近式-排列組合',link: '/class/b2_numerical02'},
-                {text: '3. 漸進式-求次方',link: '/class/b3_numerical03'},
-                {text: '4. 求方程式的根',link: '/class/b4_numerical04'},                
-                {text: '5. 解聯立方程式',link: '/class/b5_numerical05'}
+                {text: '1. 求多項式函數值',link: '/class/b1_polynomial'},
+                {text: '2. 漸近式-排列組合',link: '/class/b2_Combination.md'},
+                {text: '3. 漸進式-求次方',link: '/class/b3_pow'},
+                {text: '4. 求方程式的根',link: '/class/b4_SQRT'},                
+                {text: '5. 解聯立方程式',link: '/class/b5_equation'}
                ]
               },
               {text: '資料結構及演算法篇',link: '/class/a0_algorithm', 
@@ -126,10 +126,10 @@ export default defineConfig({
               },
               {text: '附錄', collapsed: true,
                items:[
-                {text: '變數與迴圈',link: '/class/c1_variable'},
-                {text: 'STL介紹',link: '/class/c2_STL'},
-                {text: '讀檔',link: '/class/c3_readfile'},
-                {text: '參考資料',link: '/class/c4_reference'}
+                {text: '1. 變數與迴圈',link: '/class/c1_variable'},
+                {text: '2. STL介紹',link: '/class/c2_STL'},
+                {text: '3. 讀檔',link: '/class/c3_readfile'},
+                {text: '4. 參考資料',link: '/class/c4_reference'}
                ]
               }
             ]
