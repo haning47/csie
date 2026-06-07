@@ -38,13 +38,13 @@ struct node{                    //LinkList結構 node
 
 int main(){
     int v;
-    root=NULL;                  //設 root 為空
+    root=nullptr;                  //設 root 為空
 
     while(cin >> v){            //輸入Ctrl-z停止 (EOF)
         in=new node;            //輸入一個新的節點 in
         in->value=v;            //設定 in 的值
-        in->next=NULL;          //新節點指向下一個節點為 NULL（大寫）
-        if (root==NULL)         //第一個節點把root指向in
+        in->next=nullptr;          //新節點指向下一個節點為 NULL（大寫）
+        if (root==nullptr)         //第一個節點把root指向in
             root=in;
         else
             now->next=in;       //把now的下一個節點指向in
@@ -53,7 +53,7 @@ int main(){
     }
     now=root;                   //指向root
 
-    while (now != NULL){        //印出LinkList中所有值
+    while (now != nullptr){        //印出LinkList中所有值
         cout << now->value << " ";
         now=now->next;
     }

@@ -17,7 +17,7 @@ outline: deep
  
 ## 範例圖
 
-![Dijkstra 有向加權圖](/img/fig_a5-6-dijkstra.jpeg)
+![Dijkstra 有向加權圖](/img/fig_a5-6-dijkstra.jpeg){width=70%}
 
 ## 鄰接陣列
 

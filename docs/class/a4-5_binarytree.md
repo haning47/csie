@@ -150,57 +150,59 @@ N=NULL
 
 ```cpp:line-numbers
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 
-struct node{                    //LinkList結構 node
-    int value;
-    node *left;
-    node *right;
-}*root,*now,*in,*up;           //設定4個node結構變數 root[根] now[目前] up[上層] in[新增]
+struct node{		   //LinkList結構 node
+	int value;
+	node *left;
+	node *right;
+}*root,*now,*in,*up;   //設定4個node結構變數 root(根) now(目前) up(上層) in(新增)
 
-void visit(node *);             //宣告visit函式原型
+void visit(node *);    //宣告visit函數原型
 
 int main(){
-    int i=0,v[]={5,4,1,3,6,8,9,7,2};
-    root=NULL;                  //設 root 為空
+	int i=0,v[9]={5,4,1,3,6,8,9,7,2};
+	root=nullptr;                 //設 root 為空
 
-    while(i<sizeof(v)/sizeof(int)){
-        in=new node;            //輸入一個新的節點 in
-        in->value=v[i];         //設定 in 的值
-        in->left=NULL;          //新節點指向左子樹下一個節點為 NULL（大寫）
-        in->right=NULL;         //新節點指向右子樹下一個節點為 NULL（大寫）
+	while(i<sizeof(v)/sizeof(int)){		   //輸入array=\0 停止 (EOF)
+       	in=new node;           //輸入一個新的節點 in
+    	in->value=v[i];           //設定 in 的值
+		in->left=nullptr;         //新節點左子樹指向下一個節點為 nullptr (大寫)
+		in->right=nullptr;        //新節點指右子樹向下一個節點為 nullptr (大寫)
 
-        if (root==NULL)         //第一個節點把root指向in
-            root=in;
-        else{
-            now=root;           //從root開始往下找要放置的位置
-            while(now !=NULL){  //找到插入點附近 now=NULL
-                up=now;
-                if (in->value < now->value)
-                    now=now->left;          //in值比較小走左子樹
-                else
-                    now=now->right;         //in值比較大走右子樹
-            }
-            if (in->value < up->value)
-                up->left=in;               //把上層的左子樹指向in
-            else
-                up->right=in;              //把上層的右子樹指向in
-        }
-        i++;
-    }
-    visit(root);                //走訪
+		if (root==nullptr)        //第一個節點把root指向in
+			root=in;
+		else{
+			now=root;         //從root開始往下找要放的位置
+			while(now !=nullptr){      //找到插入點時即 now=nullptr
+				up=now;
+				if (in->value < now->value)
+					now=now->left;           //in值比較小走左子樹
+				else
+					now=now->right;	         //in值比較大走右子樹
+			}
+			if (in->value < up->value)
+				up->left=in;         //把上層的左子樹指向in
+			else
+				up->right=in;		 //把上層的右子樹指向in
+		}
+		i++;
+	}
+	visit(root);			//走訪
 }
 
 void visit(node *ptr)
 {
-    if ( ptr != NULL )          // 終止條件
-    {
-        //cout << ptr->value << "\n";      前序
-        visit(ptr->left);                // 走左子樹
-        cout << ptr->value << "\n";      // 列印節點內容；放中間中序，前後序參考上下
-        visit(ptr->right);               // 走右子樹
-        //cout << ptr->value << "\n";      後序
-    }
+   if ( ptr != nullptr )                // 終止條件
+   {
+
+	  visit(ptr->left);             // 走左子樹
+	  cout << ptr->value << "\n";    // 前序
+	  //cout << ptr->value << "\n";   // 列印節點內容 ; 放中間中序，前面前序，後面後序
+      visit(ptr->right);            // 走右子樹
+     //cout << ptr->value << "\n";     後序
+   }
 }
 ```
 

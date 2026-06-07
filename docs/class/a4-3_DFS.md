@@ -140,7 +140,8 @@ int main(){
 #include<vector>
 #include<algorithm>
 using namespace std;
-vector <int> a[100];                        //設定節點數
+vector <vector<int>> a(100);      //設定節點數 (二維vector的寫法)
+//vector <int> a[100];  不要這樣寫                   
 void DFS(int,int*,bool*);
 
 int main(){
@@ -191,7 +192,7 @@ void DFS(int s,int *it,bool *v){
 
 ---
 
-### – DFS 鄰接串列_Point
+### – DFS 鄰接串列_Pointer
 
 [0404DFS_List_Ptr.cpp](https://onlinegdb.com/upo30EtYI)
 
@@ -202,7 +203,7 @@ void DFS(int s,int *it,bool *v){
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
-//Adjacency List 有向圖
+//Adjacency List 有向圖 8 7 0 1 0 2 0 3 7 0 1 5 1 4 3 6 1
 #include<iostream>
 using namespace std;
 struct node{					//LinkList結構 node
@@ -219,28 +220,28 @@ int main(){
 	for(i=0;i<n;i++){
        mp[i]=new node;          //mp:設定Graph節點值 now:每個節點目前連結的node
        mp[i]->value=i;
-       mp[i]->next=NULL;
+       mp[i]->next=nullptr;
        now[i]=mp[i];
     }
 	for (i=0;i<m;i++){
         cin>>s>>e;             //每條邊的起點node s 終點node e
         in=new node;           //輸入一個新的節點 in
     	in->value=e;           //設定 in 的值
-		in->next=NULL;         //新節點指向下一個節點為 NULL (大寫)
+		in->next=nullptr;         //新節點指向下一個節點為 NULL (大寫)
 		now[s]->next=in;       //把now的下一個節點指向in
         now[s]=in;             //now移到in
 /* 加此段可建立無向圖*/
 /*
         in=new node;           //輸入一個新的節點 in
     	in->value=s;           //設定 in 的值
-		in->next=NULL;         //新節點指向下一個節點為 NULL (大寫)
+		in->next=nullptr;         //新節點指向下一個節點為 NULL (大寫)
 		now[e]->next=in;       //把now的下一個節點指向in
         now[e]=in;             //now移到in
 */
 	}
 	for(i=0;i<n;i++){
          now[i]=mp[i];
-         while (now[i] != NULL){       //印出LinkList中所有值
+         while (now[i] != nullptr){       //印出LinkList中所有值
             cout << now[i]->value << " ";
             now[i]=now[i]->next;
         }
@@ -253,7 +254,7 @@ void DFS(int s,int v[]){
         cout <<s<< " ";
         v[s]=1;                         //進入點設為走訪過
         mp[s]=mp[s]->next;              // 走訪指標+1
-     	while (mp[s]!=NULL){            // 判斷沒有超過該點連接數
+     	while (mp[s]!=nullptr){         // 判斷沒有超過該點連接數
 			if (v[mp[s]->value]!=1)     // 如果下一個連接點沒有走訪過
 				  DFS(mp[s]->value,v);  // 遞迴dfs
 			mp[s]=mp[s]->next;          // 走訪指標+1 不走訪 繼續判斷下一點
@@ -274,7 +275,15 @@ void DFS(int s,int v[]){
 
 執行結果（沒有將 List 中由小到大串接，走訪順序僅為其中一條）
 ```
-1 5 4
+0 1 2 3 
+1 5 4 
+2 
+3 6 
+4 
+5 
+6 
+7 0 
+1 5 4 
 ```
 
 ## 練習題

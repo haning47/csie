@@ -19,7 +19,7 @@ c. 如果迴路不是空的：
     3. 執行直到 queue 空了為止
 ```
 
-![Queue 運作示意](/img/fig_a4-4-6.png){width=60%}
+![Queue 運作示意](/img/fig_a4-4-6.png){width=70%}
 
 [https://hackmd.io/@qR5cY2d3Ql2AdYtLfHFxVg/BkxmExS8J4?type=view](https://hackmd.io/@qR5cY2d3Ql2AdYtLfHFxVg/BkxmExS8J4?type=view)
 
@@ -145,47 +145,52 @@ int main()
 <CppRunner has-stdin>
 
 ```cpp
+/* 8個點 10條邊 無向圖 從1開始走訪                   */
+/* 8 10 0 1 0 2 1 3 1 4 2 6 2 5 7 4 7 3 7 6 7 5 1  */
 #include<iostream>
 #include<vector>
 #include<algorithm>
 using namespace std;
-vector <int> a[100],q;                   //a 節點鄰, Queue BFS的佇列
+vector <vector <int>> a;    //a 鄰接串列
+vector <int> q;             //Queue BFS的佇列
 void BFS(int,bool*);
 int main(){
-    int n,m,i,j,s,e,start;
-    cin >> n >> m;                        // 輸入有n個點 m條邊
-    bool v[n]={};                         // V:走訪過
-    for (i=0;i<n;i++) a[i].push_back(i); //初始化鄰接串列
-    for (i=0;i<m;i++){
-        cin >> s >> e;
-        a[s].push_back(e);               //建立鄰接串列 Adjacency Lists
-        a[e].push_back(s);
-    }
-    for (i=0;i<n;i++){
-        sort(a[i].begin()+1,a[i].end()); //排序裡面的資料
-    }
-    for (i=0;i<n;i++){
-        for (j=0;j<a[i].size();j++)
-            cout<< a[i][j] << " ";       //印出Adjacency Lists的資料
-        cout<<"\n";
-    }
-    cin >> start;   //起點
-    q.push_back(start); //進人點加進queue
-    v[start]=1;     //進人點設為放進queue
-    BFS(start,v);
+	int n,m,i,j,s,e,start;
+	cin >> n >> m;          // 輸入有n個點 m條邊
+	bool v[n]={};           // V:走訪過
+	for (i=0;i<n;i++)
+        a.push_back({i});   //初始化鄰接串列, 設定每一列的開頭a[0]=0,a[1]=1...
+
+	for (i=0;i<m;i++){
+		cin >> s >> e;
+		a[s].push_back(e);  //建立鄰接串列 Adjacency Lists
+		a[e].push_back(s);
+	}
+	for (i=0;i<n;i++){
+		sort(a[i].begin()+1,a[i].end()); //排序裡面的資料
+	}
+	for (i=0;i<n;i++){
+		for (j=0;j<a[i].size();j++)
+			cout<< a[i][j] << " ";  //印出Adjacency Lists的資料
+			cout<<"\n";
+	}
+	cin >> start;       //起點
+	q.push_back(start); //進入點加進queue
+	v[start]=1;         //進入點設為放進queue
+	BFS(start,v);
 }
 void BFS(int s,bool *v){
-    if (!q.empty()){                      //如果queue不是空的
-        cout << s << " ";  //印出queue最前面元素(起點)
-        for (int i=1;i<a[s].size();i++)   //s點所有沒在queue的連接點都放進queue
+	if (!q.empty()){      //如果queue不是空的
+        cout << s << " "; //印出queue最前面元素(起點)
+        for (int i=1 ;i<a[s].size();i++)  //s點所有沒在queue的連接點都放進queue
             if (v[a[s][i]]!=1){
                 q.push_back(a[s][i]);
-                v[a[s][i]]=1;             //設為放進queue
+                v[a[s][i]]=1;  //設為放進queue
             }
-        q.erase(q.begin());               //dequeue
-        if (!q.empty()) 
-            BFS(q[0],v);                  // 遞迴呼叫進人點設為queue頭
-    }
+		q.erase(q.begin());    //dequeue
+		if (!q.empty())
+            BFS(q[0],v);      // 遞迴呼叫進入點設為queue頭
+	}
 }
 ```
 
@@ -213,64 +218,64 @@ void BFS(int s,bool *v){
 #include<queue>
 using namespace std;
 
-struct node{                             //LinkList結構 node
-    int value;
-    node *next;
-}*mp[100],*now[100],*in;                //設定3個node結構變數
-    void BFS(int,int[]);
-    queue <int> q;
+struct node{					//LinkList結構 node
+	int value;
+	node *next;
+}*mp[100],*now[100],*in;        //設定3個node結構變數
+void BFS(int,int[]);
+queue <int> q;
 
 int main(){
-    int i,start;
-    int n,m,s,e;
-    cin >>n>>m;                          //n個節點 m條邊
-    int v[n]={0};                        //v記錄是否已放置queue
-    for(i=0;i<n;i++){
-        mp[i]=new node;                  //mp:設定Graph節點值 now:每個節點對應目前連結的node
-        mp[i]->value=i;
-        mp[i]->next=NULL;
-        now[i]=mp[i];
+	int i,start;
+	int n,m,s,e;
+	cin >>n>>m;                 //n個節點 m條邊
+	int v[n]={0};               //v記錄是否放進queue
+	for(i=0;i<n;i++){
+       mp[i]=new node;          //mp:設定Graph節點值 now:每個節點目前連結的node
+       mp[i]->value=i;
+       mp[i]->next=nullptr;
+       now[i]=mp[i];
     }
-    for (i=0;i<m;i++){
-        cin>>s >>e;                      //每條邊的起點node s 終點node e
-        in=new node;                     //輸入 一條新的節點 in
-        in->value=e;                     //設定 in 的值
-        in->next=NULL;                   //新節點指向下一個節點為 NULL（大寫）
-        now[s]->next=in;                 //把now的下一個節點指向in
-        now[s]=in;                       //now移到in
-    /* 加此段可建立無向圖
-        in=new node;                     //輸入 一條新的節點 in
-        in->value=s;                     //設定 in 的值
-        in->next=NULL;                   //新節點指向下一個節點為 NULL（大寫）
-        now[e]->next=in;                 //把now的下一個節點指向in
-        now[e]=in;                       //now移到in
-    */
-    }
-    for(i=0;i<n;i++){
-        now[i]=mp[i];
-        while (now[i] != NULL){          //印出LinkList中所有值
+	for (i=0;i<m;i++){
+        cin>>s>>e;             //每條邊的起點node s 終點node e
+        in=new node;           //輸入一個新的節點 in
+    	in->value=e;           //設定 in 的值
+		in->next=nullptr;         //新節點指向下一個節點為 nullptr
+		now[s]->next=in;       //把now的下一個節點指向in
+        now[s]=in;             //now移到in
+/* 加此段可建立無向圖
+        in=new node;           //輸入一個新的節點 in
+    	in->value=s;           //設定 in 的值
+		in->next=nullptr;         //新節點指向下一個節點為 nullptr
+		now[e]->next=in;       //把now的下一個節點指向in
+        now[e]=in;             //now移到in
+*/
+	}
+	for(i=0;i<n;i++){
+         now[i]=mp[i];
+         while (now[i] != nullptr){       //印出LinkList中所有值
             cout << now[i]->value << " ";
             now[i]=now[i]->next;
         }
         cout <<"\n";
-    }
-    cin>>start;
-    q.push(start);    //進入點加進queue
-    v[start]=1;       //進入點設為放進queue
-    BFS(start,v);
+	}
+	cin>>start;
+	q.push(start);  //進入點加進queue
+	v[start]=1;     //進入點設為放進queue
+	BFS(start,v);
 }
 
 void BFS(int s,int v[]){
     while(!q.empty()){
-        cout <<s<< " ";                  //印出進入點
-        q.pop();                         //dequeue
-        while (mp[s]->next!=NULL){       //判斷是否到list最末點
-            mp[s]=mp[s]->next;           //走下一點
-            if (v[mp[s]->value]!=1)      //若未放進queue
+        cout <<s<< " ";                 //印出進入點
+        q.pop();                        //dequeue
+        while (mp[s]->next!=nullptr){      //判斷是否到list最末點
+            mp[s]=mp[s]->next;          //走下一點
+            if (v[mp[s]->value]!=1)     //若未放進queue
                 q.push(mp[s]->value),v[mp[s]->value]=1;   // enqueue，並將此點設為走訪過
         }
         if (!q.empty())
-            s=q.front();    //進入點設為queue頭
+            s=q.front();   //進入點設為queue頭
     }
 }
 ```
@@ -287,6 +292,14 @@ void BFS(int s,int v[]){
 ```
 執行結果：
 ```
+0 1 2 
+1 3 4 
+2 6 5 
+3 
+4 
+5 
+6 
+7 4 3 6 5 
 1 3 4
 ```
 
