@@ -131,7 +131,8 @@ export default defineConfig({
                 {text: '3. STL介紹',link: '/class/c3_STL'},
                 {text: '4. 參數傳遞',link: '/class/c4_call'},
                 {text: '5. 讀檔',link: '/class/c5_readfile'},
-                {text: '6. 參考資料',link: '/class/c6_reference'}
+                {text: '6. 文字',link: '/class/c6_string'},
+                {text: '7. 參考資料',link: '/class/c7_reference'}
                ]
               }
             ]
