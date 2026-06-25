@@ -1,7 +1,7 @@
 ---
 outline: deep
 ---
-# 變數、範圈型迴圈
+# c1. 變數、範圈型迴圈
 
 ## 1. for(auto &i:s)、const
 
