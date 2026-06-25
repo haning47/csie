@@ -1,7 +1,7 @@
 ---
 outline: deep
 ---
-# 最小生成樹（Minimum Spanning Tree）
+# a5-5　最小成本擴張樹 MST（Minimum Spanning Tree）
 
 ## 什麼是最小生成樹？
 
