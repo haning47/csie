@@ -73,7 +73,7 @@ export default defineConfig({
                     collapsed: true,
                items:[
                 {text: '1. 求多項式函數值',link: '/class/b1_polynomial'},
-                {text: '2. 漸近式-排列組合',link: '/class/b2_Combination.md'},
+                {text: '2. 漸近式-排列組合',link: '/class/b2_Combination'},
                 {text: '3. 漸進式-求次方',link: '/class/b3_pow'},
                 {text: '4. 求方程式的根',link: '/class/b4_SQRT'},                
                 {text: '5. 解聯立方程式',link: '/class/b5_equation'}

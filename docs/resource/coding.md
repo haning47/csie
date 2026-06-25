@@ -3,6 +3,7 @@
 |------|------|---|
 | 題庫 | [高中生解題系統 (ZeroJudge)](https://zerojudge.tw) |
 |      | [建中題庫 (TIOJ)](https://tioj.ck.tp.edu.tw/)|
+|      | [LeetCode](https://leetcode.com/problemset/)|
 |      | [Kattis, Kattis](https://open.kattis.com) |
 |      | [TOI 推廣計畫](https://tpmso.org/toi/index.php/tasks/) |
 | 檢定 | [APCS](https://apcs.csie.ntnu.edu.tw) |
@@ -10,7 +11,7 @@
 |      | [TOI](https://tpmso.org/toi/index.php/reg/) |
 | 參考資源 | [C++ Tutorial](https://www.w3schools.com/cpp/default.asp) |
 |         | [C++ Standard Library](https://en.cppreference.com/w/cpp/standard_library) |
-|         |[cplusplus](https://cplusplus.com/reference/)|
+|         |[C++ reference](https://cplusplus.com/reference/)|
 |         |[STL](https://jasonblog.github.io/note/c++/stl_rong_qi_4e0029_-_ji_ben_jie_shao.html)|
 |         |[高中資訊學科中心-進階程式設計](https://ghresource.k12ea.gov.tw/nss/p/InformationTechnologyTPD05)|
 |學習筆記 |[臺大程式解題社](https://guide.ntucpc.org/ImplementationKnowledge/basic_knowledge/)|
