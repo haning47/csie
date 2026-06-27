@@ -24,7 +24,6 @@ outline: deep
 :::
 
 
-
 ## 二、二元樹的陣列表示法
 
 累堆通常以**一維陣列**儲存，索引從 **1** 開始（不使用 `a[0]`），節點位置對應關係如下：
@@ -41,7 +40,6 @@ outline: deep
 <img src="/img/fig_a1-4-2.svg" alt="初始二元樹與陣列對應" width="90%">
 
 
-
 ## 三、累堆排序的兩個階段
 
 累堆排序分成兩大步驟：
@@ -49,7 +47,6 @@ outline: deep
 1. **建立累堆** ── 將任意二元樹調整成 Max-Heap
 2. **取出排序** ── 反覆把根（最大值）移走，重建累堆，直到全部取完
 
----
 
 ## 四、第一階段：建立累堆
 
@@ -178,10 +175,9 @@ Max-Heap 建立後，透過以下步驟將根節點（最大值）逐步移到�
 
 最終陣列由小到大：`[1, 2, 3, 4, 5, 6, 7, 8, 9]`。
 
----
 
 ## 六、C++ 程式碼
-
+### 方法一：Floyd's algorithm
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
@@ -247,16 +243,79 @@ int main() {
 1 2 3 4 5 6 7 8 9
 ```
 
----
+### 方法二：使用 priority_queue 
+
+[0203select_priorityqueue.cpp](https://onlinegdb.com/gPOwJzGKC)
+
+利用 STL 的 `priority_queue`（最大堆），每次取出最大值放到陣列末尾，達到由小到大排序的效果。
+
+<CppRunner>
+
+```cpp:line-numbers
+//排序由小到大 找到最大值放到最後面
+#include<iostream>
+#include<queue>
+using namespace std;
+int main(){
+    int i,a[10]={1,80,31,37,10,70,48,60,33,80};
+    priority_queue <int> q;
+    for (i=0;i<10;i++){    //數字輸入 Queue
+        q.push(a[i]);
+    }
+    for (i=9;i>=0;i--){    //每次取出 queue 裡的最大值
+        a[i]=q.top();       //放到陣列最後面
+        q.pop();
+    }
+    for (i=0;i<10;i++){
+        cout <<a[i]<< " ";
+    }
+}
+```
+
+</CppRunner>
+
+### 方法三：使用 make_heap
+<CppRunner>
+
+```cpp:line-numbers
+#include <iostream>
+#include <algorithm> 
+using namespace std;
+int main() {
+    int arr[10] = {1, 80, 31, 37, 10, 70, 48, 60, 33, 80};
+    int n = 10;
+
+    // 1. 原地初始化：直接把陣列 a 在原地結構化成一個「最大堆疊」
+    // 這個動作不佔額外記憶體，而且速度極快，只要 O(N) 
+    make_heap(arr, arr + n);
+
+    // 2. 排序階段：每次把最大值移到後面
+    for (int i = n; i > 1; i--) {
+        // pop_heap 會把目前 Heap 裡的最大值（在 a[0]）跟當前最後一個元素交換，
+        // 並把剩餘的 1~i-1 個元素重新調整回 Heap 結構。
+        pop_heap(arr, arr + i);
+    }
+
+    // 印出排序後的結果
+    for (int i = 0; i < n; i++) 
+        cout << arr[i] << " ";
+}
+```
+
+</CppRunner>
+
+
 
 ## 七、時間複雜度分析
 
-| 階段 | 時間複雜度 |
-|:---|:---:|
-| 建立 Max-Heap（`buildHeap`） | O(n) |
-| 每次 Heapify（`heapify`）| O(log n) |
-| 排序階段（n 次取出 + Heapify）| O(n log n) |
-| **總計** | **O(n log n)** |
-| 空間複雜度（原地排序）| O(1) |
+| 比較項目 | ① 傳統陣列手寫建堆<br>（Floyd's Algorithm） | ② 引入 `priority_queue`<br>（高階容器輔助） | ③ 使用 `make_heap` 系列<br>（STL 原地演算法） |
+|:---|:---:|:---:|:---:|
+| **第一階段：建堆時間複雜度** | $O(N)$<br>（由下往上，高效率） | $O(N \log N)$<br>（一個一個 push 進去） | $O(N)$<br>（底層也是 Floyd 演算法） |
+| **單次 Heapify 時間複雜度** | $O(\log N)$ | $O(\log N)$<br>（每次 push／pop） | $O(\log N)$<br>（每次 pop_heap） |
+| **第二階段：排序時間複雜度** | $O(N \log N)$ | $O(N \log N)$ | $O(N \log N)$ |
+| **總時間複雜度** | $O(N \log N)$ | $O(N \log N)$ | $O(N \log N)$ |
+| **額外空間複雜度** | $O(1)$<br>（原地排序，不佔空間） | $O(N)$<br>（需額外開一個大 Queue） | $O(1)$<br>（原地排序，不佔空間） |
+| **程式碼長度** | 🔴 較長<br>（約 40～50 行，要手寫遞迴） | 🟢 極短<br>（約 15～20 行，好寫） | 🟢 極短<br>（約 15～20 行，優雅） |
+| **APCS 競賽推薦度** | ⭐⭐⭐<br>（練功、練觀念必寫） | ⭐⭐⭐⭐<br>（不易寫錯，安全牌） | ⭐⭐⭐⭐⭐<br>（老手秒殺題目的外掛） |
 
-> 累堆排序在**最壞、平均、最佳**情況下均為 O(n log n)，且不需要額外記憶體，是一個穩定高效的排序演算法。
+> 三種方法的**總時間複雜度相同**，均為 $O(N \log N)$，且在最壞、平均、最佳情況下皆成立。差異在於：`priority_queue` 需要 $O(N)$ 額外空間，而手寫建堆與 `make_heap` 皆為原地排序（$O(1)$）。競賽時若在意程式碼簡潔度，優先選用 `make_heap`；若想完整練習堆的原理，手寫 Floyd's Algorithm 最有學習價值。

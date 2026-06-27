@@ -7,9 +7,9 @@ outline: deep
 
 STL 原文為 Standard Template Library，是 C++ 標準程式庫的一部分，其中包含 3 個常用元件，分別為演算法（algorithms）、容器（containers）、疊代器（iterators）。
 
-## 一、[STL Container](https://jasonblog.github.io/note/c++/stl_rong_qi_4e0029_-_ji_ben_jie_shao.html) 整理
+## c3-1 [STL Container](https://jasonblog.github.io/note/c++/stl_rong_qi_4e0029_-_ji_ben_jie_shao.html) 整理
 
-#### 序列式容器 (Sequence Containers)
+### 序列式容器 (Sequence Containers)
 
 | **方法** | [**vector**](https://zh.wikipedia.org/wiki/Vector_%28STL%29) | **stack** | **queue** | [**deque**](https://shengyu7697.github.io/std-deque/) | **priority_queue** |
 |---|---|---|---|---|---|
@@ -31,7 +31,7 @@ STL 原文為 Standard Template Library，是 C++ 標準程式庫的一部分，
 | `empty()` | ✅ | ✅ | ✅ | ✅ | ✅ |
 | `clear()` | ✅ | | | ✅ | |
 
-#### 關聯式容器 (Associative Containers)
+### 關聯式容器 (Associative Containers)
 
 | **方法** | [**map**](https://www.mropengate.com/2015/12/cc-map-stl.html) | **unordered_map** | [**set**](https://shengyu7697.github.io/std-set/) | **multiset** | **pair** |
 |---|---|---|---|---|---|
@@ -59,7 +59,7 @@ STL 原文為 Standard Template Library，是 C++ 標準程式庫的一部分，
 - pair 可比較，先比 first 再比 second
 - stack、queue、priority_queue 不能用範圍型 for 走訪 `for(auto &i:s)`
 
-#### emplace 用法
+### emplace 用法
 
 | **容器** | **方法** | **說明** |
 |---|---|---|
@@ -85,10 +85,12 @@ pq.emplace(37);            // 在 priority_queue 插入 37
 
 ---
 
-### 1. Vector
+### c3-1-1 Vector
 
-#### 一維 [1009vector.cpp](https://onlinegdb.com/SRS4Ods-j)
+#### 一維 
 
+<details><summary>程式展開</summary>
+[1009vector.cpp]
 <CppRunner>
 
 ```cpp:line-numbers
@@ -108,7 +110,7 @@ int main(){
     vector<int> vec2(arr+3,arr+7); //使用陣列某範圍來建構vector
     for(auto i:vec2) cout<<i; cout <<"\n";
 
-    vector<int> vec3(10); //陣列複製
+    vector<int> vec3; //陣列複製
     vec3=vec1;
     for(auto i:vec3) cout<<i;cout <<"\n";
 
@@ -164,9 +166,11 @@ int main(){
 ```
 
 **`end()`** 是容器結尾的下一個位置。取最後一個元素可以用 **`vn.back()`**
+</details>
 
-#### 二維 [1009vector二維.cpp](https://onlinegdb.com/vaVvqnQEM)
-
+#### 二維 
+<details><summary>程式展開</summary>
+[1009vector二維.cpp]
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
@@ -176,7 +180,7 @@ using namespace std;
 int main(){
     int a,k1,k2;
     cin>>k1>>k2;    //輸入k1列 k2欄
-    vector<int> v1[k1];                             //設定列數，沒有設定欄位長度
+    vector<vector<int>> v1(k1);                     //設定列數，沒有設定欄位長度
     vector<vector<int>> v2(k1,vector<int>(k2));     //列欄都設定可當做陣列
     for(int i=0;i<k1;i++)
         for(int j=0;j<k2;j++){
@@ -229,8 +233,14 @@ v2
 vector<int> v1[k1];
 v1[0][1]=3;  // 未設定每列長度，不能直接用索引賦值
 ```
+</details>
 
 #### Vector 的傳遞 - Call By Reference
+
+>傳遞時加上 `&` 不用複製可以節省時間
+
+
+<details><summary>程式展開</summary>
 
 <CppRunner has-stdin>
 
@@ -282,12 +292,32 @@ void two(vector<vector<int>> &p2){
 2
 1000 2000
 ```
+</details>
 
-傳遞時加上 `&` 不用複製可以節省時間
+#### vector宣告技巧 - reserve
 
----
+<CppRunner has-stdin wrap>
 
-### 2. set / multiset
+```cpp:line-numbers
+int n;
+cin >> n;
+vector<int> v;    // 宣告空 vector 
+//vector<int> v(n); //如果宣告n格，再push會從n+1開始輸入 
+v.reserve(n);     // ✅ 預留 n 個人的座位，但此時裡面還沒有人（長度為 0）
+for (int i = 0; i < n; i++) {
+    int temp;
+    cin >> temp;
+    v.push_back(temp); // ✅ 正確：依序從第 0 個位置放進去，長度慢慢變成 n
+}
+for(auto &i:v) cout << i << " ";
+//輸入 3  10 20 30
+```
+
+</CppRunner>
+
+
+
+### c3-1-2 set / multiset
 
 set 元素不重復，multiset 可重覆。皆有排序
 
@@ -339,7 +369,7 @@ for(auto &i:ms) cout<<i<<" "; // 1 2 3 3 3 4 5 6 有重覆的元素
 
 ---
 
-### 3. stack
+### c3-1-3 stack
 
 <CppRunner wrap>
 
@@ -350,7 +380,7 @@ st.push(20);
 st.push(30);
 cout << "目前堆疊大小：" << st.size() << "\n";
 cout << "堆疊頂端元素：" << st.top() << "\n";
-if(!st.empty()) st.pop();     // 堆疊不為空時，移除頂端元素
+if(!st.empty()) st.pop();     // 堆疊不為空時，移除頂端元素★
 cout << "移除後頂端元素：" << st.top() << "\n";
 ```
 
@@ -367,7 +397,7 @@ cout << "移除後頂端元素：" << st.top() << "\n";
 
 ---
 
-### 4. queue / priority_queue、deque
+### c3-1-4 queue / priority_queue、deque
 
 <CppRunner wrap>
 
@@ -432,8 +462,9 @@ for( auto &i:dq) cout <<i<<" "; //可以用範圍型for走訪
 
 ---
 
-### 5. map / unordered_map
+### c3-1-5 map / unordered_map
 
+`map[key]=value`  
 各種把值放進 map 的方法
 
 <CppRunner wrap>
@@ -482,13 +513,53 @@ pig找不到
 - unordered_map 用法與 map 相同，但不排序
 - map（紅黑樹）unordered_map（hash）
 
----
+### c3-1-6 pair
+>**應用範例**
+1. 二維平面上的「座標點 $(x, y)$」  
+在圖論、幾何題目或 APCS 中，我們經常要處理平面上的很多個點。
+```cpp
+// 🚀 完美：用 pair 組合出一個點
+pair<int, int> point = {3, 5}; // 代表座標 (3, 5)
 
-## 二、[STL Algorithm](https://www.geeksforgeeks.org/cpp/c-magicians-stl-algorithms/) | [ref.](https://en.cppreference.com/w/cpp/algorithm.html)
+// 如果有 100 個點，直接開一個 vector 裝它們
+vector<pair<int, int>> points;
+```
+2. 同時有「分數」與「編號」的排序問題  
+有 5 位選手要依照「分數從高到低」排序，如果分數一樣，就依照「編號從小到大」排序。
+pair預設會先比第一個元素（first），如果一樣，再自動去比第二個元素（second  
+但內建無法做到 first升冪  second降冪，因此將編號改為負數 
+<CppRunner>
 
-### 1. [swap](https://www.geeksforgeeks.org/cpp/swap-in-cpp/)(a, b) 交換2數
+```cpp:line-numbers
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
-### 2. [find](https://www.geeksforgeeks.org/cpp/std-find-in-cpp/)(first, last, Value) 找某數
+int main() {
+    // pair 格式：{分數, 學生編號} vector是一維(非二維)在記憶體中是連續空間，速度快
+    vector<pair<int, int>> students = {
+        {85, -3},
+        {95, -1},
+        {85, -2}, // 跟學號 3 一樣是 85 分
+        {100, -4}
+    };
+    // pair自動處理好「雙重排序條件」
+    // 因為我們要分數從大到小，所以加 greater (降冪)
+    sort(students.begin(), students.end(), greater<pair<int, int>>());
+
+    for (auto s : students) {
+        cout << "學號: " << -s.second << ", 分數: " << s.first << "\n";
+    }
+}
+```
+</CppRunner>
+
+## c3-2 [STL Algorithm](https://www.geeksforgeeks.org/cpp/c-magicians-stl-algorithms/) | [ref.](https://en.cppreference.com/w/cpp/algorithm.html)
+
+### c3-2-1 [swap](https://www.geeksforgeeks.org/cpp/swap-in-cpp/)(a, b) 交換2數
+
+### c3-2-2 [find](https://www.geeksforgeeks.org/cpp/std-find-in-cpp/)(first, last, Value) 找某數
 
 <CppRunner wrap>
 
@@ -501,9 +572,19 @@ cout<<it-a;   //2
 </CppRunner>
 
 
-### 3. [replace](https://www.geeksforgeeks.org/cpp/stdreplace-stdreplace_if-c/)(first, last, old_val, new_val)
+### c3-2-3 [replace](https://www.geeksforgeeks.org/cpp/stdreplace-stdreplace_if-c/)(first, last, old_val, new_val)
+<CppRunner wrap>
 
-### 4. [sort](https://www.geeksforgeeks.org/cpp/sort-c-stl/)(first, last)
+``` cpp:line-numbers
+vector<int> v = {1, 0, 3, 0, 5, 0};
+    //把 v 裡面所有的 0 換成 2
+    replace(v.begin(), v.end(), 0, 2);
+    // 此時 v 會變成：{1, 2, 3, 2, 5, 2}
+    for( auto i:v) cout <<i<<" ";
+```
+</CppRunner>
+
+### c3-2-4 [sort](https://www.geeksforgeeks.org/cpp/sort-c-stl/)(first, last)
 
 陣列型
 
@@ -531,19 +612,20 @@ for (auto &i :a ) cout << i <<" ";
 </CppRunner>
 
 
-### 5. [min](https://www.geeksforgeeks.org/cpp/stdmin-in-cpp/)(a, b)、[max](https://www.geeksforgeeks.org/cpp/stdmax-in-cpp/)(a, b)、min({a, b, c})、max({a, b, c})
+### c3-2-5 [min](https://www.geeksforgeeks.org/cpp/stdmin-in-cpp/)(a, b)、[max](https://www.geeksforgeeks.org/cpp/stdmax-in-cpp/)(a, b)、min({a, b, c})、max({a, b, c})
 
 <CppRunner wrap>
 
 ```cpp:line-numbers
 int a=5,b=6,c=10,d=2;
-cout <<min({a,b,c,d});
+cout << min ( {a,b,c,d});
+
 ```
 
 </CppRunner>
 
 
-### 6. [min_element](https://www.geeksforgeeks.org/cpp/stdmin_element-in-cpp/)(first, last)、[max_element](https://www.geeksforgeeks.org/cpp/max_element-in-cpp/)(first, last)
+### c3-2-6 [min_element](https://www.geeksforgeeks.org/cpp/stdmin_element-in-cpp/)(first, last)、[max_element](https://www.geeksforgeeks.org/cpp/max_element-in-cpp/)(first, last)
 
 陣列型
 
@@ -571,7 +653,7 @@ cout<<min_element(a.begin(),a.end())-a.begin();    //5 最小值出現的位置
 </CppRunner>
 
 
-### 7. [nth_element](https://www.geeksforgeeks.org/cpp/stdnth_element-in-cpp/)(first, nth_pos, last) 找第k小的數字
+### c3-2-7 [nth_element](https://www.geeksforgeeks.org/cpp/stdnth_element-in-cpp/)(first, nth_pos, last) 找第k小的數字
 
 <CppRunner wrap>
 
@@ -587,7 +669,7 @@ nth_element(a,a+6,a+10);
 
 **輸出：** `4 0 3 2 7 5 8 9 13 11`
 
-### 8. [unique](https://www.geeksforgeeks.org/cpp/stdunique-in-cpp/)(first, last) **相鄰**一樣的數過濾到只剩1個
+### c3-2-8 [unique](https://www.geeksforgeeks.org/cpp/stdunique-in-cpp/)(first, last) **相鄰**一樣的數過濾到只剩1個
 
 <CppRunner wrap>
 
@@ -611,11 +693,31 @@ for(int i=0;i<k-a;i++) cout<<a[i]<<" ";
 
 第 8 個數之後的值無意義
 
-### 9. [next_permutation](https://www.geeksforgeeks.org/cpp/stdnext_permutation-prev_permutation-c/)(first, last) 排列 123→321
+### c3-2-9 [next_permutation](https://www.geeksforgeeks.org/cpp/stdnext_permutation-prev_permutation-c/)(first, last) 排列 123→321
 
+next：把目前的序列，改成字典序（Alphabetical Order）中下一個更大的排列。  
+prev：把目前的序列，改成字典序（Alphabetical Order）中下一個更小的排列。
+`next_permutation(first, last)` 排列 123→321  
 `prev_permutation(first, last)` 排列 321→123
+<CppRunner wrap>
 
-### 10. [lower_bound](https://www.geeksforgeeks.org/cpp/lower_bound-in-cpp/)、[upper_bound](https://www.geeksforgeeks.org/cpp/upper_bound-in-cpp/)
+```cpp:line-numbers
+    //vector<int> v = {3, 2, 1}; // 從最大的排列開始 prev   
+    vector<int> v = {1, 2, 3}; // 從最小的排列開始 next
+    do {
+        for (int x : v)  cout << x << " ";  //印出目前的排列 
+        cout << "\n";  
+    } 
+    //while (prev_permutation(v.begin(), v.end())); // 切換成下一個更小的排列
+    while (next_permutation(v.begin(), v.end())); // 切換成下一個更大的排列
+```
+
+</CppRunner>
+
+
+
+
+### c3-2-10 [lower_bound](https://www.geeksforgeeks.org/cpp/lower_bound-in-cpp/)、[upper_bound](https://www.geeksforgeeks.org/cpp/upper_bound-in-cpp/)
 
 自定義 `cmp` 函數可省略
 
@@ -624,11 +726,11 @@ for(int i=0;i<k-a;i++) cout<<a[i]<<" ";
 
 ---
 
-## 三、[STL Numeric](https://www.geeksforgeeks.org/cpp/numeric-library-c-stl/) | [ref.](https://en.cppreference.com/w/cpp/numeric.html)
+## c3-3 [STL Numeric](https://www.geeksforgeeks.org/cpp/numeric-library-c-stl/) | [ref.](https://en.cppreference.com/w/cpp/numeric.html)
 
-### 1. [accumulate](https://www.geeksforgeeks.org/cpp/accumulate-and-partial_sum-in-c-stl-numeric-header/)(first, last, init_value) 給定初始值，陣列全部相加
+### c3-3-1 [accumulate](https://www.geeksforgeeks.org/cpp/accumulate-and-partial_sum-in-c-stl-numeric-header/)(first, last, init_value) 給定初始值，陣列全部相加
 
-`0ll` 表示要定義初始值為 `long long`
+`0ll` ll表示要定義初始值型態為 `long long` 設定初始值=0
 
 <CppRunner wrap>
 
@@ -641,7 +743,7 @@ cout<<accumulate(a,a+l,0ll);    //15
 </CppRunner>
 
 
-### 2. [iota](https://www.geeksforgeeks.org/cpp/std-iota-in-cpp/)(first, last, init_value) 給定的範圍中填入一段連續的數字
+### c3-3-2 [iota](https://www.geeksforgeeks.org/cpp/std-iota-in-cpp/)(first, last, init_value) 給定的範圍中填入一段連續的數字
 
 陣列長度 `l`，初始值設定 11
 

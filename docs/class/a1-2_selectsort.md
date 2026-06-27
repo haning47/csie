@@ -6,7 +6,6 @@ outline: deep
 
 將要排序的對象分作兩部份，一個是**已排序的**，一個是**未排序的**，每回合從未排序的部份選出一個最小值，放入已排序部份的最後一個位置。
 
----
 
 ## 一、排序步驟示範
 
@@ -20,15 +19,13 @@ outline: deep
 
 每回合從未排序的部份掃描一遍，找到最小值後與未排序部份的第一個元素交換。
 
----
 
 ## 二、C++ 程式碼
-
-### 方法一：直接選擇排序
 
 [0202選擇排序.cpp](https://onlinegdb.com/gPOwJzGKC)
 
 <CppRunner>
+
 
 ```cpp:line-numbers
 //選擇排序由小到大 找到最小值放到最前面
@@ -52,38 +49,7 @@ int main(){
 
 </CppRunner>
 
-### 方法二：使用 priority_queue
 
-[0203select_priorityqueue.cpp](https://onlinegdb.com/gPOwJzGKC)
-
-利用 STL 的 `priority_queue`（最大堆），每次取出最大值放到陣列末尾，達到由小到大排序的效果。
-
-<CppRunner>
-
-```cpp:line-numbers
-//選擇排序由小到大 找到最大值放到最後面
-#include<iostream>
-#include<queue>
-using namespace std;
-int main(){
-    int i,a[10]={1,80,31,37,10,70,48,60,33,80};
-    priority_queue <int> q;
-    for (i=0;i<10;i++){    //數字輸入 Queue
-        q.push(a[i]);
-    }
-    for (i=9;i>=0;i--){    //每次取出 queue 裡的最大值
-        a[i]=q.top();       //放到陣列最後面
-        q.pop();
-    }
-    for (i=0;i<10;i++){
-        cout <<a[i]<< " ";
-    }
-}
-```
-
-</CppRunner>
-
----
 
 ## 三、時間複雜度
 
