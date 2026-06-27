@@ -61,20 +61,20 @@ STL 原文為 Standard Template Library，是 C++ 標準程式庫的一部分，
 
 #### emplace 用法
 
-| **容器類型** | **方法名稱** | **是否需要 pos** | **說明** |
-|---|---|---|---|
-| **vector** | `emplace_back(val)` | ❌ 不需要 | 在尾端插入元素（最常用）|
-| | `emplace(pos, val)` | ✅ 需要 | 在指定位置插入元素 |
-| **deque** | `emplace_back(val)` | ❌ 不需要 | 在尾端插入 |
-| | `emplace_front(val)` | ❌ 不需要 | 在前端插入 |
-| | `emplace(pos, val)` | ✅ 需要 | 在指定位置插入 |
-| **list** | `emplace_back(val)` | ❌ 不需要 | 在尾端插入 |
-| | `emplace_front(val)` | ❌ 不需要 | 在前端插入 |
-| | `emplace(pos, val)` | ✅ 需要 | 在指定位置插入 |
-| **set / multiset** | `emplace(val)` | ❌ 不需要 | 插入元素，位置由排序規則決定 |
-| **map / multimap** | `emplace(key, val)` | ❌ 不需要 | 插入一個 pair，位置由排序規則決定 |
-| **unordered_set / unordered_map** | `emplace(val)` | ❌ 不需要 | 插入元素，位置由 hash 決定 |
-| **stack / queue / priority_queue** | ❌ 沒有 `emplace(pos)` | 不適用 | 只能用 `emplace(val)` 在頂端或尾端插入 |
+| **容器** | **方法** | **說明** |
+|---|---|---|
+| **vector** | `emplace_back(val)` | 在尾端插入（最常用）|
+| | `emplace(pos, val)` | 在指定位置插入 |
+| **deque** | `emplace_back(val)` | 在尾端插入 |
+| | `emplace_front(val)` | 在前端插入 |
+| | `emplace(pos, val)` | 在指定位置插入 |
+| **list** | `emplace_back(val)` | 在尾端插入 |
+| | `emplace_front(val)` | 在前端插入 |
+| | `emplace(pos, val)` | 在指定位置插入 |
+| **set / multiset** | `emplace(val)` | 位置由排序規則決定 |
+| **map / multimap** | `emplace(key, val)` | 插入一個 pair，位置由排序規則決定 |
+| **unordered_set / unordered_map** | `emplace(val)` | 位置由 hash 決定 |
+| **stack / queue / priority_queue** | `emplace(val)` | 在頂端或尾端插入，無 pos 參數 |
 
 `pos` 指定位置
 

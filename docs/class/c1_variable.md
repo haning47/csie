@@ -90,3 +90,55 @@ num=4
 
 要重覆呼叫函數來計數，但每次呼叫要累加不能歸零，即使用 `static` 靜態變數
 
+## 3. constexpr 和 #define 比較
+
+| | `#define` | `constexpr` |
+|---|---|---|
+| 編譯期常數 | ✅ | ✅ |
+| 型別 | ❌ 無型別 | ✅ 有型別 |
+| 除錯資訊 | ❌ 偵錯器只看到數字 | ✅ 可看到變數名稱 |
+| 可用於陣列大小 | ✅ | ✅ |
+| C++ 建議 | ❌ 不建議 | ✅ 建議使用 |
+
+`#define` 是前置處理器的文字替換，沒有型別。`constexpr` 是編譯期常數，值在編譯時就確定，不能是執行時才知道的值：
+
+```cpp
+int n;
+cin >> n;
+constexpr int x = n;  // ❌ 編譯錯誤，n 執行時才知道
+const int y = n;      // ✅ const 可以，執行時決定也行
+```
+
+<CppRunner>
+
+```cpp:line-numbers
+#include<iostream>
+using namespace std;
+
+#define LEN 5
+constexpr int SIZE = 5;
+
+int arr1[LEN];              // 全域陣列，#define 可設定大小
+int arr2[SIZE];             // 全域陣列，constexpr 也可以
+
+#define COUNT 10            // 無型別，10 是 int
+constexpr double RATE = 10; // 明確是 double
+
+int main(){
+    cout << COUNT / 3 << "\n";  // 3　　（整數除法）
+    cout << RATE  / 3 << "\n";  // 3.333（浮點除法，型別不同結果不同）
+}
+```
+
+</CppRunner>
+
+**輸出：**
+
+```
+3
+3.33333
+```
+
+::: tip 建議
+C++ 中常數優先使用 `constexpr`（或 `const`），避免使用 `#define`。`#define` 僅在需要條件編譯（`#ifdef`）時使用。
+:::

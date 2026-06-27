@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# c6. 字串
+# c5. 字串
 
 ## 字串函數　14_02字串函數stoi.cpp
 

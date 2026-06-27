@@ -129,10 +129,9 @@ export default defineConfig({
                 {text: '1. 變數與迴圈',link: '/class/c1_variable'},
                 {text: '2. 指標',link: '/class/c2_pointer'},
                 {text: '3. STL介紹',link: '/class/c3_STL'},
-                {text: '4. 參數傳遞',link: '/class/c4_call'},
-                {text: '5. 讀檔',link: '/class/c5_readfile'},
-                {text: '6. 文字',link: '/class/c6_string'},
-                {text: '7. 參考資料',link: '/class/c7_reference'}
+                {text: '4. 讀檔',link: '/class/c4_readfile'},
+                {text: '5. 文字',link: '/class/c5_string'},
+                {text: '6. 參考資料',link: '/class/c6_reference'}
                ]
               }
             ]
