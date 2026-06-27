@@ -4,7 +4,7 @@ outline: deep
 
 # c4. 讀檔
 
-## 1. 命令列讀檔
+## c4-1 命令列讀檔
 
 以下用一個範例來說明。
 
@@ -58,7 +58,7 @@ int main(){
 ![Ubuntu 執行方式](/img/fig_c3-run-linux.png)
 
 
-## 2. 程式讀檔
+## c4-2 程式讀檔
 
 <CppRunner >
 
@@ -86,7 +86,7 @@ int main()
 </CppRunner>
 
 
-## 3. 加速設定
+## c4-3 加速設定
 
 ### 設定陣列初始值為 0
 

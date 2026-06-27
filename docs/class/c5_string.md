@@ -4,7 +4,8 @@ outline: deep
 
 # c5. 字串
 
-## 字串函數　14_02字串函數stoi.cpp
+## c5-1字串函數　
+14_02字串函數stoi.cpp
 
 <CppRunner>
 
@@ -45,11 +46,11 @@ sprintf(a,"%2.1f",20.5)=20.5
 ※ itoa 是 window 特有，非跨平台
 :::
 
-## string 類別
+## c5-2 string 類別
 
 [維基百科](https://zh.wikipedia.org/wiki/String_(C%2B%2B%E6%A0%87%E5%87%86%E5%BA%93))
 
-## string 轉 char
+## c5-3 string 轉 char
 
 `/*string 轉char 可以用.data() 及 .c_str() 再用 strcpy複製給char */`
 
@@ -74,7 +75,7 @@ int main(){
 
 </CppRunner>
 
-## 分割字串（使用 stringstream）
+## c5-4 分割字串（使用 stringstream）
 14_10字串分割.cpp
 
 <CppRunner has-stdin>

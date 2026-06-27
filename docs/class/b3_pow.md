@@ -12,7 +12,18 @@ outline: deep
 
 則 $x^n = x^{a_m 2^m} x^{a_{m-1} 2^{m-1}} \cdots x^{a_1 2} x^{a_0}$，所以如果能依序求出 $a_0, a_1, a_2, \cdots, a_m$，則可在 $m$ 步裏算出 $x^n$，這裏的 $m$ 並不需要預先知道。
 
-**解：**
+**指數律**
+
+$$x^{ab} = (x^a)^b$$
+
+$$x^{a+b} = x^a \cdot x^b$$
+
+<details>
+<summary>
+ <b> 詳解 </b> 
+</summary>  
+
+**演算步驟：** 
 
 $$\begin{aligned}
 x^n &= x^{a_m 2^m} x^{a_{m-1} 2^{m-1}} \cdots x^{a_1 2} x^{a_0} \\
@@ -43,11 +54,7 @@ $$\begin{aligned}
 &= x^{11}
 \end{aligned}$$
 
-**指數律**
 
-$$x^{ab} = (x^a)^b$$
-
-$$x^{a+b} = x^a \cdot x^b$$
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
@@ -77,3 +84,4 @@ int main() {
 
 </CppRunner>
 
+</details>

@@ -6,7 +6,7 @@ outline: deep
 > 指標是 C/C++ 中最核心也最容易讓初學者卡關的概念。  
 > 理解指標，就是真正理解「記憶體」在電腦中如何運作。
 
-## 什麼是指標？
+## c2-1 什麼是指標？
 
 程式中的每個變數都存放在記憶體的某個位置，這個位置有一個**位址（address）**。
 
@@ -23,11 +23,10 @@ int *p = &x;     // 指標 p，存放 x 的位址
 | `p` | `0x7fff...`（某個位址） | 指向 x 的指標 |
 | `*p` | `42` | 透過指標取得 x 的值 |
 
----
 
-## 宣告與語法
+## c2-2 宣告與語法
 
-### 宣告指標
+**宣告指標**
 
 ```cpp
 int    *p;   // 指向 int 的指標
@@ -40,7 +39,7 @@ char   *s;   // 指向 char 的指標（常用於字串）
 原因：`int* a, b;` 中只有 `a` 是指標，`b` 不是。
 :::
 
-### 兩個關鍵運算子
+**兩個關鍵運算子**
 
 | 運算子 | 名稱 | 用途 | 範例 |
 |--------|------|------|------|
@@ -49,7 +48,7 @@ char   *s;   // 指向 char 的指標（常用於字串）
 
 <CppRunner wrap>
 
-```cpp
+```cpp:line-numbers
 int x = 5;
 int *p = &x;    // p 存放 x 的位址
 
@@ -62,32 +61,28 @@ cout << x;      // 99
 ```
 </CppRunner>
 
----
-
-## 記憶體示意圖
+**記憶體示意圖**
 
 ```
-位址        內容
---------    -------
+位址         內容       存放的變數 
+--------   --------   ------------
 0x1000  →  [ 42 ]    ← x (x=42)
 0x1004  →  [0x1000]  ← p（存放 x 的位址）
 ```
 
 `p` 本身也是一個變數，它的值是另一個變數的位址。
 
----
 
-## 指標與函式
+## c2-3 指標與函式
 
-### 傳值 vs. 傳址
+**傳值 vs. 傳址**
 
 C++ 預設是 **傳值（call by value）** ，函式內的修改不會影響原變數：
 
-```cpp
+```cpp:line-numbers
 void addOne(int n) {
     n += 1;  // 只改副本，無效
 }
-
 int x = 5;
 addOne(x);
 cout << x;  // 仍然是 5
@@ -95,57 +90,34 @@ cout << x;  // 仍然是 5
 
 使用指標可以達到 **傳址（call by address）** 的效果：
 
-```cpp
+```cpp:line-numbers
 void addOne(int *n) {
     *n += 1;  // 透過指標修改原本的變數
 }
-
 int x = 5;
 addOne(&x);
 cout << x;  // 6 ✓
 ```
 
-### 常見應用：swap
+**常見應用：[swap](#call-by-value-、-call-by-address-、-call-by-reference) [陣列的傳遞](#陣列的傳遞)**
 
-<CppRunner >
 
-```cpp
-#include<iostream>
-using namespace std;
+## c2-4 指標與陣列
 
-void swapA(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-int main(){
-    int x = 3, y = 7;
-    swapA(&x, &y);
-    cout << x << " " << y;  // 7 3
-}
+**陣列名稱本身就是指向第一個元素的指標：**
 
-```
-</CppRunner>
----
-
-## 指標與陣列
-
-陣列名稱本身就是指向第一個元素的指標：
-
-```cpp
+```cpp:line-numbers
 int arr[] = {10, 20, 30};
-
 cout << arr[0];    // 10
 cout << *arr;      // 10（等同 arr[0]）
 cout << *(arr+1);  // 20（等同 arr[1]）
 cout << *(arr+2);  // 30（等同 arr[2]）
 ```
 
-### 指標算術
+**指向陣列位址的指標計算**
 
-```cpp
+```cpp:line-numbers
 int *p = arr;
-
 p++;           // p 移動到下一個 int（往後移 4 bytes）
 cout << *p;    // 20
 ```
@@ -155,41 +127,43 @@ cout << *p;    // 20
 `int *` 加 1 → 位址加 4（bytes）。
 :::
 
----
-
-## NULL 指標
+## c2-5 NULL 指標
 
 不指向任何東西的指標應初始化為 `nullptr`：
+<CppRunner wrap>
 
-```cpp
+```cpp:line-numbers
 int *p = nullptr;
-
-if (p != nullptr) {
+int  x=5; 
+p=&x;
+if (p != nullptr) 
     cout << *p;  // 安全才解參考
-}
+
 ```
+</CppRunner>
+
 
 ::: danger 危險操作
 對 `nullptr` 或未初始化的指標做解參考，會造成**執行時期錯誤（Segmentation Fault）**。
 :::
 
----
 
-## 動態記憶體配置
+## c2-6 動態記憶體配置
 
-使用 `new` / `delete` 在**堆積（heap）**上配置記憶體：
+使用 `new` / `delete` 在 **堆積（heap）** 上配置記憶體：
 
-```cpp
+**配置變數**
+
+```cpp:line-numbers
 int *p = new int;  // 配置一個 int 的空間
 *p = 42;
 cout << *p;        // 42
 delete p;          // 釋放記憶體，避免洩漏
 p = nullptr;       // 養成好習慣
 ```
+**配置陣列**
 
-### 配置陣列
-
-```cpp
+```cpp:line-numbers
 int n = 5;
 int *arr = new int[n];
 
@@ -200,10 +174,40 @@ for (int i = 0; i < n; i++) {
 delete[] arr;
 arr = nullptr;
 ```
+**記憶體 Stack（堆疊）vs Heap（堆積）**
 
----
+| 特性 | 固定陣列 (`int arr[100];`) | 動態配置 (`int* arr = new int[100];`) |
+|------|---------------------------|---------------------------------------|
+| 記憶體區塊 | Stack（堆疊） | Heap（堆積） |
+| 配置時間 | 編譯期就決定大小與存活週期 | 執行期根據需求動態決定大小 |
+| 管理方式 | 自動管理。離開該 function 的作用域（`{}`）後，系統會自動釋放。 | 手動管理。必須開發者自己寫 `delete[]` 釋放，否則會造成記憶體洩漏（Memory Leak）。 |
+| 記憶體大小 | 空間較小（通常只有幾 MB），宣告太大的陣列會導致 Stack Overflow。 | 空間非常大（幾乎取決於你電腦的實體記憶體大小）。 |
+| 存取速度 | 非常快（結構單純，CPU 有硬體優化）。 | 稍慢（需要透過指標尋找地址，且配置時需要尋找空閒記憶體）。 |
 
-## 常見錯誤整理
+💡 2種記憶體配置的比較
+
+```cpp:line-numbers
+void myFunction() {
+    // 1. 固定陣列：在 Stack 上
+    // 離開這個 function 時，這 400 bytes (100 * 4) 的空間會自動被回收。
+    int stackArray[100];
+
+    // 2. new 陣列：在 Heap 上
+    // 指標變數 heapArray 本身在 Stack 上，但它指向的 400 bytes 空間在 Heap 上。
+    int* heapArray = new int[100];
+
+    // Heap 的記憶體不會自動釋放，必須手動 delete！
+    delete[] heapArray;
+} // stackArray 在delete後消失，如果上面沒寫 delete，Heap 空間就會漏掉（Leak）長期導致記憶體空間不足
+```
+
+> 傳統的固定陣列隸屬於 Stack，由系統自動控制，安全且快速，但容量小；而使用 new 配置的陣列隸屬於 Heap，由你自由控制，容量大，但必須自己負責收拾（delete）。  
+
+:::info 冷知識：
+在 C++ 中用 new 在記憶體的 Heap 上配置空間，作業系統底層完全不會用到二元樹那套 Heap 演算法。它們只是名字相同  
+:::
+
+**常見錯誤整理**
 
 | 錯誤 | 說明 | 正確寫法 |
 |------|------|----------|
@@ -213,41 +217,8 @@ arr = nullptr;
 | 陣列越界 | `*(arr+100)` 超出範圍 | 確認索引範圍 |
 | 未初始化指標 | 宣告後未指向合法位址就解參考 | 指向現有變數 `int *p = &x;` 或動態配置 `int *p = new int;` |
 
----
 
-## 小結
-
-```
-變數名  →  值
-&變數名 →  位址（可存入指標）
-*指標   →  該位址的值（解參考）
-```
-
-學習指標的關鍵在於：**時刻區分「位址」與「值」是不同的東西**。  
-多畫記憶體示意圖，追蹤每個變數「存放的是什麼」，指標就不再神秘。
-
----
-
-## 練習題
-
-1. 寫一個函式 `void doubleValue(int *n)`，將傳入的整數乘以 2。
-2. 使用動態記憶體配置建立一個大小為 `n` 的整數陣列，填入 1 到 n，再釋放。
-3. 解釋以下程式碼的輸出：
-    <CppRunner wrap>
-
-   ```cpp
-   int a = 1, b = 2;
-   int *p = &a;
-   *p = 10;
-   p = &b;
-   *p = 20;
-   cout << a << " " << b;  // ?
-   ```
-    </CppRunner>
-
----
-
-## 參數傳遞
+## c2-7 參數傳遞
 ### Call By Value 、 Call By Address 、 Call by Reference
 
 <CppRunner>
@@ -415,7 +386,7 @@ void Arr3(int (&ar3)[5]){
 
 ![ar3 的傳遞方式](/img/fig_c4_call_ar3.png){width=85%}
 
-二維陣列的指標傳遞   
+**二維陣列的指標傳遞**   
 [C 語言入門 | 28 - 05 | 使用指標陣列在函式間傳遞二維陣列](https://www.youtube.com/watch?v=ZkBZmyk17Q8)  
 [C 語言入門 | 28 - 06 | 在函式間傳遞任意長寬的二維陣列](https://www.youtube.com/watch?v=WTGv2eqcgcQ)
 
@@ -484,3 +455,35 @@ int main(){
 ```
 
 </CppRunner>
+
+---
+
+## c2-8 總結
+
+```
+變數名  →  值
+&變數名 →  位址（可存入指標）
+*指標   →  該位址的值（解參考）
+```
+
+學習指標的關鍵在於：**區分「位址」與「值」是不同的東西**。  
+
+
+## c2-9 練習題 
+
+1. 寫一個函式 `void doubleValue(int *n)`，將傳入的整數乘以 2。
+2. 使用動態記憶體配置建立一個大小為 `n` 的整數陣列，填入 1 到 n，再釋放。
+3. 解釋以下程式碼的輸出：
+    <CppRunner wrap>
+
+   ```cpp:line-numbers
+   int a = 1, b = 2;
+   int *p = &a;
+   *p = 10;
+   p = &b;
+   *p = 20;
+   cout << a << " " << b;  // ?
+   ```
+    </CppRunner>
+
+---
