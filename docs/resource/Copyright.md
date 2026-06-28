@@ -8,6 +8,7 @@
 |CC|[創用CC資源](https://search.creativecommons.org/)|
 |美工圖庫|[OpenClipart](https://openclipart.org/)|
 |美工圖庫|[Frameillust](https://frame-illust.com/)|
+|美工圖庫|[irasutoya](https://www.irasutoya.com/) |
 |圖庫相片|[Pixabay](https://pixabay.com/)|
 |圖庫相片|[Pexels](https://www.pexels.com/zh-tw/)|
 |短演講|[TED](https://www.youtube.com/@TEDx)|[Usage Policy](https://www.ted.com/about/our-organization/our-policies-terms/ted-talks-usage-policy#h2--ted-talks-under-creative-commons-license)|

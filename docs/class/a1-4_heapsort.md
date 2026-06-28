@@ -46,7 +46,8 @@ outline: deep
 
 1. **建立累堆** ── 將任意二元樹調整成 Max-Heap
 2. **取出排序** ── 反覆把根（最大值）移走，重建累堆，直到全部取完
-
+---
+`Floyd's heap construction algorithm (Robert W. Floyd)`
 
 ## 四、第一階段：建立累堆
 

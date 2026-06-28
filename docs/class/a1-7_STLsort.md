@@ -6,18 +6,16 @@ outline: deep
 
 C++ 標準函式庫（STL）提供了功能強大的 `sort()` 函式，使用前需引入 `<algorithm>` 標頭檔，能以最少的程式碼完成各種排序需求。
 
----
 
 ## 一、基本用法
 
-```cpp
+```
 sort(起始位址, 結束位址);          // 預設升冪
 sort(起始位址, 結束位址, 比較函式); // 自訂排序規則
 ```
 - 預設按**升冪**（小到大）排列
 - 傳入比較函式可自訂升降冪或多鍵排序
 
----
 
 ## 二、一維陣列排序
 
@@ -75,7 +73,6 @@ greater 降冪:65 20 15 5 1
 | 自訂函式 | 多鍵排序、特殊規則 |
 :::
 
----
 
 ## 三、二維陣列排序（struct + cmp）
 
@@ -139,8 +136,6 @@ wlkjfa
 wlkjfa
 ```
 
----
-
 ## 四、練習題：統計出現次數並排序
 
 [0208Sort二維算次數.cpp](https://onlinegdb.com/txrhN6BL-)
@@ -203,7 +198,6 @@ int main(){
 
 </CppRunner>
 
----
 
 ## 五、延伸：APCS 題目練習
 
@@ -211,7 +205,81 @@ int main(){
 
 [題目 PDF](https://apcs.csie.ntnu.edu.tw/wp-content/uploads/2018/12/1050305APCSImplementation.pdf)
 
+>輸入測資        
+>5  
+>160 180 150 200 280 300 300 330 190 210  
+>輸出  110
+
 本題可用兩種方法解決：
 
 - 方法 1：[cmp](https://onlinegdb.com/KuROmIv0V)
+<cppRunner has-stdin>
+
+```cpp:line-numbers
+#include<iostream>
+#include<algorithm>
+using namespace std ;
+struct node{
+   int  a;
+   int  b;
+};
+
+bool cmp(node p,node q){   //照線段起點排序
+   if (p.a==q.a)
+     return p.b < q.b;
+   else return p.a <q.a;
+}
+
+int main(){
+    int n,i,b,e,sum=0; //b e 線段累加起點終點
+    cin>>n;
+    node line[n];
+    for (i=0;i<n;i++)
+        cin >>line[i].a >> line[i].b;
+    sort(line,line+n,cmp);
+    b=line[0].a;e=line[0].b;
+    for (i=1;i<n;i++){
+        if (e>line[i].a && e<line[i].b ) e=line[i].b;  //線段重疊 e=下個線段終點
+        else if (e<=line[i].a) //線段沒重疊，重新起算
+            sum+=e-b,b=line[i].a,e=line[i].b;
+    }
+    sum+=e-b;  //最後一段加進來
+    cout <<sum;
+}
+
+```
+
+</CppRunner>
+
 - 方法 2：[map](https://onlinegdb.com/5K_CNjd27)
+<cppRunner has-stdin>
+
+```cpp:line-numbers
+#include<bits/stdc++.h>
+using namespace std ;
+
+int main(){
+    int n,i,b,e,sum=0,x,y; //b e 線段累加起點終點
+    cin>>n;
+    map<int,int> line;
+    for (i=0;i<n;i++){
+        cin>>x>>y;   //輸入起點和終點資料，輸入完map中的資料已經依照key排序
+        line[x]=y;
+    }
+    //for(auto &i:line) cout<<i.first<<" "<<i.second<<"\n";  //顯示map中的資料
+    auto it=line.begin(); //取第一個線段的起點和終點
+    b=it->first;e=it->second;
+    for (auto i:line){
+        if (e>i.first && e<i.second)
+            e=i.second;  //線段重疊 e=下個線段終點
+        else if (e<=i.first) //線段沒重疊，重新起算
+            sum+=e-b,b=i.first,e=i.second;
+    }
+    sum+=e-b; //最後一段加進來
+    cout <<sum;
+}
+
+
+```
+
+</CppRunner>
