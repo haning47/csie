@@ -29,7 +29,11 @@ outline: deep
 >假設有 `nums = [2, 7, 11, 15]`，`target = 9`  
 >因為 `nums[0] + nums[1] = 2 + 7 = 9`，回傳 `[0, 1]`
 
-最直觀的作法是用兩層 for 迴圈，跑過所有可能的組合就可以了，但如果我們被要求只能用 O(n) 複雜度的演算法解出這題要怎麼辦呢。
+最直觀的作法是用兩層 for 迴圈，跑過所有可能的組合就可以了，但如果我們被要求只能用 O(n) 複雜度的演算法解出這題要怎麼辦呢。  
+輸入   
+4 2 7 11 15 9   
+輸出   
+0 1
 
 ### (1) 暴力法 0208two sum_brute.cpp
 
@@ -86,7 +90,7 @@ int main(){
 
 LeetCode [https://leetcode.com/problemset/](https://leetcode.com/problemset/)
 
-### (3) LeetCode 程式寫法 [1103leetcode_twosum_map_3ms.cpp](https://www.onlinegdb.com/x_c_Qb_iI)
+### (3) LeetCode 程式寫法 [1103leetcode_twosum_map_0ms.cpp](https://www.onlinegdb.com/x_c_Qb_iI)
 
 <CppRunner has-stdin>
 
@@ -101,15 +105,14 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int, int> table;
         vector<int> ans;
-        for(int i = 0; i < nums.size(); i++){
-            if(table.find(target-nums[i]) == table.end()) //沒找到把num[i],i放進table
+         for(int i = 0; i < nums.size(); i++){
+            auto it=table.find(target-nums[i]);  //存放 iterator 找到答案後，找值不用再hash
+            if(it== table.end()) //沒找到把num[i],i放進table
                 table[ nums[i] ] = i;
-            else {
-                ans.push_back(table[target-nums[i]]); //找到把table[target-nums[i]],i 放進ans
-                ans.push_back(i);
-            }
+            else
+                return {it->second,i}; //回傳答案
         }
-        return ans;
+        return{};
     }
 };
 int main(){

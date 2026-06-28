@@ -79,13 +79,12 @@ greater 降冪:65 20 15 5 1
 [0207Sort二維.cpp](https://www.onlinegdb.com/edit/rCHE40BCM)
 
 當資料有多個欄位時，可用 `struct` 搭配自訂比較函式 `cmp` 進行多鍵排序。
+若比較皆由小->大或 由大->小 可直接用vector pair等容器，不用寫cmp。它們會依序從第 1 欄開始比 
 
 <CppRunner>
 
 ```cpp:line-numbers
-#include <iostream>
-#include <algorithm>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct node{
@@ -93,13 +92,13 @@ struct node{
     int b;
 } ;
 
-bool cmp1 (int c,int d) {    //用sort排序一維陣列  a>b降冪  a<b 升冪
+bool cmp1 (int c,int d) {    //用sort排序一維陣列  c>d降冪  c<d 升冪
     return c>d;
 }
 
-bool cmp2(node p,node q){
+bool cmp2(const node& p,const node& q){
     if (p.a==q.a) return p.b<q.b; //如果第一項相同就用第二項升冪
-    else return p.a<q.a;          //否則就第一項升冪
+    return p.a<q.a;               //否則就第一項升冪
 }
 
 int main() {
@@ -119,6 +118,15 @@ int main() {
     cout << n<< "\n";
     sort(n,n+strlen(n),greater<char>());  //greater降冪
     cout << n<< "\n";
+
+    vector<vector<int>> v={{1,10},{2,15},{3,12}};
+    sort(v.begin(),v.end(),greater());
+    for (int i = 0; i < v.size(); i++) {
+        for (int j = 0; j < v[i].size(); j++) {
+            cout << v[i][j] << " ";
+        }
+        cout << "\n"; 
+    }   
 }
 ```
 
@@ -134,6 +142,9 @@ int main() {
 9 8 8 7 5 4 3 3 1 1 0 0
 wlkjfa
 wlkjfa
+3 12 
+2 15 
+1 10 
 ```
 
 ## 四、練習題：統計出現次數並排序
@@ -177,7 +188,7 @@ struct node{
     int a,b;
 };
 
-bool cmp(node p,node q){        //compare函數
+bool cmp(const node& p,const node& q){        //compare函數
     if (p.b==q.b) return p.a<q.a;
     else return p.b>q.b;
 }
@@ -263,7 +274,7 @@ int main(){
     cin>>n;
     map<int,int> line;
     for (i=0;i<n;i++){
-        cin>>x>>y;   //輸入起點和終點資料，輸入完map中的資料已經依照key排序
+        cin>>x>>y;   //輸入起點和終點資料，輸入完map中的資料已經依照key由小到大排序
         line[x]=y;
     }
     //for(auto &i:line) cout<<i.first<<" "<<i.second<<"\n";  //顯示map中的資料

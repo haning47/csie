@@ -507,7 +507,7 @@ stone9
 pig找不到
 ```
 
-- map 會排序
+- map 會key由小到大排序,若要大到小在宣告時寫 `map<int, string, greater<int>> myMap`
 - 找不到此項目時值等於 0。有可能某項目的值正好為 0，因此不能以值為 0 來判斷找不到
 - 要判斷是否找到用 `find(值)==end`，例如 `if (m.find("pig")==m.end())`
 - unordered_map 用法與 map 相同，但不排序
@@ -544,9 +544,9 @@ int main() {
         {85, -2}, // 跟學號 3 一樣是 85 分
         {100, -4}
     };
-    // pair自動處理好「雙重排序條件」
+    // pair 在 sort時，會先比 first 再比 second  
     // 因為我們要分數從大到小，所以加 greater (降冪)
-    sort(students.begin(), students.end(), greater<pair<int, int>>());
+    sort(students.begin(), students.end(), greater());
 
     for (auto s : students) {
         cout << "學號: " << -s.second << ", 分數: " << s.first << "\n";
