@@ -28,5 +28,5 @@ features:
     details: 個人技術文件筆記	
 ---
 <div style="text-align:center;padding:1.5rem 0 2rem">
-  <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fhaning47.github.io%2Fcsie&label=%E8%A8%AA%E5%AE%A2&labelColor=%23468C8C&countColor=%23183E0C&style=flat-square" alt="訪客計數" />
+  <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fhaning47.github.io%2Fcsie&label=%E8%A8%AA%E5%AE%A2&labelColor=%23468C8C&countColor=%23183E0C&style=plastic" alt="訪客計數" />
 </div>
