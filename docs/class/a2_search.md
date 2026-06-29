@@ -90,8 +90,8 @@ int main(){
 
 LeetCode [https://leetcode.com/problemset/](https://leetcode.com/problemset/)
 
-### (3) LeetCode 程式寫法 [1103leetcode_twosum_map_0ms.cpp](https://www.onlinegdb.com/x_c_Qb_iI)
-
+### (3) LeetCode 程式寫法 
+1103leetcode_twosum_map_0ms.cpp (用iterator更快)
 <CppRunner has-stdin>
 
 ```cpp:line-numbers
@@ -145,9 +145,45 @@ int main(){
 1 2
 ```
 
-## 5. 前綴和
+## 5. 前綴和 (prefix sum)
 
 O(1) 的解法：`presum[i] = presum[i-1] + nums[i]`
 
-- [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) [參考解法](https://hackmd.io/@meyr543/Bk2Nd21AY)
-- [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) [參考解法](https://hackmd.io/@bangyewu/rJRpH9dhh)
+- [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) [參考解法](https://hackmd.io/@meyr543/Bk2Nd21AY)  
+[1103leetcode_560Subarray_k](https://youtu.be/nTbWvcMZDOw)
+:::info 題目
+Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
+A subarray is a contiguous non-empty sequence of elements within an array.  
+
+Example 1:  
+Input: nums = [1,1,1], k = 2  
+Output: 2  
+
+Example 2:  
+Input: nums = [1,2,3], k = 3  
+Output: 2
+:::
+```cpp:line-numbers
+int subarraySum(vector<int>& nums, int k) {
+    unordered_map<int, int> preSum;          //preSum[sum值,幾種]
+    preSum[0] = 1;
+    int sum = 0, c = 0;
+    for (auto &i:nums) {
+        sum += i;
+        if(preSum.find(sum-k)!=preSum.end())
+            c += preSum[sum-k];     //如果sum-k在preSum裡，表示找到1種k
+        preSum[sum]++;      //這種sum值的子序數目+1
+    }
+return c;
+}
+
+```
+- [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) [參考解法](https://hackmd.io/@bangyewu/rJRpH9dhh)  
+[S08 Sliding Window Maximum LeedCode 239](https://youtu.be/6u9NoC2bZAY)
+
+
+## 6. 單調堆疊(Monotonic Stack)  
+[S13 Rectangle最大海報面積](https://youtu.be/1jOx7zksj-c)  
+更正：  
+pop 6時 ，h=4, w=1, 最大面積為4  
+紅筆圈錯高度
