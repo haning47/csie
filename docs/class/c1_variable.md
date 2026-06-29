@@ -1,9 +1,9 @@
 ---
 outline: deep
 ---
-# c1. 變數、範圈型迴圈
+# c1　變數、範圈型迴圈
 
-## c1-1 for(auto &i:s)、const
+## 一、 for(auto &i:s)、const
 
 🔥 **auto / auto& / const auto& 速查表**
 
@@ -52,7 +52,7 @@ HELLO
 HELLO
 ```
 
-## c1-2 static、const
+## 二、 static、const
 
 **<u>1007static.cpp</u>**
 
@@ -90,7 +90,7 @@ num=4
 
 要重覆呼叫函數來計數，但每次呼叫要累加不能歸零，即使用 `static` 靜態變數
 
-## c1-3 constexpr(Constant Expression) 和 #define 比較
+## 三、 constexpr(Constant Expression) 和 #define 比較
 
 | | `#define` | `constexpr` |
 |---|---|---|
