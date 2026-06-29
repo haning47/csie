@@ -20,7 +20,6 @@ outline: deep
 
 [簡單 Hash Table 介紹](https://blog.techbridge.cc/2017/01/21/simple-hash-table-intro/)
 
----
 
 ## 4. 用 Hash Table 來解一題簡單的演算法題目
 
