@@ -27,4 +27,6 @@ features:
   - title: 技術文件
     details: 個人技術文件筆記	
 ---
-
+<div style="text-align:center;padding:1.5rem 0 2rem">
+  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhaning47.github.io%2Fcsie%2F&count_bg=%234CAF50&title_bg=%23555555&icon=eye.svg&icon_color=%23FFFFFF&title=%E8%A8%AA%E5%AE%A2&edge_flat=true" alt="訪客計數" />
+</div>
