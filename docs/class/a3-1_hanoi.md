@@ -8,7 +8,6 @@ outline: deep
 
 <img src="/img/fig_a3-1-1.png" alt="河內塔三步驟示意圖" width="80%">
 
----
 
 ## 一、遞迴三步驟
 
@@ -20,17 +19,13 @@ outline: deep
 | **第二步驟**（終止條件） | 將最底下那個（最大）盤子，從 peg1 搬到 peg3 |
 | **第三步驟** | 將 n−1 個盤子，從 peg2 **經由** peg1，搬到 peg3 |
 
-::: tip 關鍵觀念
-三步驟中，第一和第三步驟都是「同樣問題的縮小版（n−1 個盤子）」，這正是遞迴的核心：**把大問題拆成相同結構的小問題**。
-:::
-
----
 
 ## 二、時間複雜度 O(2ⁿ)
 
 移動 n 個盤子所需的最少步數 T(n)：
 
-T(1)=1　　T(2)=3　　T(3)=7　　……　　T(n)=?
+T(1)=1　　T(2)=3　　T(3)=7　　……　　T(n)=?  
+T(n)=T(n-1)+1  
 
 ### 方法一：觀察規律展開
 
@@ -55,10 +50,29 @@ T(n) = 2T(n-1) + 1
      = 2ⁿ⁻¹ + 2ⁿ⁻² + … + 2⁰
      = 2ⁿ − 1
 ```
+<cppRunner has-stdin>
+
+```cpp:line-numbers
+#include<iostream>
+using namespace std;
+int T(int);
+int main() {
+   int n;
+   cin>>n;
+   cout<<T(n);  /*遞迴函數呼叫*/
+}
+int T(int n){
+    int ans;
+    if (n==1)
+        return 1;
+    else
+        return 2*T(n-1)+1;
+}
+```
+</cppRunner>
 
 > 每多一個盤子，步數就加倍再加一，時間複雜度為 **O(2ⁿ)**。
 
----
 
 ## 三、遞迴函式
 
