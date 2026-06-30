@@ -31,7 +31,6 @@ b. 如 v 存在一個鄰接頂點 w 未走訪過，則遞迴呼叫函數 dfs(w)
 #include <iostream>
 using namespace std;
 constexpr int N=8 ;                              // 節點數
-
 int a[N+1][N+1]={{0,0,0,0,0,0,0,0,0},           // 鄰接矩陣
                  {0,0,1,0,0,0,0,0,0},
                  {0,1,0,1,1,0,0,0,0},
