@@ -36,39 +36,37 @@ c. 如果迴路不是空的：
 /* BFS Use Queue by Array*/
 #include <iostream>
 using namespace std;
-constexpr int N=6 ;                      /* 節點的數量為 6 */
-int a[N+1][N+1]={{0,0,0,0,0,0,0},       /* 相鄰矩陣 (6x6) */
-                 {0,0,1,1,0,0,0},        /* 1 連接 2, 3    */
-                 {0,1,0,0,1,1,0},        /* 2 連接 1, 4, 5 */
-                 {0,1,0,0,0,0,1},        /* 3 連接 1, 6    */
-                 {0,0,1,0,0,0,0},        /* 4 連接 2       */
-                 {0,0,1,0,0,0,1},        /* 5 連接 2, 6    */
-                 {0,0,0,1,0,1,0}};       /* 6 連接 3, 5    */
-bool v[N+1]={};                          /* 查訪旗標，預設全為 0 */
-int queue[100];                          /* 陣列實作的佇列 */
-int dequeue = 0;                         /* 移出資料的索引 */
-int enqueue = 0;                         /* 存入資料的索引 */
+constexpr int N=6 ;                  // 節點的數量為 6 
+int a[N+1][N+1]={{0,0,0,0,0,0,0},      
+                 {0,0,1,1,0,0,0},       
+                 {0,1,0,0,1,1,0},      
+                 {0,1,0,0,0,0,1},       
+                 {0,0,1,0,0,0,0},     
+                 {0,0,1,0,0,0,1},       
+                 {0,0,0,1,0,1,0}};      
+bool v[N+1]={};                      // 查訪旗標，預設全為 0 
+int q[100];                          // 陣列實作的佇列 
+int dequeue = 0;                     // 移出資料的索引 
+int enqueue = 0;                     // 存入資料的索引 
 int main(){
-    int i, j,n;
-    cin>>n;
-    // 初始化：將起點 n 放入行列並標記已查訪 (Enqueue)
-    queue[enqueue++] = n;
-    v[n] = 1;
+    int i, j;
+    cin>>i;
+    q[enqueue++] = i;                // 將起點 n Enqueue
+    v[i] = 1;                        // 設為已造訪 
     // 只要 dequeue 不等於 enqueue，代表行列內還有資料
     while (dequeue != enqueue) {
-        i = queue[dequeue++];            /* 從前端取出節點(Dequeue) */
-        for (j = 1; j <= N; j++) {
-            if (a[i][j] == 1 && v[j] == 0) {
+        i = q[dequeue++];            // 從前端取出節點(Dequeue)
+        for (j = 1; j <= N; j++) {   //找此點尚未造訪過的連接點拉進queue
+            if (a[i][j] == 1 && v[j] == 0) { 
                 cout << i << ">" << j << "   ";
-                queue[enqueue++] = j;    /* 存入行列尾端(Enqueue) */
-                v[j] = 1;               /* 標記為已查訪 */
+                q[enqueue++] = j;    // 存入佇列(Enqueue)
+                v[j] = 1;            // 設為已造訪 
             }
         }
     }
     return 0;
 }
 ```
-
 </CppRunner>
 
 執行結果：
@@ -91,24 +89,22 @@ int main(){
 
 <CppRunner has-stdin>
 
-```cpp
+```cpp:line-numbers
 /* BFS Use STL Queue */
 #include <iostream>
-#include<queue>
-constexpr int N=6 ;                      /* 節點的數量 */
+#include <queue>
+constexpr int N=6 ;                  // 節點的數量為 6 
 using namespace std;
-int a[N+1][N+1]={{0,0,0,0,0,0,0},       /* 相鄰矩陣 (6x6) */
-                 {0,0,1,1,0,0,0},        /* 1 連接 2, 3    */
-                 {0,1,0,0,1,1,0},        /* 2 連接 1, 4, 5 */
-                 {0,1,0,0,0,0,1},        /* 3 連接 1, 6    */
-                 {0,0,1,0,0,0,0},        /* 4 連接 2       */
-                 {0,0,1,0,0,0,1},        /* 5 連接 2, 6    */
-                 {0,0,0,1,0,1,0}};       /* 6 連接 3, 5    */
+int a[N+1][N+1]={{0,0,0,0,0,0,0},      
+                 {0,0,1,1,0,0,0},       
+                 {0,1,0,0,1,1,0},      
+                 {0,1,0,0,0,0,1},       
+                 {0,0,1,0,0,0,0},     
+                 {0,0,1,0,0,0,1},       
+                 {0,0,0,1,0,1,0}};      
 bool v[N+1]={};                          /* 查訪旗標歸 0 */
 queue<int> q;
-
-int main()
-{
+int main(){
     int i,j;
     cin>>i;                              //輸入訪問起點
     q.push(i);v[i]=1;
@@ -121,7 +117,8 @@ int main()
                 v[j]=1;                  //設為已造訪過
                 cout << i << ">" << j << "   ";
             }
-    }}
+    }
+}
 ```
 
 </CppRunner>
@@ -152,7 +149,7 @@ int main()
 #include<algorithm>
 using namespace std;
 vector <vector <int>> a;    //a 鄰接串列
-vector <int> q;             //Queue BFS的佇列
+vector <int> q;             //Queue BFS的佇列 用vector當做queue
 void BFS(int,bool*);
 int main(){
 	int n,m,i,j,s,e,start;
@@ -187,7 +184,7 @@ void BFS(int s,bool *v){
                 q.push_back(a[s][i]);
                 v[a[s][i]]=1;  //設為放進queue
             }
-		q.erase(q.begin());    //dequeue
+		q.erase(q.begin());    //dequeue(vector不能pop前端)
 		if (!q.empty())
             BFS(q[0],v);      // 遞迴呼叫進入點設為queue頭
 	}

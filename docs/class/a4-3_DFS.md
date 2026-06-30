@@ -99,10 +99,10 @@ int main(){
     while (!s.empty()){                          //一直做到 stack空為止
         i=s.top();                               //把top設為起點
         visit=false;
-        for (j=1;j<=N;j++){               //找此點尚未走訪過的鄰小連接點壓進stack
-            if (a[i][j]==1 && v[j]==0){          //壓入stack
-                s.push(j);                       //印出已造訪過的點
-                cout << i << ">" << j << "   ";
+        for (j=1;j<=N;j++){               //找此點尚未走訪過的最小連接點壓進stack
+            if (a[i][j]==1 && v[j]==0){          
+                s.push(j);                       //壓入stack
+                cout << i << ">" << j << "   ";  //印出已造訪過的點
                 v[j]=1;                          //設為已造訪
                 visit=true;                      //設為有尚未造訪的連接點
                 break;                           //找到就離開迴圈
@@ -120,9 +120,145 @@ int main(){
 1>2   2>3   3>5   5>4   5>6   6>7   7>8
 ```
 類似題：
-[老鼠走迷宮](https://openhome.cc/zh-tw/algorithm/basics/maze/) [一個路徑](https://www.onlinegdb.com/-JE8jli61) [所有路徑](https://www.onlinegdb.com/NTeRLt9jw)
+[老鼠走迷宮](https://openhome.cc/zh-tw/algorithm/basics/maze/) [一個路徑](https://www.onlinegdb.com/-JE8jli61) [所有路徑](https://www.onlinegdb.com/NTeRLt9jw) (參考自 openhome.cc)
+<details><summary>一個路徑程式</summary>
+<CppRunner>
 
----
+```cpp:line-numbers
+#include <iostream>
+#define SIZE 7
+
+typedef struct {
+    int x; 
+    int y;
+} Point;
+
+Point pt(int, int);
+int visit(int[][SIZE], Point, Point);
+void print(int[][SIZE]);
+
+int main(void) { 
+    int maze[SIZE][SIZE] = {{2, 2, 2, 2, 2, 2, 2}, 
+                            {2, 0, 0, 0, 0, 0, 2}, 
+                            {2, 0, 2, 0, 2, 0, 2}, 
+                            {2, 0, 0, 2, 0, 2, 2}, 
+                            {2, 2, 0, 2, 0, 2, 2}, 
+                            {2, 0, 0, 0, 0, 0, 2}, 
+                            {2, 2, 2, 2, 2, 2, 2}}; 
+
+    if(!visit(maze, pt(1, 1), pt(5, 5))) {
+        printf("\n沒有找到出口！\n"); 
+    }
+    print(maze);
+    
+    return 0; 
+}
+
+Point pt(int x, int y) {
+    Point p = {x, y};
+    return p;
+}
+
+int visit(int maze[][SIZE], Point start, Point end) {
+    if(!maze[start.x][start.y]) {
+         maze[start.x][start.y] = 1;
+         if(!maze[end.x][end.y] && 
+            !(visit(maze, pt(start.x, start.y + 1), end) || 
+              visit(maze, pt(start.x + 1, start.y), end) ||
+              visit(maze, pt(start.x, start.y - 1), end) || 
+              visit(maze, pt(start.x - 1, start.y), end))) {
+                 maze[start.x][start.y] = 0;
+         }
+    }
+    return maze[end.x][end.y];
+    
+}
+
+void print(int maze[][SIZE]) {
+    int i, j;
+    for(i = 0; i < SIZE; i++) { 
+        for(j = 0; j < SIZE; j++) switch(maze[i][j]) {
+            case 0 : printf("  "); break;
+            case 1 : printf("0 "); break;
+            case 2 : printf("| "); 
+        }
+        printf("\n"); 
+    }     
+}
+
+```
+</CppRunner>
+
+</details>
+<details><summary>所有路徑程式</summary>
+<CppRunner>
+
+```cpp:line-numbers
+#include <iostream>
+#define SIZE 9
+
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+Point pt(int, int);
+void visit(int[][SIZE], Point, Point);
+void print(int[][SIZE]);
+
+int main(void) {
+    int maze[SIZE][SIZE] = {{2, 2, 2, 2, 2, 2, 2, 2, 2},
+                            {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                            {2, 0, 2, 2, 0, 2, 2, 0, 2},
+                            {2, 0, 2, 0, 0, 2, 0, 0, 2},
+                            {2, 0, 2, 0, 2, 0, 2, 0, 2},
+                            {2, 0, 0, 0, 0, 0, 2, 0, 2},
+                            {2, 2, 0, 2, 2, 0, 2, 2, 2},
+                            {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                            {2, 2, 2, 2, 2, 2, 2, 2, 2}};
+
+    visit(maze, pt(1, 1), pt(7, 7));
+
+    return 0;
+}
+
+Point pt(int x, int y) {
+    Point p = {x, y};
+    return p;
+}
+
+void visit(int maze[][SIZE], Point start, Point end) {
+    if(!maze[start.x][start.y]) {
+         maze[start.x][start.y] = 1;
+         if(maze[end.x][end.y])
+            print(maze);
+         else{
+            visit(maze, pt(start.x, start.y + 1), end);
+            visit(maze, pt(start.x + 1, start.y), end);
+            visit(maze, pt(start.x, start.y - 1), end);
+            visit(maze, pt(start.x - 1, start.y), end);
+         }
+         maze[start.x][start.y] = 0;
+    }
+}
+
+void print(int maze[][SIZE]) {
+    int i, j;
+    for(i = 0; i < SIZE; i++) {
+        for(j = 0; j < SIZE; j++) switch(maze[i][j]) {
+            case 0 : printf("  "); break;
+            case 1 : printf("O "); break;
+            case 2 : printf("| ");
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+```
+</CppRunner>
+
+</details>
 
 ### – DFS 鄰接串列_Vector
 
@@ -139,10 +275,8 @@ int main(){
 #include<vector>
 #include<algorithm>
 using namespace std;
-vector <vector<int>> a(100);      //設定節點數 (二維vector的寫法)
-//vector <int> a[100];  不要這樣寫                   
+vector <vector<int>> a(100);      //設定節點數 (二維vector的寫法)             
 void DFS(int,int*,bool*);
-
 int main(){
 	int n,m,i,j,s,e,start;
 	cin >> n >> m;                          //輸入有n個點 m條邊
@@ -154,37 +288,28 @@ int main(){
 		a[s].push_back(e);                  //建立鄰接串列 Adjacency Lists
 		a[e].push_back(s);
 	}
-
-	for (i=0;i<n;i++){
+	for (i=0;i<n;i++)
 		sort(a[i].begin()+1,a[i].end());    //排序裡面的資料
-	}
-
 	for (i=0;i<n;i++){
 		for (j=0;j<a[i].size();j++)
 			cout<< a[i][j] << " ";          //印出Adjacency Lists的資料
-			cout<<"\n";
+		cout<<"\n";
 	}
 	cin >> start;                           //輸入從哪一點開始走訪
 	DFS(start,it,v);
 }
-
 void DFS(int s,int *it,bool *v){
 	int t;
     cout << s << " ";
-    v[s]=1;                                 //進入點設為走訪過
-    it[s]++;                                //指標+1 判斷下一個點
-    while (it[s]<a[s].size()){              // 判斷沒有超過該點連接數
-        t=it[s];                            // t 下一個連接點的位置
-        if (v[a[s][t]]!=1)                  // 如果下一個連接點沒有走訪過
-            DFS(a[s][t],it,v);              // dfs走訪下一點
-        it[s]++;                            // 走訪指標+1 不走訪 繼續判斷下一點
+    v[s]=1;                          //進入點設為走訪過
+    it[s]++;                         //指標+1 判斷下一個點
+    while (it[s]<a[s].size()){       // 判斷沒有超過該點連接數
+        t=it[s];                     // t 下一個連接點的位置
+        if (v[a[s][t]]!=1)           // 如果下一個連接點沒有走訪過
+            DFS(a[s][t],it,v);       // dfs走訪下一點
+        it[s]++;                     // 走訪指標+1 不走訪 繼續判斷下一點
     }
 }
-
-
-
-
-
 ```
 
 </CppRunner>
@@ -210,7 +335,6 @@ struct node{					//LinkList結構 node
 	node *next;
 }*mp[100],*now[100],*in;        //設定3個node結構變數
 void DFS(int,int[]);
-
 int main(){
 	int i,start;
 	int n,m,s,e;
