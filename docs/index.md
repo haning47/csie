@@ -14,8 +14,8 @@ hero:
       text: Markdown Examples
       link: /markdown-examples
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: VitePress Quick Start
+      link: https://vitepress.dev/guide/getting-started
 
 features:
   - title: 教材文件
