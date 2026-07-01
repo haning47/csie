@@ -1,7 +1,9 @@
 ---
 outline: deep
 ---
-# a5-5　最小成本擴張樹 MST（Minimum Spanning Tree）
+# a5-5　最小成本擴張樹 MST
+
+**Minimum Spanning Tree，簡稱 MST**
 
 ## 什麼是最小生成樹？
 

@@ -2,7 +2,8 @@
 outline: deep
 ---
 
-# a5-4　最長共同字串
+# a5-4　最長共同字串 LCS
+**Longest Common Substring，簡稱 LCS**
 
 <div style="font-family: 'Times New Roman', serif; font-size: 1rem; margin: 1em 2em; line-height: 2.4;">
   <div style="display: flex; align-items: baseline; gap: 0;">
@@ -27,3 +28,5 @@ outline: deep
 ![LCS DP 表格（xbadza 與 abcdeza）](/img/fig_a5-4-lcs.jpeg){width=80%}
 
 $\ell(7,6) = 4$，即 LCS 長度為 **4**
+
+[舞會(2022年臺北市學科能力競賽測試題)](/class/party.pdf)
