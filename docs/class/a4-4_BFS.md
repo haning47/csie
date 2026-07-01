@@ -23,8 +23,6 @@ c. 如果迴路不是空的：
 
 [https://hackmd.io/@qR5cY2d3Ql2AdYtLfHFxVg/BkxmExS8J4?type=view](https://hackmd.io/@qR5cY2d3Ql2AdYtLfHFxVg/BkxmExS8J4?type=view)
 
----
-
 ## – BFS 鄰接陣列_陣列
 
 <u>**[0501BFS_Matrix_Arr_Queue.cpp]**</u>
@@ -80,8 +78,6 @@ int main(){
 
 `queue[enqueue++]=j` 表示 `queue[enqueue]=j ; enqueue++;`
 
----
-
 ## – BFS 鄰接陣列_STL
 
 <u>**[0502BFS_Matrix_STL_Queue.cpp]**</u>
@@ -131,8 +127,6 @@ int main(){
 ```
 
 ![執行結果圖](/img/fig_a4-4-7.png)
-
----
 
 ## – BFS 鄰接串列_STL
 
@@ -198,7 +192,6 @@ void BFS(int s,bool *v){
 
 [https://zh.wikipedia.org/wiki/Vector\_(STL)](https://zh.wikipedia.org/wiki/Vector_(STL))
 
----
 
 ## – BFS 鄰接串列_結構指標
 
@@ -299,5 +292,13 @@ void BFS(int s,int v[]){
 7 4 3 6 5 
 1 3 4
 ```
-
 ![執行結果、有向圖與鄰接串列](/img/fig_a4-4-9.png)
+
+## 應用問題：血緣關係
+![血緣關係](/img/fig_a4-4-10.png){width=40%}
+找出最遠的血緣距離。  
+```
+方法一： 從樹根出發，DFS找出最深的2個子葉  
+方法二： 做2次BFS。任意取一點，第一次BFS找到最遠的點，第二次從找到這最遠的點BFS找最遠的點。  
+        例如取節點 D ,第一次BFS找到 E，從 E 出發，第二次 BFS 找到 I。最遠即 E 和 I 是一組解
+```
