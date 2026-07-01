@@ -12,7 +12,7 @@ outline: deep
 2. 執行 $n-1$ 次 Loop  
    a. 從 dist 陣列選一最短距離點 $w$，且未被選過  
    b. 比較 $\text{dist}(x)$ 和 $\text{dist}(w) + (w, x)$ 的小值，存入 $\text{dist}(x)$  
-   如：
+   如： $②→③$ 判斷是否要經過④     
    Min$($②→③, ②→④+③→④$)$
  
 ## 範例圖
