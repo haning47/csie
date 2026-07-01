@@ -106,6 +106,13 @@ $n$ 為奇數，$3 \leq n \leq 41$。
 | 27 | 29354524 |
 | 41 | 296011017105 |
 
+:::info 數學公式推導（很難在短時間導出來）
+$n$ 為偶數的排法 $f(n)=f(n-2) \times 4 - f(n-4)$  
+[https://haning47.vercel.app/article/3179b3c2-1935-80c9-99b9-d22b73477761](https://haning47.vercel.app/article/3179b3c2-1935-80c9-99b9-d22b73477761)
+:::
+
+<details><summary>Dynamic Programming Solution</summary>
+
 ### Dynamic Programming Solution
 
 令 $f(n)=$ 完整的，$g(n)=$ 缺角的
@@ -116,9 +123,6 @@ $g(n) = g(n-2) + f(n-1)$
 
 ![DP 遞推關係圖](/img/fig_a5-2-dp94-diagram.png)
 
-數學公式推導（很難在短時間導出來）$n$ 為偶數的排法 $f(n)=f(n-2) \times 4 - f(n-4)$
-
-[https://haning47.vercel.app/article/3179b3c2-1935-80c9-99b9-d22b73477761](https://haning47.vercel.app/article/3179b3c2-1935-80c9-99b9-d22b73477761)
 
 ### 程式碼
 
@@ -150,3 +154,4 @@ int main() {
 ```
 
 </CppRunner>
+</details>
