@@ -26,13 +26,14 @@ outline: deep
 **二元樹必考題：**
 
 若一顆二元樹用中序(in-order)走訪為 D、B、G、E、H、A、C、I、F，以前序(pre-order)走訪為A、B、D、E、G、H、C、F、I，則用後序走訪為何？
-
-解：
+<details>
+<summary>展開詳解：</summary>
 
 <img src="/img/fig_a4-5-2.png" alt="前序中序推後序" width="60%"><br>  
 <img src="/img/fig_a4-5-3.png" alt="ABCDEFGHI二元樹" width="50%">
 
 後序(左右根) D、G、H、E、B、I、F、C、A
+</details>
 
 ## 二、 運算式的表示法
 

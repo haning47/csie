@@ -2,7 +2,7 @@
 | 類別 | 內容 |備註|
 |------|------|---|
 | 題庫 | [高中生解題系統 (ZeroJudge)](https://zerojudge.tw) |
-|      | [建中題庫 (TIOJ)](https://tioj.ck.tp.edu.tw/)|
+|      | [建中題庫 (TIOJ.ck)](https://tioj.ck.tp.edu.tw/)|
 |      | [LeetCode](https://leetcode.com/problemset/)|
 |      | [Kattis, Kattis](https://open.kattis.com) |
 |      | [TOI 推廣計畫](https://tpmso.org/toi/index.php/tasks/) |
@@ -19,6 +19,8 @@
 |        |[演算法海牛](https://www.facebook.com/algo.seacow)|
 |        |[吳邦一教授AP325](https://drive.google.com/drive/folders/10hZCMHH0YgsfguVZCHU7EYiG8qJE5f-m?fbclid=IwAR3k66rlOuLB7a2eUuA7rtDymyQSXA7dbutgeKKMPAnRdWqt9Bk0dDMjlLk)|[台中一中題庫(配合講義)](https://judge.tcirc.tw/problems/?category=3)<br>[錄影課程(py)](https://www.youtube.com/playlist?list=PLpmg1QLbgMuRQXHRkX9iDHyAVIW1D6OJF)|
 |       |[從零開始的演算法競賽入門教學](https://emanlaicepsa.github.io/)|
+|       |[資訊之芽語法班](https://tw-csie-sprout.github.io/c2026/#!slides.md)|
+|       |[資訊之芽算法班](https://www.csie.ntu.edu.tw/~sprout/algo2026/)|
 |       |[LeetCode刷題學習筆記](https://hackmd.io/@meyr543/Bk2Nd21AY#Leetcode%E5%88%B7%E9%A1%8C%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E2%80%93-Prefix-Sum)|
 |       |[OpenHome.cc](https://openhome.cc/zh-tw/algorithm/)|
 | 安裝 | Code::Blocks http://www.codeblocks.org/ |
