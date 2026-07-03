@@ -294,7 +294,7 @@ void BFS(int s,int v[]){
 ```
 ![執行結果、有向圖與鄰接串列](/img/fig_a4-4-9.png)
 
-## 應用問題：血緣關係
+## 應用問題：血緣關係圖
 ![血緣關係](/img/fig_a4-4-10.png){width=40%}
 找出最遠的血緣距離。  [APCS20160305第四題](https://apcs.csie.ntnu.edu.tw/wp-content/uploads/2020/10/APCS-實作題-2016.03.05.pdf)
 ```
