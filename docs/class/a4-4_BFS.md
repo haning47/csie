@@ -296,7 +296,7 @@ void BFS(int s,int v[]){
 
 ## 應用問題：血緣關係
 ![血緣關係](/img/fig_a4-4-10.png){width=40%}
-找出最遠的血緣距離。  
+找出最遠的血緣距離。  [APCS20160305第四題](https://apcs.csie.ntnu.edu.tw/wp-content/uploads/2020/10/APCS-實作題-2016.03.05.pdf)
 ```
 方法一： (有向圖)從樹根出發，DFS找出最深的2個子葉  
 方法二： (無向圖)做2次BFS。任意取一點，第一次BFS找到最遠的點，第二次從找到這最遠的點BFS找最遠的點。  
