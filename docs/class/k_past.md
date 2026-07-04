@@ -6,7 +6,7 @@
 |APP|[App Inventor](/class/MITAPPInventor2.pdf)|
 |機器人|[Sphero](/class/SpheroEdu.pdf)|
 |AR|[HP Reveal](/class/擴增實境軟體應用.pdf)|
-|影像|[PhotoImpact8](/class/PhotoImpact8影像處理.pdf)|
+|影像|[PhotoImpact8](/class/PhotoImpact8影像處理.pdf)|[學生作品](https://haning47.github.io/homepage/Class/PhotoImpact/%E5%AD%B8%E7%94%9F%E5%BD%B1%E5%83%8F%E8%99%95%E7%90%86%E4%BD%9C%E5%93%81/StuHome3.html)|
 |多媒體|[Audacity+格式工廠](/class/影音處理.pdf)|
 |多媒體|[MovieMaker](/class/MovieMaker.pdf)|
 |大數據|[PowerBI+Google表單+AI2](/class/BI_Google_AI2.pdf)|
