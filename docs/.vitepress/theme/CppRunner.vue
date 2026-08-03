@@ -168,14 +168,19 @@ const fetchWithTimeout = (url, options, ms = 10000) => {
 }
 
 // ── Wandbox ──
+const WANDBOX_SYS_ERR = /OCI|crun|clone|Resource temporarily unavailable|container/i
 const runOnWandbox = async (code, stdin) => {
   const res  = await fetchWithTimeout('https://wandbox.org/api/compile.json', {
     method:  'POST',
     headers: { 'Content-Type': 'application/json' },
     body:    JSON.stringify({ compiler: 'gcc-head', code, options: 'c++17', stdin }),
   })
+  if (!res.ok) throw new Error(`Wandbox HTTP ${res.status}`)
   const data = await res.json()
-  if (data.compiler_error) return { error: true, text: data.compiler_error }
+  if (data.compiler_error) {
+    if (WANDBOX_SYS_ERR.test(data.compiler_error)) throw new Error('Wandbox system error')
+    return { error: true, text: data.compiler_error }
+  }
   const out = (data.program_output ?? '') + (data.program_error ?? '')
   return { error: false, text: out.trim() ? out : '（程式執行完畢，無輸出）' }
 }
