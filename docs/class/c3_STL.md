@@ -462,10 +462,10 @@ for( auto &i:dq) cout <<i<<" "; //可以用範圍型for走訪
 
 ---
 
-### 5. map / unordered_map
+### 5. map / unordered_map / multimap
 
 `map[key]=value`  
-各種把值放進 map 的方法
+**各種把值放進 map 的方法**
 
 <CppRunner wrap>
 
@@ -476,7 +476,7 @@ m["Apple"]=15;
 m["Banana"]=18;
 m["lion"]=0;
 a.first="cat";a.second=5;
-b=make_pair("stone",9);
+b={"stone",9}; // 同 b=make_pair("stone",9); 
 m.insert({a});
 m.insert({b});
 m.insert({"flower",22});
@@ -511,9 +511,43 @@ pig找不到
 - 找不到此項目時值等於 0。有可能某項目的值正好為 0，因此不能以值為 0 來判斷找不到
 - 要判斷是否找到用 `find(值)==end`，例如 `if (m.find("pig")==m.end())`
 - unordered_map 用法與 map 相同，但不排序
-- map（紅黑樹）unordered_map（hash）
+- map（紅黑樹）unordered_map（hash）  
+
+**multimap key值可以重覆**
+<CppRunner wrap>
+
+```cpp:line-numbers
+    /*greater<int>設定key從大->小， value不排，依輸入順序輸出 */
+    /*<int>是以int模版比較大小，設定的型態要與key相同         */
+    multimap <int,int,greater<int>> mm;
+    mm.emplace(10,7);
+    mm.emplace(10,5);
+    mm.emplace(10,6);
+    mm.emplace(12,6);
+    for (auto &i:mm)
+        cout <<i.first<<" "<<i.second<<"\n";
+```
+
+</CppRunner>
+
+**輸出：**
+```
+12 6
+10 7
+10 5
+10 6
+```
 
 ### 6. pair
+<CppRunner wrap>
+
+```cpp:line-numbers
+    pair<int,int> p;
+    p={3,5};
+    cout<<p.first<<" " <<p.second;
+```
+</CppRunner>
+
 >**應用範例**
 1. 二維平面上的「座標點 $(x, y)$」  
 在圖論、幾何題目或 APCS 中，我們經常要處理平面上的很多個點。
