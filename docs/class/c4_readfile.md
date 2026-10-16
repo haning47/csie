@@ -108,6 +108,25 @@ cin.tie(&cout);               //必要時可以再綁回去
 用 `\n` 不要用 `endl`，否則一樣會 flush。
 :::
 
+### cout 設定小數位數
+
+<CppRunner>
+
+```cpp:line-numbers
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+	cout << fixed<< setprecision(3) <<1.2355 << "\n"; //小數點下3位
+	cout.unsetf(ios::fixed);  //解除小數位數設定
+	cout<<setprecision(3)<<1.2355 ; //3位有效
+	cout <<"\n"<<1.8665789;
+}
+```
+</CppRunner>
+
+
+
 ### 萬能標頭檔
 
 ```cpp:line-numbers
