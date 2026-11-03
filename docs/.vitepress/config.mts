@@ -45,8 +45,9 @@ export default defineConfig({
 	    },
       { text: '技術文件',  
         items: [
-          { text: 'Markdown Extension Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples.md' },
+          { text: 'M365管理網頁一覽', link: '/technology/M365管理網頁一覽' },
+          { text: 'Markdown Extension Examples', link: '/technology/markdown-examples' },
+          { text: 'Runtime API Examples', link: '/technology/api-examples.md' },
           { text: 'VitePress Quick start', link: 'https://vitepress.dev/guide/getting-started' }         
         ]
 	    },
